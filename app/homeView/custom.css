@@ -1,0 +1,135 @@
+
+.overlay{
+    background:#000;
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index:100;
+    /*Trasperenza cross browser*/
+    opacity: .7;
+    filter: alpha(opacity=70);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";	}
+.navbar{
+    border-bottom-width: 0px;
+    background: darkgrey;
+
+
+}
+
+.reg{
+    font-size: 36px;
+    color: #000000;
+    padding-bottom: 15px;
+}
+#box{
+    opacity: .80;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -450px;
+    margin-left: -250px;
+    width: 2000px;
+    height: 900px;
+    background-color:#FFF;
+    z-index:+300;
+    padding-bottom: 60%;
+}
+fieldset{
+    padding-top: 95px;
+}
+.form-control{
+    color: #FFFFFF;
+    width: 350px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.6);
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}
+label{
+    text-align: left;
+}
+
+
+
+
+
+
+.navbar-center {
+    margin: 0 auto;
+    display: table;
+    table-layout: auto;
+    float: none;
+    width: 100%;
+}
+.navbar-center > li {
+    display: table-cell;
+    float: none;
+    text-align: center;
+}
+
+.navbar-default .navbar-center > .active > a,
+.navbar-default .navbar-center > .active > a:hover {
+    color: #428bca;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-center > li > a:hover {
+    color: #777;
+}
+
+.navbar-nav > li > a {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+/* Header
+.navbar-header h1 {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    color: #333;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+}
+
+.media-object {
+    width: 100px;
+}
+
+/* Navigation
+.navbar-center {
+    margin: 0 auto;
+    display: table;
+    table-layout: auto;
+    float: none;
+    width: 100%;
+}
+.navbar-center > li {
+    display: table-cell;
+    float: none;
+    text-align: center;
+}
+
+.navbar-default .navbar-center > .active > a,
+.navbar-default .navbar-center > .active > a:hover {
+    color: #428bca;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-center > li > a:hover {
+    color: #777;
+}
+
+.navbar-nav > li > a {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+}*/
