@@ -1,4 +1,7 @@
+https://github.com/SoNet-2017/Arte-code/blob/master/app/index.html
+
 # SoNet Starter Kit
+
 
 This project is an application skeleton for an [AngularJS](http://angularjs.org/) web app, realized for the Social Networking course at Politecnico di Torino.
 
