@@ -1,30 +1,30 @@
 [
   {
-    "id_evento" : "Evento_1",
+    "id" : "Evento_1",
     "id_curatore" : "Curatore_1",
     "img_url" : "images/logoarté.gif",
     "img_alt" : "Diavola di Amici Nostri"
   },
   {
-    "id_evento" : "Evento_2",
+    "id" : "Evento_2",
     "id_curatore" : "Curatore_2",
     "img_url" : "images/logoarté.gif",
     "img_alt" : "Margherita di Amici Nostri"
   },
   {
-    "id_evento" : "Evento_3",
+    "id" : "Evento_3",
     "id_curatore" : "Curatore_3",
     "img_url" : "images/logoarté.gif",
     "img_alt" : "Margherita (integrale) di Amici Nostri"
   },
   {
-    "id_evento" : "Evento_4",
+    "id" : "Evento_4",
     "id_curatore" : "Curatore_3",
     "img_url" : "images/logoarté.gif",
     "img_alt" : "Margherita di Occupy"
   },
   {
-    "id_evento" : "Evento_5",
+    "id" : "Evento_5",
     "id_curatore" : "Curatore_1",
     "img_url" : "images/logoarté.gif",
     "img_alt" : "Salame piccante di Occupy"
