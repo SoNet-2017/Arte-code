@@ -5,12 +5,11 @@
 
 angular.module('myApp.evento.eventoService', [])
 
-    .factory('Evento', function($http) {
+    .factory('Evento', function($firebaseArray) {
         var eventoService = {
             getData: function () {
-                return $http.get('../data/evento.json').then(function (response) {
-                    return response.data;
-                });
+                var ref = firebase.database().ref().child("eventos");
+                return $firebaseArray(ref);
             }
         };
         return eventoService;
