@@ -1,3 +1,4 @@
+
 'use strict';
 
 // Initialize the Firebase SDK
@@ -8,15 +9,16 @@ var config = {
     projectId: "arte-853a7",
     storageBucket: "arte-853a7.appspot.com"
 };
+firebase.initializeApp(config);
+
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
     "firebase",
   'ngRoute',
+  'myApp.evento',
   'myApp.homeView',
   'myApp.loginView',
-    'myApp.eventView',
-    'myApp.evento',
-    'myApp.version'
+  'myApp.eventView'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
