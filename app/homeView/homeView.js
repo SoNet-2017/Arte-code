@@ -9,9 +9,8 @@ angular.module('myApp.homeView', ['ngRoute','myApp.evento'])
   });
 }])
 
-    .controller('View1Ctrl', ['$scope','Evento',function($scope,Evento) {
-        Evento.getData().then(function(data) {
+    .controller('View1Ctrl', ['$scope','Evento',function($scope,Evento)
+        {
             $scope.dati={};
-            $scope.dati.eventos = data;
-        });
+            $scope.dati.eventos = Evento.getData();
     }]);
