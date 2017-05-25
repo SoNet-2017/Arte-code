@@ -1,31 +1,22 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Arté</title>
-    <link rel="stylesheet" href="../../styles/style.css">
 
-</head>
-<body>
 
-    <div class="overlay">
-    </div>
-
-    <div id="box" style="display: block">
-
-        <section>
+<div id="box2" style="top:300px;">
+    <form id="frmLogin" role="form" ng-submit="signIn()">
             <div class="logoArté"></div>
-            <div id="titolo">Benvenuto su Arté
+            <div id="titolo">Benvenuto su Arté</div>
+
+
+            <div class="form-group">
+                <label for="txtEmail"></label>
+                <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" ng-model="user.email" />
             </div>
-            <div class="emailtesto">
-                    <span class="testo">Email</span>
-            </div>
-            <div class="passwordtesto">
-                    <span class="testo">Password</span>
+            <div class="form-group">
+                <label for="txtPass"></label>
+                <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" ng-model="user.password" />
             </div>
             <div class="login">
-                    <span class="button">Login</span>
+                    <button class="button">Login</button>
             </div>
             <div class="link"><a href="registrazione.html">Oppure registrati</a></div></p>
-        </section>
-
-    </div>
-</body>
+    </form>
+</div>

@@ -15,7 +15,7 @@ body {
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";	}
 
 
-#box{
+#boxLog{
     opacity: .80;
     position: absolute;
     top: 50%;
@@ -33,7 +33,7 @@ body {
     }
 
 
-section {
+form {
     margin-right: 20%;
     margin-left: 20%;
 }
@@ -51,22 +51,11 @@ section {
     text-align: center;
     font-size: 40px;
 }
-.emailtesto {
+.form-group {
     margin-top: 15px;
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.6);
     -moz-border-radius: 15px;
+        border-radius: 15px;
     -webkit-border-radius: 15px;
-    border-radius: 15px;
-}
-
-.passwordtesto {
-    margin-top: 15px;
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.6);
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
 }
 .login{
     cursor:pointer;
@@ -78,9 +67,12 @@ section {
     -webkit-border-radius: 15px;
     border-radius: 15px;
 }
-span.testo {
-    padding: 10px;
-    color: #FFFFFF;
+input.form-control {
+    width: 300px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
     font: bold 24px/45px Helvetica, Sans-Serif;
     letter-spacing: -1px;
 }
