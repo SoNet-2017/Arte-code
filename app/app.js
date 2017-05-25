@@ -19,7 +19,8 @@ angular.module('myApp', [
   'myApp.homeView',
   'myApp.loginView',
   'myApp.eventView',
-    'myApp.authentication'
+  'myApp.authentication',
+  'myApp.listeventView'
 ])
     .run(["$rootScope", "$location", function($rootScope, $location) {
         $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
