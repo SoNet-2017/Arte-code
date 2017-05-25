@@ -13,15 +13,26 @@ firebase.initializeApp(config);
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
-"firebase",
+    "firebase",
   'ngRoute',
+  'myApp.evento',
   'myApp.homeView',
   'myApp.loginView',
   'myApp.eventView',
+    'myApp.authentication'
 ])
+    .run(["$rootScope", "$location", function($rootScope, $location) {
+        $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+            // We can catch the error thrown when the $requireSignIn promise is rejected
+            // and redirect the user back to the home page
+            if (error === "AUTH_REQUIRED") {
+                $location.path("/login");
+            }
+        });
+    }])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
-    $routeProvider.otherwise({redirectTo: '/homeView'});
+    $routeProvider.otherwise({redirectTo: '/loginView'});
 }])
 
 
