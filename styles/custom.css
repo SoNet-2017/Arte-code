@@ -51,6 +51,7 @@ body {
 fieldset{
     padding-top: 95px;
 }
+
 .form-control{
     color: #FFFFFF;
     width: 350px;
@@ -71,6 +72,38 @@ label{
 img.media-object{
     width: 80px;
     height: 80px;
+}
+/*Aggiungi evento*/
+
+
+#boxev1{
+    margin-left: 40px;
+    left: 0px;
+    float: left;
+    padding-top: 25px;
+    opacity: .80;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 400px;
+    height: 900px;
+    background-color:#FFF;
+    z-index:+300;
+    padding-bottom: 60%;
+}
+
+#boxev2{
+
+    padding-top: 25px;
+    opacity: .80;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 62.5%;
+    height: 900px;
+    background-color:#FFF;
+    z-index:+300;
+    padding-bottom: 60%;
 }
 
 
@@ -93,7 +126,7 @@ img.media-object{
 }
 
 
-form {
+form.frmLogin {
     margin-right: 20%;
     margin-left: 20%;
 }
