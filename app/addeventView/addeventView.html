@@ -1,22 +1,34 @@
+<div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+
 <div id="boxev1">
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
-                <form id="frmAddPizza" role="form" ng-submit="addPizza()">
-                    <h2>Add a new pizza</h2>
+                <form id="frmAddEvento" role="form" ng-submit="addEvento()">
+                    <h2>Aggiungi nuovo Evento</h2>
 
                     <div class="form-group">
-                        <label for="txtName">Name</label>
-                        <input type="text" class="form-control" id="txtName" placeholder="Enter name" name="name" ng-model="dati.nome_pizza" />
+                        <label for="txtTitolo">Titolo</label>
+                        <input  type="text" class="form-control" id="txtTitolo" placeholder="Inserisci Titolo" name="name" ng-model="dati.nome_evento" />
                     </div>
                     <div class="form-group">
-                        <label for="txtPizzeria">Pizzeria</label>
-                        <input type="text" class="form-control" id="txtPizzeria" placeholder="Enter the name of the pizzeria" name="pizzeria" ng-model="dati.nome_pizzeria" />
+                        <label for="txtTema">Tema</label>
+                        <input type="text" class="form-control" id="txtTema" placeholder="Inserisci Tema" name="tema" ng-model="dati.tema" />
                     </div>
                     <div class="form-group">
-                        <label for="txtAddress">Pizzeria address</label>
-                        <input type="text" class="form-control" id="txtAddress" placeholder="Enter address" name="address" ng-model="dati.address" />
+                        <label for="txtInaugurazione">Inaugurazione</label>
+                        <input type="text" class="form-control" id="txtInaugurazione" placeholder="//" name="inaugurazione" ng-model="dati.inaugurazione" />
                     </div>
+                    <div class="form-group">
+                        <label for="txtEsposizione">Esposizione</label>
+                        <input type="text" class="form-control" id="txtEsposizione" placeholder="Es. Lun-Ven h10-18" name="mostra" ng-model="dati.mostra" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtInfo">Ulteriori Info</label>
+                        <input type="text" class="form-control" id="txtInfo" placeholder="Inserisci testo" name="info" ng-model="dati.info" />
+                    </div>
+                    <button type="submit" class="btn btn-success center-block">Insert</button>
+                </form>
             </ul>
         </div>
     </div>

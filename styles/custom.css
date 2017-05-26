@@ -36,10 +36,10 @@ body {
 
 
 #box{
-    padding-top: 25px;
+    padding-top: 15px;
     opacity: .80;
     position: absolute;
-    top: 50%;
+    top: -25px;
     left: 50%;
     margin-left: -250px;
     width: 500px;
@@ -76,14 +76,19 @@ img.media-object{
 /*Aggiungi evento*/
 
 
+#addEv{
+    content:url("../images/Add.gif ");
+}
+
+
 #boxev1{
     margin-left: 40px;
     left: 0px;
     float: left;
-    padding-top: 25px;
+    padding-top: 15px;
     opacity: .80;
     position: absolute;
-    top: 50%;
+    top: -25px;
     left: 0%;
     width: 400px;
     height: 900px;
@@ -94,10 +99,10 @@ img.media-object{
 
 #boxev2{
 
-    padding-top: 25px;
+    padding-top: 15px;
     opacity: .80;
     position: absolute;
-    top: 50%;
+    top: -25px;
     left: 35%;
     width: 62.5%;
     height: 900px;
@@ -171,17 +176,11 @@ input.form-control {
     letter-spacing: -1px;
 }
 
-button {
+#btlog {
 
     height: 46px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-top: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-top-width: 0px;
+    padding:0px;
+    border:0px;
     background: red;
     color: #FFFFFF;
     font: bold 24px/45px Helvetica, Sans-Serif;

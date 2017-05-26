@@ -26,14 +26,18 @@
 
   <script src="app.js"></script>
   <script src="homeView/homeView.js"></script>
-  <script src="listeventView/listeventView.js"></script>
 
   <script src="components/evento/evento.js"></script>
   <script src="components/evento/evento-service.js"></script>
-  <script src="components/evento/single-evento-service.js"></script><!--indica eventi nella home-->
+  <script src="components/evento/single-evento-service.js"></script>
+  <script src="components/evento/insert-evento-service.js"></script>  <!--indica eventi nella home-->
+
   <script src="components/authentication/authentication.js"></script>
   <script src="components/authentication/authentication-service.js"></script>
 
+
+  <script src="addeventView/addeventView.js"></script>
+  <script src="listeventView/listeventView.js"></script>
   <script src="eventView/eventView.js"></script>
   <script src="loginView/loginView.js"></script>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -51,7 +55,8 @@
 <header class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="index.html"><h1 class="navbar-brand" >Arté</h1></a>
+      <li ng-class="{'active' : dati.currentView === 'home'}"><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+      <!--<a href="index.html"><h1 class="navbar-brand" >Arté</h1></a>-->
     </div>
   </div>
 </header>
