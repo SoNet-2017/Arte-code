@@ -24,8 +24,7 @@ angular.module('myApp', [
   'myApp.listeventView',
     'myApp.addeventView',
     'myApp.userProfileView',
-    'myApp.usersListView'
-
+    'myApp.userRegistrationView'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
