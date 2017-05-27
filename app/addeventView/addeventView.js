@@ -19,7 +19,7 @@ angular.module('myApp.addeventView',['ngRoute'])
             $scope.dati = {};
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addEvento";
-            $scope.addPizza = function() {
+            $scope.addEvento = function() {
                 InsertEventoService.insertNewEvento($scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.mostra,$scope.dati.info).then(function(ref) {
                     var eventoId = ref.key;
                     InsertEventoService.updateEvento(eventoId);
