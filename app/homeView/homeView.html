@@ -1,24 +1,24 @@
 <div id="box">
-<div class="row">
-    <div class="col-xs-12">
-        <ul class="media-list">
-            <li class="media" ng-repeat="evento in dati.eventos">
-                <a href="#!/detailsEvento/{{evento.id}}">
-                    <div class="media-left">
-                        <div id="evento">
-                        <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{evento.img_alt}}">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="media-list">
+                <li class="media" ng-repeat="evento in dati.eventos">
+                    <a href="#!/detailsEvento/{{evento.id}}">
+                        <div class="media-left">
+                            <div id="evento">
+                                <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{evento.img_alt}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading"><strong>{{evento.id_evento}}</strong></h4>
-                        <p>{{evento.id_curatore}}</p>
-                    </div>
-                    <hr/>
-                </a>
-            </li>
-        </ul>
+                        <div class="media-body">
+                            <h4 class="media-heading"><strong>{{evento.id_evento}}</strong></h4>
+                            <p>{{evento.id_curatore}}</p>
+                        </div>
+                        <hr/>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
     <div class="LinkList"><a href="#!/listeventView">Lista_Eventi</a>
     </div>
 </div>

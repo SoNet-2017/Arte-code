@@ -32,10 +32,17 @@
   <script src="components/evento/single-evento-service.js"></script>
   <script src="components/evento/insert-evento-service.js"></script>  <!--indica eventi nella home-->
 
+  <script src="components/users/users-list-service.js"></script>
+  <script src="components/users/users-service.js"></script>
+  <script src="components/users/users.js"></script>
+
+
   <script src="components/authentication/authentication.js"></script>
   <script src="components/authentication/authentication-service.js"></script>
 
 
+  <script src="usersListView/usersListView.js"></script>
+  <script src="userProfile/userProfileView.js"></script>
   <script src="addeventView/addeventView.js"></script>
   <script src="listeventView/listeventView.js"></script>
   <script src="eventView/eventView.js"></script>
@@ -51,12 +58,15 @@
 
 
   </head>
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="MainCtrl">
 <header class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <li ng-class="{'active' : dati.currentView === 'home'}"><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+      <ul class="nav navbar-nav navbar-center">
+          <li ng-class="{'active' : dati.currentView === 'home'}"><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+          <li class="USRP" ng-class="{'active' : dati.currentView === 'userProfile'}" ng-if="isLogged()"><a class="navbar-user" href="#!/userProfile"><span class="glyphicon glyphicon-user"></span></a></li>
       <!--<a href="index.html"><h1 class="navbar-brand" >Arté</h1></a>-->
+      </ul>
     </div>
   </div>
 </header>

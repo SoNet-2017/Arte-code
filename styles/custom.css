@@ -25,9 +25,16 @@ body {
     content:url("../images/Arté.png ");
     width: 125px;
     height: 75px;
-
 }
-
+.navbar-user{
+    content: url("../images/User.png");
+    height: 75px;
+    width: 150px;
+    float: right;
+}
+.usrp{
+    float: right;
+}
 .reg{
     font-size: 36px;
     color: #000000;

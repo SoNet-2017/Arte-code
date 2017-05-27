@@ -16,13 +16,21 @@ angular.module('myApp', [
     "firebase",
   'ngRoute',
   'myApp.evento',
+  'myApp.users',
   'myApp.homeView',
   'myApp.loginView',
   'myApp.eventView',
   'myApp.authentication',
   'myApp.listeventView',
-    'myApp.addeventView'
+    'myApp.addeventView',
+    'myApp.userProfileView',
+    'myApp.usersListView'
+
 ])
+    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+        $locationProvider.hashPrefix('!');
+        $routeProvider.otherwise({redirectTo: '/homeView'});
+    }])
     .run(["$rootScope", "$location", function($rootScope, $location) {
         $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
             // We can catch the error thrown when the $requireSignIn promise is rejected
@@ -32,15 +40,23 @@ angular.module('myApp', [
             }
         });
     }])
-    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('!');
-    $routeProvider.otherwise({redirectTo: '/loginView'});
-}])
+    .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth', function($scope, $rootScope, $firebaseAuth) {
+        //this controller only declares a function to get information about the user status (logged in / out)
+        //it is used to show menu buttons only when the user is logged
 
-
-
+        //set the variable that is used in the main template to show the active button
+        $rootScope.dati = {};
+        $rootScope.dati.currentView = 'home';
+        $scope.isLogged = function()
+        {
+            if ($firebaseAuth().$getAuth())
+                return true;
+            else
+                return false;
+        }
+    }]);
     /*.config(function($routeProvider){
         $routeProvider.when("/utenti",{...})
         .when("/utenti/:userId",{...})
         .otherwise({redirectTo:"/utenti"});
-    })*/;
+    })*/
