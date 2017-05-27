@@ -19,7 +19,7 @@ angular.module('myApp.userRegistrationView', ['ngRoute'])
                 .then(function (firebaseUser) {
                     Auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(internalFirebaseUser) {
                         var userId = internalFirebaseUser.uid;
-                        Users.registerNewUserInfo(userId, $scope.user.name, $scope.user.surname, $scope.user.email);
+                        Users.registerNewUserInfo(userId, $scope.user.name, $scope.user.surname, $scope.user.email,$scope.user.type);
                         Users.registerLogin(userId, $scope.user.email);
                         // login successful: redirect to the pizza list
                         $location.path("/homeView");
