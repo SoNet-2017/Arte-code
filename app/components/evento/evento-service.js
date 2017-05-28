@@ -4,6 +4,7 @@
 'use strict';
 
 angular.module('myApp.evento.eventoService', [])
+    /**eventoService dovrebbe essere eventos, ricordarsene */
 
     .factory('Evento', function($firebaseArray) {
         var eventoService = {
