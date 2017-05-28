@@ -8,7 +8,7 @@ angular.module('myApp.opere.opereService', [])
     .factory('Opera', function($firebaseArray) {
         var opereService = {
             getData: function () {
-                var ref = firebase.database().ref().child("opere");
+                var ref = firebase.database().ref().child("works");
                 return $firebaseArray(ref);
             }
         };

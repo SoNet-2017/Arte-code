@@ -4,21 +4,17 @@ angular.module('myApp.evento.insertOperaService', [])
 
     .factory('InsertOperaService', function($firebaseArray) {
         var NewOperaService = {
-            insertNewOpera: function (nome_evento, tema, inaugurazione, mostra, info) {
+            insertNewOpera: function (nome) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("opere");
+                var ref = firebase.database().ref().child("works");
                 // create a synchronized array
                 return $firebaseArray(ref).$add({
-                    nome_evento: nome_evento,
-                    tema: tema,
-                    inaugurazione: inaugurazione,
-                    mostra: mostra,
-                    info: info
+                    nome: nome
                 });
             },
             updateOpera: function (operaId) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("opere").child(eventoId);
+                var ref = firebase.database().ref().child("works").child(operaId);
                 // create a synchronized array
                 ref.update({
                     id: operaId

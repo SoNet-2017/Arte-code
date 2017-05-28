@@ -1,0 +1,27 @@
+<div id="box">
+    <div class="row">
+        <div class="col-xs-6">
+            <ul class="media-list">
+                <li class="media" ng-repeat="opera in dati.critiche">
+                    <a href="#!/detailCritica/{{opera.id}}">
+                        <div class="media-left">
+                            <div id="critica">
+                                <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{opera.img_alt}}" style="width: 80px;height: 80px;">
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><strong>{{opera.id}}</strong></h4>
+                           <!-- va aggiunto chi l'ha creato -->
+                        </div>
+                        <hr/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <ul>
+            <li ng-class="{'active' : dati.currentView === 'addOpera'}"><a href="#!/addOpera" data-toggle="modal" data-target="#myModal">Aggiungi opera</a></li>
+        </ul>
+    </div>
+</div>
