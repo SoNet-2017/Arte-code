@@ -4,7 +4,7 @@ angular.module('myApp.addCriticView',['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/addCritica',{
-            templateUrl: 'addCritictView/addCriticView.html',
+            templateUrl: 'addCriticView/addCriticView.html',
             controller: 'addCritictViewCtrl',
             resolve: {
                 "currentAuth":["Auth", function (Auth) {

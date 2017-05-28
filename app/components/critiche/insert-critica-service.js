@@ -4,14 +4,15 @@ angular.module('myApp.critiche.insertCriticaService', [])
 
     .factory('InsertCriticaService', function($firebaseArray) {
         var NewCriticaService = {
-            insertNewCritica: function (nome_critica, tema, opera) {
+            insertNewCritica: function (nome_critica, tema, opera,testo) {
                 //add the critica to list of critucs and set the logged value to true
                 var ref = firebase.database().ref().child("critics");
                 // create a synchronized array
                 return $firebaseArray(ref).$add({
-                    nome_critica: nome_critica,
-                    tema: tema,
-                    opera: opera,
+                    nome_critica: nome_critica ,
+                    tema: tema ,
+                    opera: opera ,
+                    testo : testo ,
                 });
             },
             updateCritica: function (criticaId) {

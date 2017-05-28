@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('myApp.criticheListView', ['ngRoute','myApp.critiche'])
+angular.module('myApp.detailCriticaView', ['ngRoute','myApp.critiche'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/listeCritiche',{
-            templateUrl: 'criticheListView/criticheListView.html',
-            controller: 'criticheListView1Ctrl',
+        $routeProvider.when('/detailCritica/:criticaId',{
+            templateUrl: 'detailCriticaView/detailCriticaView.html',
+            controller: 'detailCriticaViewCtrl',
             resolve: {
                 // controller will not be loaded until $requireSignIn resolves
                 // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -19,7 +19,7 @@ angular.module('myApp.criticheListView', ['ngRoute','myApp.critiche'])
         })
     }])
 
-    .controller('criticheListView1Ctrl', ['$scope','$routeParams', 'SingleCritica', function($scope,$routeParams,SingleCritica) {
+    .controller('detailCriticaViewCtrl', ['$scope','$routeParams', 'SingleCritica', function($scope,$routeParams,SingleCritica) {
             $scope.dati={};
             $scope.dati.critica = SingleCritica.getSingleCritica($routeParams.criticaId);
     }]);
