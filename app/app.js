@@ -26,8 +26,8 @@ angular.module('myApp', [
   'myApp.loginView',
   'myApp.authentication',
     'myApp.usersListView',
-    'myApp.criticheListView'
-    /* implementare anche detailCriticaView*/
+    'myApp.criticheListView',
+    'myApp.addCriticView'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
