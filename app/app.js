@@ -1,4 +1,3 @@
-
 'use strict';
 
 // Initialize the Firebase SDK
@@ -15,16 +14,18 @@ firebase.initializeApp(config);
 angular.module('myApp', [
     "firebase",
   'ngRoute',
-  'myApp.evento',
-  'myApp.users',
-  'myApp.homeView',
-  'myApp.loginView',
-  'myApp.eventView',
-  'myApp.authentication',
-  'myApp.listeventView',
+    'myApp.homeView',
+    'myApp.eventView',
+    'myApp.evento',
+    'myApp.listeventView',
     'myApp.addeventView',
     'myApp.userProfileView',
-    'myApp.userRegistrationView'
+    'myApp.userRegistrationView',
+  'myApp.users',
+  'myApp.loginView',
+  'myApp.authentication',
+    'myApp.usersListView'
+
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
