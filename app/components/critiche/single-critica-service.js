@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('myApp.critica.singleCriticaService', [])
+angular.module('myApp.critiche.singleCriticaService', [])
 
     .factory('SingleCritica', function($firebaseObject) {
         var singleCriticaService = {
             getSingleCritica: function (criticaId) {
-                    var ref = firebase.database().ref().child("critiche").child(criticaId);
+                    var ref = firebase.database().ref().child("critics").child(criticaId);
                     return $firebaseObject(ref);
                     }
                 };

@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('myApp.critica.insertCriticaService', [])
+angular.module('myApp.critiche.insertCriticaService', [])
 
     .factory('InsertCriticaService', function($firebaseArray) {
         var NewCriticaService = {
             insertNewCritica: function (nome_critica, tema, opera) {
                 //add the critica to list of critucs and set the logged value to true
-                var ref = firebase.database().ref().child("critiche");
+                var ref = firebase.database().ref().child("critics");
                 // create a synchronized array
                 return $firebaseArray(ref).$add({
                     nome_critica: nome_critica,
@@ -16,7 +16,7 @@ angular.module('myApp.critica.insertCriticaService', [])
             },
             updateCritica: function (criticaId) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("critiche").child(criticaId);
+                var ref = firebase.database().ref().child("critics").child(criticaId);
                 // create a synchronized array
                 ref.update({
                     id: criticaId

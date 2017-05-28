@@ -3,14 +3,14 @@
  */
 'use strict';
 
-angular.module('myApp.critica.criticheService', [])
+angular.module('myApp.critiche.criticheService', [])
 
     .factory('Critica', function($firebaseArray) {
-        var criticaService = {
+        var criticheService = {
             getData: function () {
-                var ref = firebase.database().ref().child("critiche");
+                var ref = firebase.database().ref().child("critics");
                 return $firebaseArray(ref);
             }
         };
-        return criticaService;
+        return criticheService;
     });

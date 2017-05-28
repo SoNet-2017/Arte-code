@@ -2,7 +2,7 @@
  * Created by S234591 on 19/05/2017.
  */
 'use strict';
-angular.module('myApp.evento', [
+angular.module('myApp.opere', [
         'myApp.opere.opereService',
         'myApp.opere.singleOperaService',
         'myApp.opere.insertOperaService'

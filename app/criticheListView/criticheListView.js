@@ -19,7 +19,7 @@ angular.module('myApp.criticheListView', ['ngRoute','myApp.critiche'])
         })
     }])
 
-    .controller('criticheListView1Ctrl', ['$scope','SingleCritica', function($scope,Critica) {
+    .controller('criticheListView1Ctrl', ['$scope','Critica', function($scope,Critica) {
         $scope.dati={}; /**la funzione Critica è stata appena creata, potevo chiamarla anche Grimaldellobello volendo */
         $scope.dati.critiche = Critica.getData();
     }]);

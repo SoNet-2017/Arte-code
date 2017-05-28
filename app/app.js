@@ -17,6 +17,7 @@ angular.module('myApp', [
     'myApp.homeView',
     'myApp.eventView',
     'myApp.evento',
+    'myApp.critiche',
     'myApp.listeventView',
     'myApp.addeventView',
     'myApp.userProfileView',
@@ -25,8 +26,7 @@ angular.module('myApp', [
   'myApp.loginView',
   'myApp.authentication',
     'myApp.usersListView',
-    'myApp.criticheListView',
-    'myApp.critica'
+    'myApp.criticheListView'
     /* implementare anche detailCriticaView*/
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
