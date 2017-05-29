@@ -1,4 +1,4 @@
-https://sonet-2017.github.io/Arte-code
+https://sonet-2017.github.io/Arte-code/
 
 
 
