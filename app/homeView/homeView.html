@@ -16,7 +16,7 @@
                             </div>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading"><strong>{{evento.id_evento}}</strong></h4>
+                            <h4 class="media-heading"><strong>{{evento.tema}}</strong></h4>
                             <p>{{evento.id_curatore}}</p>
                         </div>
                         <hr/>
@@ -25,6 +25,29 @@
             </ul>
         </div>
     </div>
-    <div class="LinkList"><a href="#!/listeventView">Lista_Eventi</a>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="media-list">
+                <h4>Opere </h4>
+
+                <li class="media" ng-repeat="evento in dati.works">
+                    <a href="#!/detailsEvento/{{opera.id}}">
+                        <div class="media-left">
+                            <div id="opera">
+                                <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{evento.img_alt}}">
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><strong>{{opera.nome}}</strong></h4>
+                            <p>{{opera.id_artista}}</p>
+                        </div>
+                        <hr/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="LinkList"><a href="#!listeOpere">Lista_Opere</a>
     </div>
 </div>

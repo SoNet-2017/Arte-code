@@ -18,6 +18,7 @@ angular.module('myApp', [
     'myApp.eventView',
     'myApp.evento',
     'myApp.critiche',
+    'myApp.opere',
     'myApp.listeventView',
     'myApp.addeventView',
     'myApp.userProfileView',
@@ -28,7 +29,9 @@ angular.module('myApp', [
     'myApp.usersListView',
     'myApp.criticheListView',
     'myApp.addCriticView',
-    'myApp.detailCriticaView'
+    'myApp.detailCriticaView',
+    'myApp.opereListView',
+    'myApp.addOpreaView',
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
