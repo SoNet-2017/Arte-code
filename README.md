@@ -1,4 +1,7 @@
-https://github.com/SoNet-2017/Arte-code/blob/master/app/index.html
+https://sonet-2017.github.io/Arte-code
+
+
+
 
 # SoNet Starter Kit
 
