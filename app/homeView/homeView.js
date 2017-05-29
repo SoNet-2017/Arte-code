@@ -19,8 +19,9 @@ angular.module('myApp.homeView', ['ngRoute','myApp.evento' ])
   })
 }])
 
-    .controller('View1Ctrl', ['$scope','Evento',function($scope,Evento) {
+    .controller('View1Ctrl', ['$scope','Evento', 'Opera',function($scope,Evento,Opera) {
             $scope.dati={};
             $scope.dati.eventos = Evento.getData();
+            $scope.dati.opere = Opera.getData();
 
     }]);

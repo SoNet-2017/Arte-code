@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.detailOperaView', ['ngRoute'])
+angular.module('myApp.detailOperaView', ['ngRoute','myApp.opere'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/detailOpera/:operaId',{
@@ -21,5 +21,5 @@ angular.module('myApp.detailOperaView', ['ngRoute'])
 
     .controller('detailOperaViewCtrl', ['$scope','$routeParams', 'SingleOpera', function($scope,$routeParams,SingleOpera) {
             $scope.dati={};
-            $scope.dati.critica = SingleOpera.getSingleOpera($routeParams.operaId);
+            $scope.dati.opera = SingleOpera.getSingleOpera($routeParams.operaId);
     }]);

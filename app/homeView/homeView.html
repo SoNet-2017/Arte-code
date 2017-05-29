@@ -25,14 +25,16 @@
             </ul>
         </div>
     </div>
+    <div class="LinkList"><a href="#!listeventView">Lista_Eventi</a>
+    </div>
 
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
                 <h4>Opere </h4>
 
-                <li class="media" ng-repeat="evento in dati.works">
-                    <a href="#!/detailsEvento/{{opera.id}}">
+                <li class="media" ng-repeat="opera in dati.opere">
+                    <a href="#!detailOpera/{{opera.id}}">
                         <div class="media-left">
                             <div id="opera">
                                 <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{evento.img_alt}}">

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.evento.insertOperaService', [])
+angular.module('myApp.opere.insertOperaService', [])
 
     .factory('InsertOperaService', function($firebaseArray) {
         var NewOperaService = {
@@ -9,7 +9,7 @@ angular.module('myApp.evento.insertOperaService', [])
                 var ref = firebase.database().ref().child("works");
                 // create a synchronized array
                 return $firebaseArray(ref).$add({
-                    nome: nome
+                    nome: nome ,
                 });
             },
             updateOpera: function (operaId) {
