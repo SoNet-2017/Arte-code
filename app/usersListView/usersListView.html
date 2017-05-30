@@ -1,6 +1,30 @@
-<div id="box"><h4>Profili seguiti: </h4>
-<p ng-repeat="user in testValue=(dati.availableUsers )">
-    <a href="#!/chat/{{user.$id}}">{{user.email}}</a> <!--andra inserito il link al profilo-->
-</p>
-<p ng-show="!testValue.length">No available users</p>
+<!--<div id="box"><h4>Profili seguiti: </h4>
+    <p ng-repeat="user in dati.availableUsers">  <!--p ng-repeat="user in testValue=(dati.availableUsers )/>  questa sarà la funzione da richiamare per la lista delle persone seguite
+        <a href="#!detailProfile/{{user.id}}"></a> <!--andra inserito il link al profilo
+    </p>
+</div>
+
+
+<div id="box">
+    <div class="row">
+        <div class="col-xs-6">
+            <ul class="media-list">
+                <li class="media" ng-repeat="user in dati.users">
+                    <a href="#!/follow/{{user.id}}">{{user.name}}</a>
+                        <div class="media-left">
+
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><strong>{{critica.id}}</strong></h4>
+                        </div>
+                        <hr/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>-->
+<div id="box">
+    <a href="#!/follow/{{user.$id}}"> <li class="media"  ng-repeat="user in dati.users">{{user.email}}</a></li>
+    </a>
 </div>

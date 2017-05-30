@@ -1,0 +1,10 @@
+<div id="box">
+    <form ng-submit="addFollow()">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                {{dati.userInfo.email}}: <button type="submit" class="btn btn-success center-block" ng-model="dati.flw" ng-keydown="addFollow($event)" placeholder="Follow">Follow</button>
+            </div>
+        </div>
+    </form>
+</div>
+

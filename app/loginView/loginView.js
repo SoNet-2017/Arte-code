@@ -9,7 +9,7 @@ angular.module('myApp.loginView', ['ngRoute'])
         });
     }])
 
-    .controller('LoginCtrl', ['$scope', 'Auth', '$location', '$log', function($scope, Auth, $location, $log) {
+    .controller('LoginCtrl', ['$scope', 'Auth', '$location', '$log', 'Users', function($scope, Auth, $location, $log,Users) {
         $scope.user={};
         $scope.auth = Auth; //acquires authentication from app.js (if it was done)
 
@@ -17,6 +17,8 @@ angular.module('myApp.loginView', ['ngRoute'])
             $scope.firebaseUser = null;
             $scope.error = null;
             $scope.auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
+                var userId = firebaseUser.uid;
+                Users.registerLogin(userId, $scope.user.email);
                 // login successful: redirect to the pizza list
                 $location.path("/homeView");
             }).catch(function(error) {
