@@ -19,11 +19,13 @@ angular.module('myApp.usersListView', ['ngRoute'])
         })
     }])
 
-    .controller('usersListViewCtrl',['$scope','UserList', function ($scope,UserList) {
-        $scope.dati = {};
-        $scope.dati.users = UserList.getData();
-
-    }]);
+    .controller('usersListViewCtrl', ['$scope', '$rootScope', '$routeParams', 'UserList', 'currentAuth',
+        function($scope, $rootScope, $routeParams, UserList, currentAuth) {
+            $scope.dati = {};
+            $rootScope.dati.currentView = "follow";
+            $scope.dati.availableUsers = UserList.getListOfUsers();
+            $scope.dati.userId = currentAuth.uid;
+        }]);
 
 /*
     .controller('usersListViewCtrl', ['$scope', '$rootScope', '$routeParams', 'UserList', 'currentAuth',

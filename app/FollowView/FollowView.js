@@ -18,9 +18,10 @@ angular.module('myApp.followView', ['ngRoute'])
             }
         })
     }])
-    .controller('FollowViewCtrl', ['$scope', '$routeParams', 'currentAuth', 'UsersFollowService',
-    function($scope, $routeParams, currentAuth,UsersFollowService) {
+    .controller('FollowViewCtrl', ['$scope','$rootScope', '$routeParams', 'currentAuth', 'UsersFollowService',
+    function($scope, $rootScope, $routeParams, currentAuth,UsersFollowService) {
         $scope.dati = {};
+        $rootScope.dati.currentView = "follow";
         $scope.userId = currentAuth.uid;
         $scope.dati.followedUserId = $routeParams.followedUserId;
 
@@ -29,10 +30,12 @@ angular.module('myApp.followView', ['ngRoute'])
         //get messages from firebase
         $scope.dati.followers = UsersFollowService.getFollow();
         //function that add a message on firebase
-        $scope.addFollow = function() {
+        $scope.addFollow = function(e) {
+            if (e.keyCode != 13) return;
             //create the JSON structure that should be sent to Firebase
             var newFollow = UsersFollowService.createFollow($scope.dati.userId, $scope.dati.userInfo.email, $routeParams.followedUserId);
             UsersFollowService.addFollow(newFollow);
-            $scope.dati.flw = "";
+            $scope.dati.feedback = "Inserimento effettuato con successo";
+
         };
     }]);
