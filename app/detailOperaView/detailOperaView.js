@@ -19,9 +19,10 @@ angular.module('myApp.detailOperaView', ['ngRoute','myApp.opere'])
         })
     }])
 
-    .controller('detailOperaViewCtrl', ['$scope','$routeParams', 'SingleOpera', function($scope,$routeParams,SingleOpera) {
+    .controller('detailOperaViewCtrl', ['$scope','$routeParams','currentAuth', 'SingleOpera', function($scope,$routeParams,currentAuth,SingleOpera) {
             $scope.dati={};
             $scope.dati.opera = SingleOpera.getSingleOpera($routeParams.operaId);
+            $scope.dati.user = SingleOpera.getAutoreOpera($routeParams.operaId);
 
             /*$scope.dati.user = SingleOpera.getAutoreOpera($routeParams.operaId.autoreId);*/
     }]);

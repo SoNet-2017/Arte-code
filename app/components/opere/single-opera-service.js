@@ -8,8 +8,8 @@ angular.module('myApp.opere.singleOperaService', [])
                 var ref = firebase.database().ref().child("works").child(operaId);
                 return $firebaseObject(ref);
             },
-            getAutoreOpera: function(userId)    {
-                    var userRef = firebase.database().ref().child("users").child(userId).child(name);
+            getAutoreOpera: function(autoreId)    {
+                    var userRef = firebase.database().ref().child("users").child(autoreId).child(name);
                     return $firebaseObject(userRef);
             }
                 };
