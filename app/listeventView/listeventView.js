@@ -19,7 +19,8 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
         })
     }])
 
-    .controller('View1Ctrl', ['$scope','Evento',function($scope,Evento) {
+    .controller('View1Ctrl', ['$scope','Evento', 'currentAuth',function($scope,Evento, currentAuth) {
         $scope.dati={};
         $scope.dati.eventos = Evento.getData();
+        $scope.dati.userId = currentAuth.uid;
     }]);

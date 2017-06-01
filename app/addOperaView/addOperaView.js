@@ -14,14 +14,22 @@ angular.module('myApp.addOpreaView',['ngRoute'])
         });
 
     }])
-    .controller('addOperaViewCtrl', ['$scope', '$rootScope', 'InsertOperaService',
-        function($scope, $rootScope, InsertOperaService) {
+    .controller('addOperaViewCtrl', ['$scope', '$rootScope', 'currentAuth', 'InsertOperaService',
+        function($scope, $rootScope,currentAuth, InsertOperaService) {
             $scope.dati = {};
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addOpera";
+
+            $scope.dati.userId = currentAuth.uid;
+
+
+
+
+
             $scope.addOpera = function() {
-                InsertOperaService.insertNewOpera($scope.dati.nome).then(function(ref) {
+                InsertOperaService.insertNewOpera($scope.dati.userId,$scope.dati.nome).then(function(ref) {
                     var operaId = ref.key;
+                    $scope.dati.userInfo = InsertOperaService.getUserInfo($scope.dati.userId);
                     InsertOperaService.updateOpera(operaId);
                     $scope.dati.feedback = "Inserimento effettuato con successo";
                     $scope.dati.nome = "";

@@ -25,13 +25,14 @@ angular.module('myApp.followView', ['ngRoute'])
         $scope.userId = currentAuth.uid;
         $scope.dati.followedUserId = $routeParams.followedUserId;
 
-        $scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
+        /*$scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);*/
 
         //get messages from firebase
         $scope.dati.followers = UsersFollowService.getFollow();
         //function that add a message on firebase
         $scope.addFollow = function(e) {
             if (e.keyCode != 13) return;
+            $scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
             //create the JSON structure that should be sent to Firebase
             var newFollow = UsersFollowService.createFollow($scope.dati.userId, $scope.dati.userInfo.email, $routeParams.followedUserId);
             UsersFollowService.addFollow(newFollow);
