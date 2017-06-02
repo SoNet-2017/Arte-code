@@ -1,15 +1,14 @@
 <div id="box">
-    <div class="LinkList"><a href="#!usersList">Profili seguiti</a>
+    <div class="LinkList"><a href="#!usersList">Profili</a>
     </div>
-    <div class="LinkList"><a href="#!listeCritiche">Critiche</a>
-    </div>
+
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
                 <h4>Eventi </h4>
 
                 <li class="media" ng-repeat="evento in dati.eventos">
-                    <a href="#!/detailsEvento/{{evento.id}}">
+                    <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
                         <div class="media-left">
                             <div id="evento">
                                 <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{evento.img_alt}}">
@@ -17,7 +16,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading"><strong>{{evento.tema}}</strong></h4>
-                            <p>{{evento.id_curatore}}</p>
+                            <p>{{evento.autoreId.name}}</p>
                         </div>
                         <hr/>
                     </a>
@@ -33,16 +32,16 @@
             <ul class="media-list">
                 <h4>Opere </h4>
 
-                <li class="media" ng-repeat="opera in dati.opere">
-                    <a href="#!detailOpera/{{opera.id}}">
+                <li class="media" ng-repeat="opera in dati.works">
+                    <a href="#!detailOpera/{{opera.autoreId}}/{{opera.id}}">
                         <div class="media-left">
                             <div id="opera">
-                                <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{evento.img_alt}}">
+                                <img class="media-object" ng-src="../{{opera.img_url}}" alt="{{opera.img_alt}}">
                             </div>
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading"><strong>{{opera.nome}}</strong></h4>
-                            <p>{{opera.id_artista}}</p>
+                            <p>{{opera.autoreId.name}}</p>
                         </div>
                         <hr/>
                     </a>
@@ -52,4 +51,29 @@
     </div>
     <div class="LinkList"><a href="#!listeOpere">Lista_Opere</a>
     </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="media-list">
+                <h4>Critiche </h4>
+
+                <li class="media" ng-repeat="critica in dati.critics">
+                    <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
+                        <div class="media-left">
+                            <div id="critica">
+                                <img class="media-object" ng-src="../{{critica.img_url}}" alt="{{critica.img_alt}}">
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><strong>{{critica.id}}</strong></h4>
+                                <p>{{opera.autoreId.name}}</p>
+                        </div>
+                            <hr/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="LinkList"><a href="#!listeCritiche">Lista_Critiche</a></div>
 </div>
