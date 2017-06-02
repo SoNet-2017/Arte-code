@@ -22,7 +22,7 @@ angular.module('myApp.usersListView', ['ngRoute'])
     .controller('usersListViewCtrl', ['$scope', '$rootScope', '$routeParams', 'UserList', 'currentAuth',
         function($scope, $rootScope, $routeParams, UserList, currentAuth) {
             $scope.dati = {};
-            $rootScope.dati.currentView = "follow";
+            $rootScope.dati.currentView = "otherUser";
             $scope.dati.availableUsers = UserList.getListOfUsers();
             $scope.dati.userId = currentAuth.uid;
         }]);

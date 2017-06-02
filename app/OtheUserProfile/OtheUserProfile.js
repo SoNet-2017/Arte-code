@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('myApp.followView', ['ngRoute'])
+angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/follow/:followedUserId', {
-            templateUrl: 'FollowView/FollowView.html',
-            controller: 'FollowViewCtrl',
+        $routeProvider.when('/otherUser/:otherUserId', {
+            templateUrl: 'OtheUserProfile/OtheUserProfile.html',
+            controller: 'OtheUserProfileCtrl',
             resolve: {
                 // controller will not be loaded until $requireSignIn resolves
                 // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -19,17 +19,17 @@ angular.module('myApp.followView', ['ngRoute'])
         })
     }])
 
-   .controller('FollowViewCtrl',['$scope','$rootScope','$routeParams','currentAuth','UsersFollowService',
+   .controller('OtheUserProfileCtrl',['$scope','$rootScope','$routeParams','currentAuth','UsersFollowService',
    function ($scope, $rootScope, $routeParams, currentAuth, UsersFollowService) {
 
        $scope.dati = {};
-       $rootScope.dati.currentView = "follow";
+       $rootScope.dati.currentView = "otherUser";
 
        $scope.dati.userId = currentAuth.uid;
-       $scope.dati.followedUserId = $routeParams.followedUserId;
+       $scope.dati.otherUserId = $routeParams.otherUserId;
 
        //$scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
-       $scope.dati.recipient = UsersFollowService.getUserInfo($scope.dati.followedUserId);
+       $scope.dati.recipient = UsersFollowService.getUserInfo($scope.dati.otherUserId);
 
 
 
@@ -39,7 +39,7 @@ angular.module('myApp.followView', ['ngRoute'])
            //$scope.dati.recipient.email  =  UsersFollowService.getUserInfo($scope.dati.followedUserId.email);
            //$scope.dati.recipient = UsersFollowService.getUserInfo($scope.dati.followedUserId);
 
-           var newFollow = UsersFollowService.createFollow($scope.dati.userId, $scope.dati.recipient.name, $routeParams.followedUserId);
+           var newFollow = UsersFollowService.createFollow($scope.dati.userId, $scope.dati.recipient.name, $routeParams.otherUserId);
            UsersFollowService.addFollow(newFollow);
        }
    }])
