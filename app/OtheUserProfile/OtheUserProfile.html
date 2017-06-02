@@ -3,6 +3,24 @@
         <div class="col-xs-12">
             <div class="page-header">
                 <h1>{{dati.recipient.name}} {{dati.recipient.surname}}</h1>
+                <div id="eventsDiv">
+                    <h4>Eventi</h4>
+                            <div ng-repeat="evento in dati.eventos" ng-if ="dati.recipient.userId == evento.autoreId" >
+                        <em>{{evento.nome_evento}}</em>
+                    </div>
+                </div>
+                <div id="worksDiv">
+                    <h4>Opere</h4>
+                    <div ng-repeat="opera in dati.opere" ng-if ="dati.recipient.userId == opera.autoreId" >
+                        <em>{{opera.nome}}</em>
+                    </div>
+                </div>
+                <div id="criticsDiv">
+                    <h4>Critiche</h4>
+                    <div ng-repeat="critica in dati.critiche" ng-if ="dati.recipient.userId == opera.autoreId" >
+                        <em>{{critica.tema}}</em>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -12,7 +30,7 @@
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
-                <div id="followDiv"> <!--input type="text" ng-keydown="addFollow($event)"-->
+                <div id="followDiv">
                     <button ng-click="addFollow()" type="submit" class="btn btn-success " style="float: right">Follow</button>
                 </div>
             </ul>
