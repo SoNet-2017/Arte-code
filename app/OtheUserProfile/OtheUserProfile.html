@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header">
-                <h1>{{dati.recipient.name}} {{dati.recipient.surname}}</h1>
+                <h1>{{dati.userId}} {{dati.recipient.name}} {{dati.recipient.surname}}</h1>
                 <div id="eventsDiv">
                     <h4>Eventi</h4>
                             <div ng-repeat="evento in dati.eventos" ng-if ="dati.recipient.userId == evento.autoreId" >
@@ -17,8 +17,20 @@
                 </div>
                 <div id="criticsDiv">
                     <h4>Critiche</h4>
-                    <div ng-repeat="critica in dati.critiche" ng-if ="dati.recipient.userId == opera.autoreId" >
+                    <div ng-repeat="critica in dati.critiche" ng-if ="dati.recipient.userId == critica.autoreId" >
                         <em>{{critica.tema}}</em>
+                    </div>
+                </div>
+                <div id="followersDiv">
+                    <h4>Followers</h4>
+                    <div ng-repeat="follow in dati.follows" ng-if ="dati.recipient.userId == follow.followed" >
+                        <em>{{follow.followed}}</em>
+                    </div>
+                </div>
+                <div id="followingDiv">
+                    <h4>Followinig</h4>
+                    <div ng-repeat="follow in dati.follows" ng-if ="dati.recipient.userId == follow.follower" >
+                        <em>{{follow.follower}}</em>
                     </div>
                 </div>
             </div>
