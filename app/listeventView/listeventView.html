@@ -3,7 +3,7 @@
         <div class="col-xs-6">
             <ul class="media-list">
                 <li class="media" ng-repeat="evento in dati.eventos">
-                    <a href="#!/detailsEvento/{{evento.id}}">
+                    <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
                         <div class="media-left">
                             <div id="evento">
                                 <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{evento.img_alt}}" style="width: 80px;height: 80px;">

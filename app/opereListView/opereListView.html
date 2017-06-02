@@ -3,14 +3,14 @@
         <div class="col-xs-6">
             <ul class="media-list">
                 <li class="media" ng-repeat="opera in dati.opere">
-                    <a href="#!/detailOpera/{{opera.id}}">
+                    <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
                         <div class="media-left">
                             <div id="opera">
                                 <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{opera.img_alt}}" style="width: 80px;height: 80px;">
                             </div>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading"><strong>{{opera.nome}}</strong></h4>
+                            <h4 class="media-heading"><strong>{{opera.nome}}{{opera.autoreId}}</strong></h4>
                            <!-- va aggiunto chi l'ha creato -->
                         </div>
                         <hr/>

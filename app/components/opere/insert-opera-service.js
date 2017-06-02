@@ -6,7 +6,6 @@ angular.module('myApp.opere.insertOperaService', [])
         var NewOperaService = {
             getUserInfo: function(userId) {
                 var userRef = firebase.database().ref().child("users").child(userId);
-
             },
             insertNewOpera: function (autoreId, nome) {
                 //add the user to list of users and set the logged value to true

@@ -14,14 +14,16 @@ angular.module('myApp.addCriticView',['ngRoute'])
         });
 
     }])
-    .controller('addCritictViewCtrl', ['$scope', '$rootScope', 'InsertCriticaService',
-        function($scope, $rootScope, InsertCriticaService) {
+    .controller('addCritictViewCtrl', ['$scope', '$rootScope','currentAuth', 'InsertCriticaService',
+        function($scope, $rootScope,currentAuth, InsertCriticaService) {
             $scope.dati = {};
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addCritica";
+            $scope.dati.userId = currentAuth.uid;
             $scope.addCritica = function() {
-                InsertCriticaService.insertNewCritica($scope.dati.nome, $scope.dati.tema, $scope.dati.opera,$scope.dati.testo).then(function(ref) {
+                InsertCriticaService.insertNewCritica($scope.dati.userId,$scope.dati.nome, $scope.dati.tema, $scope.dati.opera,$scope.dati.testo).then(function(ref) {
                     var criticaId = ref.key;
+                    $scope.dati.userInfo = InsertCriticaService.getUserInfo($scope.dati.userId);
                     InsertCriticaService.updateCritica(criticaId);
                     $scope.dati.feedback = "Inserimento effettuato con successo";
                     $scope.dati.nome = "";

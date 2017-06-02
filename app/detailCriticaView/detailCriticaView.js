@@ -3,7 +3,7 @@
 angular.module('myApp.detailCriticaView', ['ngRoute','myApp.critiche'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/detailCritica/:criticaId',{
+        $routeProvider.when('/detailCritica/:autoreId/:criticaId',{
             templateUrl: 'detailCriticaView/detailCriticaView.html',
             controller: 'detailCriticaViewCtrl',
             resolve: {
@@ -22,4 +22,6 @@ angular.module('myApp.detailCriticaView', ['ngRoute','myApp.critiche'])
     .controller('detailCriticaViewCtrl', ['$scope','$routeParams', 'SingleCritica', function($scope,$routeParams,SingleCritica) {
             $scope.dati={};
             $scope.dati.critica = SingleCritica.getSingleCritica($routeParams.criticaId);
+            $scope.dati.autoreId = SingleCritica.getAutoreCritica($routeParams.autoreId);
+
     }]);

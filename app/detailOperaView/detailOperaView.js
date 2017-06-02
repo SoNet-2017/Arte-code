@@ -3,7 +3,7 @@
 angular.module('myApp.detailOperaView', ['ngRoute','myApp.opere'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/detailOpera/:operaId',{
+        $routeProvider.when('/detailOpera/:autoreId/:operaId',{
             templateUrl: 'detailOperaView/detailOperaView.html',
             controller: 'detailOperaViewCtrl',
             resolve: {
@@ -19,9 +19,14 @@ angular.module('myApp.detailOperaView', ['ngRoute','myApp.opere'])
         })
     }])
 
-    .controller('detailOperaViewCtrl', ['$scope','$routeParams','currentAuth', 'SingleOpera', function($scope,$routeParams,currentAuth,SingleOpera) {
+    .controller('detailOperaViewCtrl', ['$scope','$rootScope','$routeParams','currentAuth', 'SingleOpera', function($scope,$rootScope,$routeParams,currentAuth,SingleOpera) {
             $scope.dati={};
+            $rootScope.dati.currentView = "detailOpera";
             $scope.dati.opera = SingleOpera.getSingleOpera($routeParams.operaId);
+            $scope.dati.autoreId = SingleOpera.getAutoreOpera($routeParams.autoreId);
 
-            /*$scope.dati.user = SingleOpera.getAutoreOpera($routeParams.operaId.autoreId);*/
+
+
+        //$scope.dati.UserId = $routeParams.userId;
+
     }]);

@@ -3,7 +3,7 @@
 angular.module('myApp.eventView', ['ngRoute','myApp.evento'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/detailsEvento/:eventoId', {
+        $routeProvider.when('/detailsEvento/:autoreId/:eventoId', {
             templateUrl: 'eventView/eventView.html',
             controller: 'eventView1Ctrl',
             resolve: {
@@ -22,4 +22,6 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento'])
     .controller('eventView1Ctrl', ['$scope','$routeParams', 'SingleEvento', function($scope,$routeParams,SingleEvento) {
             $scope.dati={};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
+            $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
+
     }]);
