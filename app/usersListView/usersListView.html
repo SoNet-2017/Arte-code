@@ -25,5 +25,8 @@
     </div>
 </div>-->
 <div id="box">
-    <li ng-repeat="user in dati.availableUsers"><a href="#!/follow/{{user.$id}}">{{user.email}} </a></li>
+    <h4>Select a user</h4>
+    <p ng-repeat="user in dati.availableUsers">
+        <a href="#!/follow/{{user.$id}}">{{user.name}}</a>
+    </p>
 </div>
