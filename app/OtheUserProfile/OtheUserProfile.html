@@ -24,13 +24,13 @@
                 <div id="followersDiv">
                     <h4>Followers</h4>
                     <div ng-repeat="follow in dati.follows" ng-if ="dati.recipient.userId == follow.followed" >
-                        <em>{{follow.followed}}</em>
+                        <em>{{follow.follower}}</em>
                     </div>
                 </div>
                 <div id="followingDiv">
                     <h4>Followinig</h4>
                     <div ng-repeat="follow in dati.follows" ng-if ="dati.recipient.userId == follow.follower" >
-                        <em>{{follow.follower}}</em>
+                        <em>{{follow.followed}}</em>
                     </div>
                 </div>
             </div>
@@ -42,9 +42,9 @@
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
-                <div id="followDiv">
-                    <button ng-click="addFollow()" type="submit" class="btn btn-success " style="float: right">Follow</button>
-                </div>
+                <div id="followDiv" >
+                    <button  ng-if=" dati.recipient.userId != follow.follower && dati.userId != follow.followed" ng-click="addFollow()" type="submit" class="btn btn-success " style="float: right">Follow</button>
+                </div><!--ng-if="[dati.userId, dati.recipient.userId].indexOf(follows.follower) < -1 && [dati.userId, dati.recipient.userId].indexOf(follows.followed) < -1"-->
             </ul>
         </div>
     </div>

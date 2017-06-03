@@ -19,10 +19,17 @@ angular.module('myApp.userProfileView', ['ngRoute'])
   })
 }])
 
-.controller('userProfileCtrl', ['$scope', '$rootScope', 'UsersChatService', 'Users', 'currentAuth', '$firebaseAuth', '$location', function($scope, $rootScope, UsersChatService, Users, currentAuth, $firebaseAuth, $location) {
+.controller('userProfileCtrl', ['$scope', '$rootScope', 'UsersChatService', 'Evento', 'Opera', 'Critica', 'UsersFollowService', 'Users', 'currentAuth', '$firebaseAuth', '$location',
+    function($scope, $rootScope, UsersChatService,Evento, Opera, Critica, UsersFollowService, Users, currentAuth, $firebaseAuth, $location) {
     $scope.dati={};
     $rootScope.dati.currentView = "userProfile";
     $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+
+
+    $scope.dati.eventos = Evento.getData();
+    $scope.dati.opere = Opera.getData();
+    $scope.dati.critiche = Critica.getData();
+    $scope.dati.follows = UsersFollowService.getFollow();
 
 
     // Function: form submission
