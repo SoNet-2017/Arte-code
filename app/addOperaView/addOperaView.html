@@ -1,23 +1,37 @@
-<div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
-
+<div ng-controller="addOperaViewCtrl as $ctrl">
 <div id="boxev1">
+
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
-                <form id="frmAdd" role="form" ng-submit="addOpera()">
-                    <h2>Aggiungi nuova Opera</h2>
-
-                    <div class="form-group">
-                        <label for="txtTitolo">Titolo</label>
-                        <input  type="text" class="form-control" id="txtTitolo" placeholder="Inserisci Titolo" name="name" ng-model="dati.nome" />
-                    </div>
-                    <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button>
-                </form>
+                    <div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+                    <div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+                    <form id="frmAdd" role="form" ng-submit="addOpera()">
+                        <h2>Aggiungi nuova Opera</h2>
+                        <div class="form-group">
+                            <b>Immagine Opera:</b>
+                            <file-upload on-change="$ctrl.onChange">
+                            </file-upload>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtTitolo">Titolo</label>
+                            <input  type="text" class="form-control" id="txtTitolo" placeholder="Inserisci Titolo" name="titolo" ng-model="dati.titolo" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUbicazione">Ubicazione</label>
+                            <input  type="text" class="form-control" id="txtUbicazione" placeholder="Inserisci Ubicazione" name="ubicazione" ng-model="dati.ubicazione" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtInfoTecniche">Info Tecniche</label>
+                            <textarea  type="text" class="form-control" id="txtInfoTecniche" placeholder="Inserisci Info Tecniche" name="infoTecniche" ng-model="dati.infoTecniche"></textarea>
+                        </div>
+                        <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button>
+                    </form>
             </ul>
         </div>
     </div>
 </div>
-</div>
+
 
 <div id="boxev2">
     <div class="row">

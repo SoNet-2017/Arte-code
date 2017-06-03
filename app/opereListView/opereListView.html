@@ -9,9 +9,13 @@
                                 <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{opera.img_alt}}" style="width: 80px;height: 80px;">
                             </div>
                         </div>
+                        <div class="media-left">
+                            <img class="media-object" ng-src="../{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="!(opera.img_url.includes('https://firebasestorage.googleapis.com')) && opera.img_url!=''">
+                            <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
+                            <img class="media-object" ng-src="../images/notAvailable.png" alt="{{opera.img_alt}}" ng-if="opera.img_url == ''">
+                        </div>
                         <div class="media-body">
-                            <h4 class="media-heading"><strong>{{opera.nome}}{{opera.autoreId}}</strong></h4>
-                           <!-- va aggiunto chi l'ha creato -->
+                            <h4 class="media-heading"><strong>{{opera.titolo}}{{opera.autoreId}}</strong></h4>
                         </div>
                         <hr/>
                     </a>

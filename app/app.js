@@ -14,6 +14,7 @@ firebase.initializeApp(config);
 angular.module('myApp', [
     "firebase",
   'ngRoute',
+    'ngMap',
     'myApp.homeView',
     'myApp.eventView',
     'myApp.evento',
@@ -24,7 +25,8 @@ angular.module('myApp', [
     'myApp.userProfileView',
     'myApp.userRegistrationView',
   'myApp.users',
-  'myApp.loginView',
+    'myApp.fileUpload',
+    'myApp.loginView',
   'myApp.authentication',
     'myApp.usersListView',
     'myApp.criticheListView',
@@ -33,7 +35,8 @@ angular.module('myApp', [
     'myApp.opereListView',
     'myApp.addOpreaView',
     'myApp.detailOperaView',
-    'myApp.OtheUserProfile'
+    'myApp.OtheUserProfile',
+    'myApp.modifyEventView'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');

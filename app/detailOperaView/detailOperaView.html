@@ -1,8 +1,14 @@
 <div id="box">
+    <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}" class="col-md-8">
+        <ng-map center="{{dati.opera.ubicazione}}" zoom="12">
+            <marker ng-repeat="pos in dati.vm.positions" position="{{pos.ubicazione}}"></marker>
+        </ng-map>
+    </div>
     <div class="row">
         <div class="col-xs-6">
             <ul class="media-list">
-                <p> {{dati.opera.nome}} di {{dati.autoreId.name}}, {{dati.autoreId.surname}}</p>
+                <p> {{dati.opera.titolo}} di {{dati.autoreId.name}}, {{dati.autoreId.surname}} {{dati.opera.ubicazione}}
+                </p>
             </ul>
         </div>
     </div>
