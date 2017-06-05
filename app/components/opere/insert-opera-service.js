@@ -17,7 +17,7 @@ angular.module('myApp.opere.insertOperaService', [])
                     ubicazione: ubicazione,
                     infoTecniche: infoTecniche,
                     img_url: imgPath,
-                    img_alt: autoreId+" "+titolo
+                    img_alt: titolo
 
                 });
             },

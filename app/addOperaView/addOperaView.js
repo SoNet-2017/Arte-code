@@ -20,7 +20,6 @@ angular.module('myApp.addOpreaView',['ngRoute'])
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addOpera";
             $rootScope.dati.userId = currentAuth.uid;
-            console.log($rootScope.dati.userId);
 
             //$scope.dati.userId = currentAuth.uid;
 
@@ -51,6 +50,8 @@ angular.module('myApp.addOpreaView',['ngRoute'])
                         uploadTask.$complete(function (snapshot) {
                             $scope.imgPath = snapshot.downloadURL;
                             $scope.finalOperaAddition();
+
+
                         });
                         uploadTask.$error(function (error) {
                             $scope.dati.error = error + " - the Opera will be added without a descriptive image!";

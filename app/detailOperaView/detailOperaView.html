@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-xs-6">
             <ul class="media-list">
+                    <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}"ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                 <p> {{dati.opera.titolo}} di {{dati.autoreId.name}}, {{dati.autoreId.surname}} {{dati.opera.ubicazione}}
                 </p>
             </ul>
