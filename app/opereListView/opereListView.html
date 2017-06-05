@@ -5,11 +5,6 @@
                 <li class="media" ng-repeat="opera in dati.opere">
                     <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
                         <div class="media-left">
-                            <div id="opera">
-                                <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{opera.img_alt}}" style="width: 80px;height: 80px;">
-                            </div>
-                        </div>
-                        <div class="media-left">
                             <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                         </div>
                         <div class="media-body">
