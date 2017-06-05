@@ -79,10 +79,10 @@ angular.module('myApp.addOpreaView',['ngRoute'])
 
 
             $scope.finalOperaAddition = function() {
-                InsertOperaService.insertNewOpera($scope.dati.userInfo, $scope.dati.titolo, $scope.dati.ubicazione, $scope.dati.infoTecniche).then(function (ref) {
+                InsertOperaService.insertNewOpera($rootScope.dati.userId, $scope.dati.titolo, $scope.dati.ubicazione, $scope.dati.infoTecniche, $scope.imgPath).then(function (ref) {
                     var operaId = ref.key;
                     //$scope.dati.userId = currentAuth.uid;
-                    $scope.dati.userInfo = InsertOperaService.getUserInfo($scope.dati.userId);
+                    $scope.dati.userInfo = InsertOperaService.getUserInfo($rootScope.dati.userId);
                     InsertOperaService.updateOpera(operaId);
                     $scope.dati.feedback = "Inserimento effettuato con successo";
                     $scope.dati.titolo = "";
