@@ -21,10 +21,14 @@ angular.module('myApp.detailOperaView', ['ngRoute','myApp.opere'])
 
     .controller('detailOperaViewCtrl', ['$scope','$rootScope','$routeParams','currentAuth', 'SingleOpera', function($scope,$rootScope,$routeParams,currentAuth,SingleOpera) {
             $scope.dati={};
-            $rootScope.dati.currentView = "detailOpera";
+            /*$rootScope.dati.currentView = "detailOpera";*/
+            $rootScope.dati.currentView = "otherUser";
+            $scope.dati.userId = currentAuth.uid;
 
 
-            $scope.dati.opera = SingleOpera.getSingleOpera($routeParams.operaId);
+
+
+        $scope.dati.opera = SingleOpera.getSingleOpera($routeParams.operaId);
             $scope.dati.autoreId = SingleOpera.getAutoreOpera($routeParams.autoreId);
             $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RySAMBGiwVPZ6RmD1KI9dO5Iw2rDwCA";
             $scope.dati.vm = this;

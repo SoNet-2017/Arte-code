@@ -199,6 +199,16 @@ input.form-control {
     padding-top: 38.5px;
 }
 
+/*Opera*/
+
+#map{
+    width: 400px;
+    height: 400px;
+}
+#imgOpera{
+    width: 100%;
+    height: 2000%;
+}
 
 
 
@@ -209,9 +219,10 @@ input.form-control {
 
 
 
-
-
-
+ul.media-list{
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 .navbar-center {
     margin: 0 auto;

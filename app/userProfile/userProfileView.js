@@ -27,8 +27,8 @@ angular.module('myApp.userProfileView', ['ngRoute'])
 
 
     $scope.dati.eventos = Evento.getData();
-    $scope.dati.opere = Opera.getData();
-    $scope.dati.critiche = Critica.getData();
+    $scope.dati.works = Opera.getData();
+    $scope.dati.critics = Critica.getData();
     $scope.dati.follows = UsersFollowService.getFollow();
 
 
