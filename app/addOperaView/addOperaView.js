@@ -14,14 +14,25 @@ angular.module('myApp.addOpreaView',['ngRoute'])
         })
 
     }])
-    .controller('addOperaViewCtrl', ['$scope', '$rootScope', 'InsertOperaService', '$firebaseStorage','currentAuth',
-        function($scope, $rootScope, InsertOperaService, $firebaseStorage,currentAuth) {
+    .controller('addOperaViewCtrl', ['$scope', '$rootScope', 'InsertOperaService','currentAuth',
+        function($scope, $rootScope, InsertOperaService, currentAuth) {
             $scope.dati = {};
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addOpera";
-            $scope.dati.userId = currentAuth.uid;
+            $rootScope.dati.userId = currentAuth.uid;
+            console.log($rootScope.dati.userId);
+
+            //$scope.dati.userId = currentAuth.uid;
+
+        }])
+    .controller('addOperaViewCtrl_2', ['$scope', '$rootScope', 'InsertOperaService', '$firebaseStorage',
+        function($scope, $rootScope, InsertOperaService, $firebaseStorage) {
+            $scope.dati = {};
+            $scope.dati.feedback = "";
+            $rootScope.dati.currentView = "addOpera";
             var ctrl = this;
 
+            console.log($rootScope.dati.userId);
             $scope.fileToUpload = null;
             $scope.imgPath= "";
 

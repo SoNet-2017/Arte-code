@@ -19,8 +19,9 @@ angular.module('myApp.modifyEventView',['ngRoute'])
             $scope.dati={};
             $scope.dati.evento = ModifyEventoService.getSingleEvento($routeParams.eventoId);
 
-            $scope.addModifyEvent = function() {
-                ModifyEventoService.modifyEvento($scope.dati.id,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.mostra,$scope.dati.info)
+            $scope.editEvento = function() {
+                ModifyEventoService.updateEvento($scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.mostra,$scope.dati.info);
+
             }
 
 
