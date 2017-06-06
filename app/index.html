@@ -107,8 +107,9 @@
     <div class="navbar-header">
       <ul class="nav navbar-nav navbar-center">
           <li ng-class="{'active' : dati.currentView === 'home'}"><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-          <li class="USRP" ng-class="{'active' : dati.currentView === 'userProfile'}" ng-if="isLogged()"><a class="navbar-user" href="#!/userProfile"><span class="glyphicon glyphicon-user"></span></a></li>
-      <!--<a href="index.html"><h1 class="navbar-brand" >Arté</h1></a>-->
+          <li ng-class="{'active' : dati.currentView === 'userProfile'}" ng-if="isLogged()"><a class="navbar-user" href="#!/userProfile"><span class="glyphicon glyphicon-user"></span></a></li>
+        <li ng-class="{'active' : dati.currentView === 'addOpera'}" ng-if="isLogged()"><a class="navbar-add" href="#!/addOpera"><span class="glyphicon glyphicon-user"></span></a></li>
+        <!--<a href="index.html"><h1 class="navbar-brand" >Arté</h1></a>-->
       </ul>
     </div>
   </div>

@@ -15,11 +15,11 @@ body {
     opacity: .7;
     filter: alpha(opacity=70);
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";	}
+
 .navbar{
-    border-bottom-width: 0px;
+    border-bottom-width: 5px;
+    border-bottom-color: #8a171a;
     background: darkgrey;
-
-
 }
 .navbar-brand{
     content:url("../images/Arté.png ");
@@ -29,12 +29,16 @@ body {
 .navbar-user{
     content: url("../images/User.png");
     height: 75px;
-    width: 150px;
-    float: right;
+    width: 125px;
+
 }
-.usrp{
-    float: right;
+.navbar-add{
+    content:url("../images/Add.png");
+    height: 75px;
+    width: 125px;
+    top: 4.3px;
 }
+
 .reg{
     font-size: 36px;
     color: #000000;
@@ -55,6 +59,7 @@ body {
     z-index:+300;
     padding-bottom: 60%;
 }
+
 fieldset{
     padding-top: 95px;
 }
@@ -84,7 +89,7 @@ img.media-object{
 
 
 #addEv{
-    content:url("../images/Add.gif ");
+    content:url("../images/Add.png ");
 }
 
 
@@ -107,18 +112,16 @@ img.media-object{
 #boxev2{
 
     padding-top: 15px;
-    opacity: .80;
+    /*opacity: .80;*/
     position: absolute;
     top: -25px;
     left: 35%;
     width: 62.5%;
     height: 900px;
-    background-color:#FFF;
+    background-color: darkgrey;
     z-index:+300;
     padding-bottom: 60%;
 }
-
-
 /*Login view*/
 
 #box2{
@@ -206,6 +209,7 @@ input.form-control {
     height: 400px;
 }
 #imgOpera{
+    opacity: 1;
     width:100%;
 }
 
