@@ -23,5 +23,4 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento'])
             $scope.dati={};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
-
     }]);

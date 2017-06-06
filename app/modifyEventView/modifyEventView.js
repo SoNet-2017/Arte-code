@@ -14,17 +14,22 @@ angular.module('myApp.modifyEventView',['ngRoute'])
         });
 
     }])
-    .controller('modifyEventViewCtrl', ['$scope', '$rootScope', '$routeParams', 'ModifyEventoService',
-        function($scope, $rootScope,$routeParams, ModifyEventoService) {
+    .controller('modifyEventViewCtrl', ['$scope', '$rootScope', '$routeParams','UserList', 'ModifyEventoService','InsertUserService',
+        function($scope, $rootScope,$routeParams,UserList, ModifyEventoService,InsertUserService) {
             $scope.dati={};
             $scope.dati.evento = ModifyEventoService.getSingleEvento($routeParams.eventoId);
-            console.log($routeParams.eventoId)
+            $scope.dati.availableUsers = UserList.getListOfUsers();
+            console.log($routeParams.eventoId);
 
             $scope.editEvento = function() {
-                ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.mostra,$scope.dati.info)
+                ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.mostra,$scope.dati.info);
                 //$scope.dati.evento = ModifyEventoService.getSingleEvento($routeParams.eventoId);
 
-            }
+            };
 
+            $scope.addUser = function (){
+                InsertUserService.insertNewUser($routeParams.eventoId,$scope.dati.userPar);
+                $scope.dati.userPar = "";
 
-        }]);
+                };
+            }])

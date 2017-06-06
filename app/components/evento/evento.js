@@ -6,7 +6,8 @@ angular.module('myApp.evento', [
         'myApp.evento.eventoService',
         'myApp.evento.singleEventoService',
         'myApp.evento.insertEventoService',
-        'myApp.evento.modifyEventoService'
+        'myApp.evento.modifyEventoService',
+        'myApp.evento.insertUserService'
     ])
 
     .value('version', '0.1');

@@ -39,6 +39,19 @@
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
+                <form id="frmAddUser" role="form" ng-submit="addUser()">
+
+
+
+                    <div class="form-group">
+                        <label for="selUtente">Scegli L'artista</label>
+                        <select type="password" class="form-control" id="selUtente" ng-model="dati.userPar" />
+                        <option ng-repeat="user in dati.availableUsers" ng-if="dati.userId != user.userId">{{user.name}}</option>
+                        </select>
+                    </div>
+                <button type="submit" class="btn btn-success center-block"  >Aggiungi</button>
+                    </p>
+                </form>
 
             </ul>
         </div>

@@ -1,4 +1,4 @@
-<div id="box">
+<div id="boxev1">
     <div class="row">
         <div class="col-xs-6">
             <ul class="media-list">
@@ -8,7 +8,12 @@
                 <p>{{dati.evento.tema}}</p>
                 <p>{{dati.evento.inaugurazione}}</p>
                 <p>{{dati.evento.info}}</p>
+                <p>{{dati.evento.partecipante}}</p>
             </ul>
         </div>
     </div>
+</div>
+
+<div id="boxev2">
+    <ul ng-repeat="user in dati.evento">{{opere.user}}</ul>
 </div>
