@@ -37,6 +37,7 @@ angular.module('myApp', [
     'myApp.detailOperaView',
     'myApp.OtheUserProfile',
     'myApp.modifyEventView'
+    'myApp.modifyCriticView'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
