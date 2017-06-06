@@ -19,8 +19,8 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
         })
     }])
 
-   .controller('OtheUserProfileCtrl',['$scope','$rootScope','$routeParams','currentAuth','UsersFollowService', 'Evento', 'Opera', 'Critica',
-   function ($scope, $rootScope, $routeParams, currentAuth, UsersFollowService, Evento, Opera, Critica) {
+   .controller('OtheUserProfileCtrl',['$scope','$rootScope','$routeParams','currentAuth','UsersFollowService', 'Evento', 'Opera', 'Critica', 'UserList',
+   function ($scope, $rootScope, $routeParams, currentAuth, UsersFollowService, Evento, Opera, Critica, UserList) {
 
        $scope.dati = {};
        $rootScope.dati.currentView = "otherUser";
@@ -33,6 +33,8 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
 
 
+
+
        $scope.dati.eventos = Evento.getData();
        $scope.dati.opere = Opera.getData();
        $scope.dati.critiche = Critica.getData();
@@ -40,7 +42,7 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
 
 
-       $scope.addFollow = function(e) {
+       $scope.CreateFollow = function() {
 
            $scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
            //$scope.dati.recipient.email  =  UsersFollowService.getUserInfo($scope.dati.followedUserId.email);
@@ -49,4 +51,4 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
            var newFollow = UsersFollowService.createFollow($scope.dati.userId, $scope.dati.recipient.name, $routeParams.otherUserId);
            UsersFollowService.addFollow(newFollow);
        }
-   }])
+   }]);

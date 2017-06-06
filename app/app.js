@@ -36,7 +36,7 @@ angular.module('myApp', [
     'myApp.addOpreaView',
     'myApp.detailOperaView',
     'myApp.OtheUserProfile',
-    'myApp.modifyEventView'
+    'myApp.modifyEventView',
     'myApp.modifyCriticView'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
