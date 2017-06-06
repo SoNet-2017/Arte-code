@@ -23,11 +23,12 @@ angular.module('myApp.userProfileView', ['ngRoute'])
     function($scope, $rootScope, UsersChatService,Evento, Opera, Critica, UsersFollowService, Users, currentAuth, $firebaseAuth, $location) {
     $scope.dati={};
     $rootScope.dati.currentView = "userProfile";
-    $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+        $scope.dati.userId = currentAuth.uid;
+        $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
 
 
     $scope.dati.eventos = Evento.getData();
-    $scope.dati.works = Opera.getData();
+    $scope.dati.opere = Opera.getData();
     $scope.dati.critics = Critica.getData();
     $scope.dati.follows = UsersFollowService.getFollow();
 

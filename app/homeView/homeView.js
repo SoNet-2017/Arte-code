@@ -19,9 +19,16 @@ angular.module('myApp.homeView', ['ngRoute' ])
   })
 }])
 
-    .controller('View1Ctrl', ['$scope', 'Opera',function($scope,Opera) {
-            $scope.dati={};
-            //$scope.dati.eventos = Evento.getData();
-            //$scope.dati.opere = Opera.getData();
+    .controller('View1Ctrl', ['$scope','$rootScope','currentAuth','UsersChatService', 'Opera','Evento','Critica',
+        function($scope,$rootScope,currentAuth,UsersChatService,Opera,Evento,Critica) {
+        $scope.dati={};
+        $rootScope.dati.currentView = "homeView";
+        $scope.dati.userId = currentAuth.uid;
+        $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+
+
+        $scope.dati.eventos = Evento.getData();
+        $scope.dati.opere = Opera.getData();
+        $scope.dati.critics = Critica.getData();
 
     }]);
