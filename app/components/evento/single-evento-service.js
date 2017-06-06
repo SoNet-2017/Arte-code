@@ -2,7 +2,7 @@
 
 angular.module('myApp.evento.singleEventoService', [])
 
-    .factory('SingleEvento', function($firebaseObject) {
+    .factory('SingleEvento', function($firebaseObject,$firebaseArray) {
         var singleEventoService = {
             getAutoreEvento: function(autoreId)    {
                 var userRef = firebase.database().ref().child("users").child(autoreId);
@@ -11,7 +11,11 @@ angular.module('myApp.evento.singleEventoService', [])
             getSingleEvento: function (eventoId) {
                     var ref = firebase.database().ref().child("eventos").child(eventoId);
                     return $firebaseObject(ref);
-                    }
+                    },
+            getPartecipant: function (eventoId) {
+                var parRef = firebase.database().ref().child("eventos").child(eventoId).child("partecipanti");
+                    return $firebaseArray(parRef);
+            }
                 };
         return singleEventoService;
     });

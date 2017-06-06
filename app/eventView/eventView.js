@@ -19,8 +19,11 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento'])
         })
     }])
 
-    .controller('eventView1Ctrl', ['$scope','$routeParams', 'SingleEvento', function($scope,$routeParams,SingleEvento) {
+    .controller('eventView1Ctrl', ['$scope','$routeParams', 'SingleEvento','UserList', function($scope,$routeParams,SingleEvento,UserList) {
             $scope.dati={};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
+            $scope.dati.evento.partecipanti = SingleEvento.getPartecipant($routeParams.eventoId);
+        $scope.dati.availableUsers = UserList.getListOfUsers();
+
     }]);

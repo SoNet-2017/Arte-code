@@ -3,17 +3,18 @@
         <div class="col-xs-6">
             <ul class="media-list">
                 <h1>{{dati.evento.id}}</h1>
-                <p>{{dati.evento.autoreId}}</p>
+                <p>{{dati.evento.autoreId}}</p><!--bisogna capire come prendere il nome!-->
                 <p>{{dati.evento.nome_evento}}</p>
                 <p>{{dati.evento.tema}}</p>
                 <p>{{dati.evento.inaugurazione}}</p>
                 <p>{{dati.evento.info}}</p>
-                <p>{{dati.evento.partecipante}}</p>
+                <p>{{dati.evento.inaugurazione}}</p>
             </ul>
         </div>
     </div>
 </div>
 
 <div id="boxev2">
-    <ul ng-repeat="user in dati.evento">{{opere.user}}</ul>
+
+    <ul ng-repeat="partecipante in dati.evento.partecipanti">{{partecipante.userPar}}</ul><!--bisogna capire come prendere il nome!-->
 </div>
