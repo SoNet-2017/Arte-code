@@ -31,6 +31,8 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
        //$scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
        $scope.dati.recipient = UsersFollowService.getUserInfo($scope.dati.otherUserId);
 
+
+
        $scope.dati.eventos = Evento.getData();
        $scope.dati.opere = Opera.getData();
        $scope.dati.critiche = Critica.getData();
