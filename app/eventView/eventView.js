@@ -19,11 +19,23 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento'])
         })
     }])
 
-    .controller('eventView1Ctrl', ['$scope','$routeParams', 'SingleEvento','UserList', function($scope,$routeParams,SingleEvento,UserList) {
+    .controller('eventView1Ctrl', ['$scope','$routeParams', 'SingleEvento','UserList', 'currentAuth', function($scope,$routeParams,SingleEvento,UserList, currentAuth) {
             $scope.dati={};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
             $scope.dati.evento.partecipanti = SingleEvento.getPartecipant($routeParams.eventoId);
         $scope.dati.availableUsers = UserList.getListOfUsers();
+        $scope.dati.userId = currentAuth.uid;
+
+
+        $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RySAMBGiwVPZ6RmD1KI9dO5Iw2rDwCA";
+        $scope.dati.vm = this;
+        $scope.dati.vm.positions = [];
+        $scope.dati.evento.$loaded().then(function () {
+            var ubicazione = $scope.dati.evento.ubicazione;
+            $scope.dati.vm.positions.push({ubicazione: ubicazione});
+            console.log("vm.positions", $scope.dati.vm.positions);
+        });
+
 
     }]);

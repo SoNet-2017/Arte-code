@@ -14,8 +14,8 @@ angular.module('myApp.addOpreaView',['ngRoute'])
         })
 
     }])
-    .controller('addOperaViewCtrl', ['$scope', '$rootScope', 'InsertOperaService','currentAuth',
-        function($scope, $rootScope, InsertOperaService, currentAuth) {
+    .controller('addOperaViewCtrl', ['$scope', '$rootScope', 'currentAuth','InsertOperaService',
+        function($scope, $rootScope,currentAuth, InsertOperaService) {
             $scope.dati = {};
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addOpera";

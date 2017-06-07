@@ -8,7 +8,7 @@ angular.module('myApp.evento.modifyEventoService', [])
                 var ref = firebase.database().ref().child("eventos").child(eventoId);
                 return $firebaseObject(ref);
             },
-            updateEvento: function (eventoId,nome_evento,tema,inaugurazione,mostra,info) {
+            updateEvento: function (eventoId,nome_evento,tema,inaugurazione,mostra,info, ubicazione) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("eventos").child(eventoId);
                 // create a synchronized array
@@ -16,6 +16,7 @@ angular.module('myApp.evento.modifyEventoService', [])
                     nome_evento: nome_evento,
                     tema: tema,
                     inaugurazione: inaugurazione,
+                    ubicazione:ubicazione,
                     mostra: mostra,
                     info: info
                 });

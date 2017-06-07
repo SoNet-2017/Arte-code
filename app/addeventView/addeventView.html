@@ -1,3 +1,4 @@
+<div ng-controller="addeventViewCtrl_2 as $ctrl">
 <div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 
 <div id="boxev1">
@@ -24,9 +25,19 @@
                         <input type="text" class="form-control" id="txtEsposizione" placeholder="Es. Lun-Ven h10-18" name="mostra" ng-model="dati.mostra" />
                     </div>
                     <div class="form-group">
+                        <label for="txtUbicazione">Ubicazione</label>
+                        <input type="text" class="form-control" id="txtUbicazione" placeholder="Ubicazione" name="ubicazione" ng-model="dati.ubicazione" />
+                    </div>
+                    <div class="form-group">
                         <label for="txtInfo">Ulteriori Info</label>
                         <input type="text" class="form-control" id="txtInfo" placeholder="Inserisci testo" name="info" ng-model="dati.info" />
                     </div>
+                    <div class="form-group">
+                        <b>Condition report:</b>
+                        <file-upload on-change="$ctrl.onChange">
+                        </file-upload>
+                    </div>
+
                     <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button>
                 </form>
             </ul>

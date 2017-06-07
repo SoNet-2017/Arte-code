@@ -15,6 +15,7 @@ angular.module('myApp', [
     "firebase",
   'ngRoute',
     'ngMap',
+    'ngMessages',
     'myApp.homeView',
     'myApp.eventView',
     'myApp.evento',
