@@ -15,8 +15,9 @@
                         </div>
                         <hr/>
                     </a>
+
                     <a href="#!/addModifyEvent/{{evento.id}}">
-                    <button   class="center-block btn btn-danger">Modifica</button></a>
+                    <button class="center-block btn btn-danger" ng-if ="dati.userId == evento.autoreId" >Modifica</button></a>
                 </li>
             </ul>
         </div>
