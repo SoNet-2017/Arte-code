@@ -21,7 +21,7 @@ angular.module('myApp.addCriticView',['ngRoute'])
             $rootScope.dati.currentView = "addCritica";
             $scope.dati.userId = currentAuth.uid;
             $scope.addCritica = function() {
-                InsertCriticaService.insertNewCritica($scope.dati.userId,$scope.dati.nome, $scope.dati.tema, $scope.dati.opera,$scope.dati.testo).then(function(ref) {
+                InsertCriticaService.insertNewCritica($scope.dati.userId,$scope.dati.nome_critica, $scope.dati.tema, $scope.dati.opera,$scope.dati.testo).then(function(ref) {
                     var criticaId = ref.key;
                     $scope.dati.userInfo = InsertCriticaService.getUserInfo($scope.dati.userId);
                     InsertCriticaService.updateCritica(criticaId);

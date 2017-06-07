@@ -10,7 +10,7 @@ angular.module('myApp.critiche.modifyCriticaService', [])
             },
             updateEvento: function (criticaId,nome_critica,opera,tema,testo) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("eventos").child(criticaId);
+                var ref = firebase.database().ref().child("critics").child(criticaId);
                 // create a synchronized array
                 ref.update({
                     nome_critica: nome_critica ,

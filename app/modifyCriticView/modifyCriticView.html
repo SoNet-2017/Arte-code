@@ -9,7 +9,7 @@
 
                     <div class="form-group">
                         <label for="txtTitolo">Titolo</label>
-                        <input  type="text" class="form-control" id="txtTitolo" ng-value="dati.critica.nome" placeholder="Inserisci Titolo" name="name" ng-model="dati.nome" />
+                        <input  type="text" class="form-control" id="txtTitolo" ng-value="dati.critica.nome_critica" placeholder="Inserisci Titolo" name="name" ng-model="dati.nome_critica" />
                     </div>
                     <div class="form-group">
                         <label for="txtTema">Tema</label>
@@ -33,11 +33,11 @@
             <ul class="media-list">
                 <div class="form-group">
                     <label for="txtCritica">Critica</label>
-                    <textarea  type="text" class="form-control" id="txtCritica" placeholder="Inserisci testo" name="testo" ng-model="dati.testo" rows="35" cols="1000" style="width: 819px;">
+                    <textarea  type="text" class="form-control" ng-value="dati.critica.testo" id="txtCritica" placeholder="Inserisci testo" name="testo" ng-model="dati.testo" rows="35" cols="1000" style="width: 819px;">
                         </textarea>
                 </div>
             </ul>
-                <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button>
+                <a href="#"><button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button></a>
         </div>
     </div>
 </div>

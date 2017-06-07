@@ -1,4 +1,3 @@
-<div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 
 <div id="boxev1">
     <div class="row">
@@ -27,6 +26,7 @@
 </div>
 
 <div id="boxev2">
+    <div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
     <div class="row">
         <div class="col-xs-12">
             <form id="frmAddCritica2" role="form" ng-submit="addCritica()">
@@ -37,7 +37,7 @@
                         </textarea>
                     </div>
                 </ul>
-                <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button>
+                <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button> <!-- modifico per non mandare alla home ma alla critica compilata e fa-->
             </form>
         </div>
     </div>
