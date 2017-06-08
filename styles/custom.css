@@ -103,10 +103,9 @@ img.media-object{
     top: -25px;
     left: 0%;
     width: 400px;
-    height: 900px;
+    height: 1300px;
     background-color:#FFF;
     z-index:+300;
-    padding-bottom: 60%;
 }
 
 #boxev2{
@@ -117,10 +116,9 @@ img.media-object{
     top: -25px;
     left: 35%;
     width: 62.5%;
-    height: 900px;
+    height: 1300px;
     background-color: darkgrey;
     z-index:+300;
-    padding-bottom: 60%;
 }
 /*Login view*/
 
