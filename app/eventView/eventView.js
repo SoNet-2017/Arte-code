@@ -23,7 +23,10 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento'])
             $scope.dati={};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
-            $scope.dati.evento.partecipanti = SingleEvento.getPartecipant($routeParams.eventoId);
+
+            var partecipante = $scope.dati.evento.userPar;
+
+ //           $scope.dati.evento.partecipante = SingleEvento.getPartecipant($routeParams.eventoId, $routeParams.eventoId.userPar);
         $scope.dati.availableUsers = UserList.getListOfUsers();
         $scope.dati.userId = currentAuth.uid;
 

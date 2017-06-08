@@ -2,7 +2,8 @@
 
 angular.module('myApp.users.usersChatService', [])
 
-    .factory('UsersChatService', function usersChatService($firebaseArray, $firebaseObject) {
+    .factory('UsersChatService',
+        function usersChatService($firebaseArray, $firebaseObject) {
         var ref = firebase.database().ref().child("messages");
         return {
             getMessages: function() {
