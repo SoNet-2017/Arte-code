@@ -14,12 +14,14 @@ angular.module('myApp.modifyEventView',['ngRoute'])
         });
 
     }])
-    .controller('modifyEventViewCtrl', ['$scope', '$rootScope', '$routeParams','UserList', 'ModifyEventoService','InsertUserService',
-        function($scope, $rootScope,$routeParams,UserList, ModifyEventoService,InsertUserService) {
+    .controller('modifyEventViewCtrl', ['$scope', '$rootScope', '$routeParams','UserList', 'ModifyEventoService','InsertUserService','SingleEvento',
+        function($scope, $rootScope,$routeParams,UserList, ModifyEventoService,InsertUserService,SingleEvento) {
             $scope.dati={};
             $scope.dati.evento = ModifyEventoService.getSingleEvento($routeParams.eventoId);
             $scope.dati.availableUsers = UserList.getListOfUsers();
             console.log($routeParams.eventoId);
+            $scope.dati.partecipanti = SingleEvento.getPartecipant($routeParams.eventoId);
+
 
             $scope.editEvento = function() {
                 ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.mostra,$scope.dati.info);

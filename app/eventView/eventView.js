@@ -23,9 +23,12 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento'])
             $scope.dati={};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
-            $scope.dati.evento.partecipanti = SingleEvento.getPartecipant($routeParams.eventoId); //partecipanti all'evento
-        $scope.dati.availableUsers = UserList.getListOfUsers(); //lista di tutti gli utenti
-        $scope.dati.userId = currentAuth.uid; //
+
+            var partecipante = $scope.dati.evento.userPar;
+
+ //           $scope.dati.evento.partecipante = SingleEvento.getPartecipant($routeParams.eventoId, $routeParams.eventoId.userPar);
+        $scope.dati.availableUsers = UserList.getListOfUsers();
+        $scope.dati.userId = currentAuth.uid;
 
 
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RySAMBGiwVPZ6RmD1KI9dO5Iw2rDwCA";

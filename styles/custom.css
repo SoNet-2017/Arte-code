@@ -101,9 +101,8 @@ img.media-object{
     opacity: .80;
     position: absolute;
     top: -25px;
-    left: 0%;
     width: 400px;
-    height: 1300px;
+    height: 1800px;
     background-color:#FFF;
     z-index:+300;
 }
@@ -116,7 +115,7 @@ img.media-object{
     top: -25px;
     left: 35%;
     width: 62.5%;
-    height: 1300px;
+    height: 1800px;
     background-color: darkgrey;
     z-index:+300;
 }
