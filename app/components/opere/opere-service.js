@@ -10,7 +10,7 @@ angular.module('myApp.opere.opereService', [])
             getData: function () {
                 var ref = firebase.database().ref().child("works");
                 return $firebaseArray(ref);
-            }
+            },
         };
         return opereService;
     });
