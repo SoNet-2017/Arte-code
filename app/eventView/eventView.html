@@ -23,5 +23,8 @@
             <marker ng-repeat="pos in dati.vm.positions" position="{{pos.ubicazione}}"></marker>
         </ng-map>
     </div>
-    <ul ng-repeat="partecipante in dati.evento.partecipanti">{{partecipante.userPar}}</ul><!--bisogna capire come prendere il nome!-->
+    {{dati.evento.id}}
+    <a href="#!/ConferenceList/{{dati.evento.id}}">Conference</a>
+    <!--così gli sto passando tutti i partecipanti e l'id dell'evento-> non più, ora solo l'id-->
+ <!--partecipante è una variabile a cui abbiamodato noi il nome, in cui andiamo a inserire i valori di evento.partecipanti.userPar e creiamo un array partecipante.userPar-->
 </div>

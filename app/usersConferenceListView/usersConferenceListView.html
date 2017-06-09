@@ -1,0 +1,9 @@
+<div id="box">
+    <h4>Select a user</h4>
+    <p ng-repeat="partecipante in dati.evento.partecipanti" href="#!/conference/{{partecipante.userPar}}">{{user.email}}
+        <!--pesca tutti gli utenti partecipanti dal js e lo passa al conference js-->
+        <!--<a  ng-repeat="user in testValue=(dati.availableUsers | filter:{logged:true} | filter:{$id: '!' + dati.userId})"
+            href="#!/chat/{{user.$id}}">{{user.email}}</a>
+    <p ng-show="!testValue.length">No available users</p> non ci serve a noi una chat con utenti online-->
+    </p>
+</div>
