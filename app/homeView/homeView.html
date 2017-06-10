@@ -7,7 +7,7 @@
             <ul class="media-list">
                 <h4>Eventi </h4>
 
-                <li class="media" ng-repeat="evento in dati.eventos">
+                <ul class="media" ng-repeat="evento in dati.eventos">
                     <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
                         <div class="media-left">
                             <div id="evento">
@@ -20,7 +20,7 @@
                         </div>
                         <hr/>
                     </a>
-                </li>
+                </ul>
             </ul>
         </div>
     </div>
@@ -32,7 +32,7 @@
             <ul class="media-list">
                 <h4>Opere </h4>
 
-                <li class="media" ng-repeat="opera in dati.opere">
+                <ul class="media" ng-repeat="opera in dati.opere">
                     <a href="#!detailOpera/{{opera.autoreId}}/{{opera.titolo}}">
                         <div class="media-left">
                             <div id="opera">
@@ -45,7 +45,7 @@
                         </div>
                         <hr/>
                     </a>
-                </li>
+                </ul>
             </ul>
         </div>
     </div>
@@ -58,7 +58,7 @@
             <ul class="media-list">
                 <h4>Critiche </h4>
 
-                <li class="media" ng-repeat="critica in dati.critiche">
+                <ul class="media" ng-repeat="critica in dati.critiche">
                     <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
                         <div class="media-left">
                             <div id="critica">
@@ -71,7 +71,7 @@
                         </div>
                             <hr/>
                     </a>
-                </li>
+                </ul>
             </ul>
         </div>
     </div>

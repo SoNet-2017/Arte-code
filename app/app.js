@@ -40,7 +40,8 @@ angular.module('myApp', [
     'myApp.modifyEventView',
     'myApp.modifyCriticView',
     'myApp.usersConferenceListView',
-    'myApp.conferenceView'
+    'myApp.conferenceView',
+    'myApp.insertOperaForEventView'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');

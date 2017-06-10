@@ -1,0 +1,22 @@
+<div id="boxev1">
+</div>
+<div id="boxev2">
+            <div id="partecipante" class="col-lg-12">{{partecipante.userPar}}
+                <h4>{{dati.user.name}} {{dati.user.surname}}, {{dati.user.email}} </h4>
+
+                    <ul ng-repeat="opera in dati.opere" ng-if="opera.autoreId == dati.user.$id">
+                        <div ng-value="opera.id" ng-model="dati.opera">{{opera.id}}
+                        <button ng-click="addWorks(opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;">Add</button>
+                        </div>
+                        <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
+                            <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')"></a>
+                        {{opera.infoTecniche}}
+                        <h4><a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}"><br>{{opera.titolo}}</a></h4><hr/>
+                </ul>
+
+
+
+            </div>
+        </ul>
+    </ul>
+</div>

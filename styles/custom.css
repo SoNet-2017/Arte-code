@@ -102,7 +102,6 @@ img.media-object{
     position: absolute;
     top: -25px;
     width: 400px;
-    height: 1800px;
     background-color:#FFF;
     z-index:+300;
 }
@@ -115,7 +114,6 @@ img.media-object{
     top: -25px;
     left: 35%;
     width: 62.5%;
-    height: 1800px;
     background-color: darkgrey;
     z-index:+300;
 }
@@ -212,6 +210,11 @@ input.form-control {
 
 
 
+#partecipante{
+
+    width: 420px;
+    height: 209px;
+}
 
 
 

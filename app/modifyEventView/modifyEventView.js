@@ -14,8 +14,8 @@ angular.module('myApp.modifyEventView',['ngRoute'])
         });
 
     }])
-    .controller('modifyEventViewCtrl', ['$scope', '$rootScope', '$routeParams','UserList', 'ModifyEventoService','InsertUserService','SingleEvento', 'Opera',
-        function($scope, $rootScope,$routeParams,UserList, ModifyEventoService,InsertUserService,SingleEvento, Opera) {
+    .controller('modifyEventViewCtrl', ['$scope', '$rootScope', '$routeParams','UserList', 'ModifyEventoService','InsertUserService','SingleEvento', 'Opera','InsertOperaEventService',
+        function($scope, $rootScope,$routeParams,UserList, ModifyEventoService,InsertUserService,SingleEvento, Opera,InsertOperaEventService) {
             $scope.dati={};
             $scope.dati.evento = ModifyEventoService.getSingleEvento($routeParams.eventoId);
             $scope.dati.availableUsers = UserList.getListOfUsers();
@@ -24,8 +24,8 @@ angular.module('myApp.modifyEventView',['ngRoute'])
 
 
 
-
             $scope.dati.opere = Opera.getData();
+
 
 
             $scope.editEvento = function() {
@@ -35,16 +35,15 @@ angular.module('myApp.modifyEventView',['ngRoute'])
             };
 
             $scope.addUser = function (){
-                InsertUserService.insertNewUser($routeParams.eventoId,$scope.dati.userPar);
-                $scope.dati.userPar = "";
+                InsertUserService.insertNewUser($routeParams.eventoId,$scope.dati.userParId).then(function(ref) {
+                    var Parametro = ref.key;
+                    console.log($routeParams.eventoId);
+                    InsertUserService.updateUserPar($routeParams.eventoId,Parametro);
+                    $scope.dati.userParId = "";
+                });
 
                 };
 
-            $scope.addPart = function () {
-                var userPart = $scope.dati.userPart;
-                $scope.dati.userPart = "";
-            }
 
-            $scope.dati.par = $scope.dati.userPart;
 
-            }])
+            }]);

@@ -4,26 +4,20 @@ angular.module('myApp.evento.insertUserService', [])
 
     .factory('InsertUserService', function($firebaseArray) {
         var NewUserService = {
-            getUserInfo: function(userId) {
-                var userRef = firebase.database().ref().child("users").child(userId);
-            },
-            getSingleEvento: function (eventoId) {
-                var ref = firebase.database().ref().child("eventos").child(eventoId);
-            },
-            insertNewUser: function (eventoId,userPar) {
+            insertNewUser: function (eventoId,userParId) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("eventos").child(eventoId).child("partecipanti");
                 // create a synchronized array
                 return $firebaseArray(ref).$add({
-                    userPar: userPar,
+                    userPar: userParId,
                 });
             },
-            updateEvento: function (eventoId) {
+            updateUserPar: function (eventoId,userPar) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("eventos").child(eventoId);
+                var ref = firebase.database().ref().child("eventos").child(eventoId).child("partecipanti").child(userPar);
                 // create a synchronized array
                 ref.update({
-                    id: eventoId
+                    id: userPar
                 });
             }
         };

@@ -95,4 +95,4 @@ angular.module('myApp.addeventView',['ngRoute'])
                     $scope.dati.info = "";
                 });
             };
-        }]);
+}]);
