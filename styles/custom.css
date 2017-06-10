@@ -102,6 +102,7 @@ img.media-object{
     position: absolute;
     top: -25px;
     width: 400px;
+    height: 1800px;
     background-color:#FFF;
     z-index:+300;
 }
