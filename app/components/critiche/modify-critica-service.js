@@ -18,7 +18,11 @@ angular.module('myApp.critiche.modifyCriticaService', [])
                     opera: opera ,
                     testo : testo ,
                 });
-            }
+            },
+            deleteCritica : function (criticaId) {
+            var ref = firebase.database().ref().child("critics").child(criticaId);
+            ref.remove();
+        }
         };
         return ChangeCriticaService;
     });

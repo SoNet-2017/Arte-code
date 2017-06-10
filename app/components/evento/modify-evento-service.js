@@ -21,6 +21,10 @@ angular.module('myApp.evento.modifyEventoService', [])
                     mostra: mostra,
                     info: info
                 });
+            },
+            deleteEvento : function (eventoId) {
+                var ref = firebase.database().ref().child(eventos).child(eventoId);
+                ref.remove();
             }
         };
         return ChangeEventoService;

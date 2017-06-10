@@ -47,7 +47,7 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-                <div class="item" ng-class="{active:!$index}" ng-repeat="opera in dati.opere" ng-if="dati.recipient.userId == opera.autoreId" >
+                <div class="item" ng-class="{active:!$index}" ng-repeat="opera in dati.opere"><!-- ng-if="dati.recipient.userId == opera.autoreId" -->
                     <img ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}"ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')" style="width:100%;">
                     <div class="carousel-caption">
                         <h3>{{opera.titolo}}</h3>
