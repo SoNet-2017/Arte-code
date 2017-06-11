@@ -28,4 +28,6 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
             $scope.dati.feedback = "Rimozione effettuata con successo";
 
         };
+        $scope.eventSearch = "";
+        $scope.orderProp = "inaugurazione";
     }]);

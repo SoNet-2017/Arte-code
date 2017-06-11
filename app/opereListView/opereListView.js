@@ -20,7 +20,16 @@ angular.module('myApp.opereListView', ['ngRoute'])
     }])
 
     .controller('opereListViewCtrl', ['$scope','Opera', 'currentAuth', function($scope,Opera,currentAuth) {
-        $scope.dati={}; /**la funzione Critica è stata appena creata, potevo chiamarla anche Grimaldellobello volendo */
+        $scope.dati = {};
+        /**la funzione Critica è stata appena creata, potevo chiamarla anche Grimaldellobello volendo */
         $scope.dati.opere = Opera.getData();
         $scope.dati.userId = currentAuth.uid;
-    }]);
+        $scope.operaSearch = {};
+        $scope.orderProp = "autoreId";
+
+        $scope.autore = function (autoreId) {
+            $scope.dati.autore = Opera.getAutore(autoreId);
+        };
+
+    }
+    ]);

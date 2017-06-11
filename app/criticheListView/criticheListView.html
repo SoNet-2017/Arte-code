@@ -2,23 +2,24 @@
     <div class="row">
         <div class="col-lg-12">
             <ul class="media-list">
-                <li class="media" ng-repeat="critica in dati.critiche">
-                    <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
-                        <div class="media-left">
-                            <div id="critica">
-                                <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{critica.img_alt}}" style="width: 80px;height: 80px;">
+                <input id="Search" type="text" class="form-control" ng-model="criticaSearch" placeholder="Critica Search">
+                    <li class="list-unstyled" ng-repeat="critica in dati.critiche | orderBy:orderProp | filter:criticaSearch">
+                        <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
+                            <div class="media-left">
+                                <div id="critica">
+                                    <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{critica.img_alt}}" style="width: 80px;height: 80px;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"><strong>{{critica.id}}</strong></h4>
-                            <p>{{critica.autoreId}}</p>
-                        </div>
-                        <hr/>
-                    </a>
-                    <button class="center-block btn btn-danger" ng-click="removeCritica(critica.id)"ng-if="dati.userId == critica.autoreId">Rimuovi</button>
-                    <a href="#!/addModifyCritic/{{critica.id}}">
-                        <button   class="center-block btn btn-info" ng-if="dati.userId == critica.autoreId" >Modifica</button></a>
-                </li>
+                            <div class="media-body">
+                                <h4 class="media-heading"><strong>{{critica.id}}</strong></h4>
+                                <p></p>
+                            </div>
+                            <hr/>
+                        </a>
+                        <button class="center-block btn btn-danger" ng-click="removeCritica(critica.id)"ng-if="dati.userId == critica.autoreId">Rimuovi</button>
+                        <a href="#!/addModifyCritic/{{critica.id}}">
+                            <button   class="center-block btn btn-info" ng-if="dati.userId == critica.autoreId" >Modifica</button></a>
+                    </li>
             </ul>
         </div>
     </div>

@@ -10,6 +10,10 @@ angular.module('myApp.critiche.criticheService', [])
             getData: function () {
                 var ref = firebase.database().ref().child("critics");
                 return $firebaseArray(ref);
+            },
+            getAutore:function (auotreId) {
+                var ARef = firebase.database().ref().child("users").child(auotreId);
+                return $firebaseArray(ARef);
             }
         };
         return criticheService;

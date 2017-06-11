@@ -27,6 +27,8 @@ angular.module('myApp.criticheListView', ['ngRoute','myApp.critiche'])
         $scope.removeCritica = function(criticaId){
             ModifyCriticaService.deleteCritica(criticaId);
             $scope.dati.feedback = "Rimozione effettuata con successo";
-
         };
+        $scope.orderProp = "autoreId";
+        $scope.criticaSearch={};
+
     }]);

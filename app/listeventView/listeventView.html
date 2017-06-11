@@ -2,7 +2,8 @@
     <div class="row">
         <div class="col-xs-6">
             <ul class="media-list">
-                <li class="media" ng-repeat="evento in dati.eventos">
+                <input id="Search" type="text" class="form-control" ng-model="eventSearch" placeholder="Event Search">
+                <ul  class="list-unstyled" ng-repeat="evento in dati.eventos | orderBy:orderProp | filter:eventSearch">
                     <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
                         <div class="media-left">
                             <div id="evento">
@@ -19,6 +20,7 @@
                     <a href="#!/addModifyEvent/{{evento.id}}">
                     <button class="center-block btn btn-info" ng-if ="dati.userId == evento.autoreId">Modifica</button></a>
                 </li>
+                </ul>
             </ul>
         </div>
     </div>
