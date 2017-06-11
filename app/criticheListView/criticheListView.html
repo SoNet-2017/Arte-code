@@ -15,7 +15,7 @@
                         </div>
                         <hr/>
                     </a>
-                    <button class="center-block btn btn-danger" ng-click="deleteCritica(critica.id)"ng-if="dati.userId == critica.autoreId">Rimuovi</button>
+                    <button class="center-block btn btn-danger" ng-click="removeCritica(critica.id)"ng-if="dati.userId == critica.autoreId">Rimuovi</button>
                     <a href="#!/addModifyCritic/{{critica.id}}">
                         <button   class="center-block btn btn-info" ng-if="dati.userId == critica.autoreId" >Modifica</button></a>
                 </li>

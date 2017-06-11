@@ -45,7 +45,7 @@ angular.module('myApp', [
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
-        $routeProvider.otherwise({redirectTo: '/homeView'});
+        $routeProvider.otherwise({redirectTo: '/home'});
     }])
     .run(["$rootScope", "$location", function($rootScope, $location) {
         $rootScope.$on("$routeChangeError", function(event, next, previous, error) {

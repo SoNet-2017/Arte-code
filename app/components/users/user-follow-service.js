@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
 angular.module('myApp.users.usersFollowService', [])
 
     .factory('UsersFollowService', function usersFollowService($firebaseArray, $firebaseObject) {
-        var ref = firebase.database().ref().child("follows");
-        return {
+        var NewUsersFollowService = {
             getFollow: function() {
+                var ref = firebase.database().ref().child("follows");
                 return $firebaseArray(ref);
             },
 
@@ -13,15 +13,29 @@ angular.module('myApp.users.usersFollowService', [])
                 var userRef = firebase.database().ref().child("users").child(userId);
                 return $firebaseObject(userRef);
             },
-            createFollow: function(follower, followerName, followed){
-                var newFollow = {};
-                newFollow['follower'] = follower;
-                newFollow['followerName'] = followerName;
-                newFollow['followed'] = followed;
-                return newFollow;
+            insertNewUsersFollow: function (follower, followed, followedName) {
+                //add the critica to list of critucs and set the logged value to true
+                var ref = firebase.database().ref().child("follows");
+                // create a synchronized array
+                return $firebaseArray(ref).$add({
+                    follower: follower,
+                    followed: followed,
+                    followedName: followedName,
+                });
             },
-            addFollow: function(follow) {
-                return $firebaseArray(ref).$add(follow);
+            updateUsersFollow: function (followId) {
+                //add the user to list of users and set the logged value to true
+                var ref = firebase.database().ref().child("follows").child(followId);
+                // create a synchronized array
+                ref.update({
+                    id: followId
+                });
+            },
+            deleteFollow: function (followId) {
+                var refDel = firebase.database().ref().child("follows").child(followId);
+                refDel.remove();
             }
         };
+        return NewUsersFollowService;
     });
+

@@ -1,7 +1,7 @@
 <div id="boxev1">
     <div class="row">
         <div class="col-xs-12">
-            <div class="page-header">
+            <div class="page-header">{{dati.userId.name}}
                 <h1>{{dati.recipient.userId}} {{dati.recipient.name}} {{dati.recipient.surname}}</h1>
                 <div id="eventsDiv">
                     <h4>Eventi</h4>
@@ -24,13 +24,13 @@
                 <div id="followersDiv">
                     <h4>Followers</h4>
                     <div ng-repeat="follow in dati.follows" ng-if ="dati.recipient.userId == follow.followed" >
-                        <em>{{follow.follower}}</em>
+                        <em>{{follow.follower.name}} {{follow.follower.surname}}</em>
                     </div>
                 </div>
                 <div id="followingDiv">
                     <h4>Followinig</h4>
                     <div ng-repeat="follow in dati.follows" ng-if ="dati.recipient.userId == follow.follower" >
-                        <em>{{follow.followed}}</em>
+                        <em>{{follow.followed.name}}</em>
                     </div>
                 </div>
             </div>
@@ -38,6 +38,7 @@
     </div>
 </div>
 <div id="boxev2">
+
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -66,27 +67,18 @@
                     <span class="sr-only">Next</span>
                 </a>
 
-
-            <!--<div class="item" ng-class="{active:!$index}" ng-repeat="opera in dati.opere" ng-else>
-                <img ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}"ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')" style="width:100%;">
-                <div class="carousel-caption">
-                    <h3>{{opera.titolo}}</h3>
-                    <p>{{opera.autoreId}}</p>
-                    <p>{{dati.recipient.userId}}</p>
-                    <p>{{opera.ubicazione}}</p>
-                </div>
-            </div>-->
-
-
-
         </div>
 
 
     </div>
-
     <div id="followDiv" >
-        <button   ng-click="CreateFollow()" type="submit" class="btn btn-success " style="float: right">Follow</button>
+        <div ng-repeat="follow in dati.follows" ng-if="follow.follower.userId == dati.userId.$id && follow.followed == dati.recipient.userId ">{{follow.id}}
+            <button ng-click="removeFollow(follow.id)" type="submit" class="btn btn-info" style="float: right;">UnFollow</button></div>
+        <div repeat="follow in dati.follows">
+            <button  ng-click="CreateFollow()" type="submit" class="btn btn-primary" style="float: right;">Follow</button>
+        </div>
     </div>
+
 </div>
 
 

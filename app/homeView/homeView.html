@@ -36,7 +36,7 @@
                     <a href="#!detailOpera/{{opera.autoreId}}/{{opera.titolo}}">
                         <div class="media-left">
                             <div id="opera">
-                                <img class="media-object" ng-src="{{dati.opera.img_url}}" alt="{{dati.opera.img_alt}}">
+                                <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                             </div>
                         </div>
                         <div class="media-body">
@@ -57,17 +57,13 @@
         <div class="col-xs-12">
             <ul class="media-list">
                 <h4>Critiche </h4>
-
-                <ul class="media" ng-repeat="critica in dati.critiche">
+                <ul class="media" ng-repeat="critica in dati.critics">{{critica.id}}
                     <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
                         <div class="media-left">
-                            <div id="critica">
-                                <img class="media-object" ng-src="../{{critica.img_url}}" alt="{{critica.img_alt}}">
-                            </div>
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading"><strong>{{critica.id}}</strong></h4>
-                                <p>{{opera.autoreId.name}}</p>
+                                <p>{{opera.autoreId}}</p>
                         </div>
                             <hr/>
                     </a>

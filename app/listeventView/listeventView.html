@@ -15,7 +15,7 @@
                         </div>
                         <hr/>
                     </a>
-                    <button class="center-block btn btn-danger" ng-if="dati.userId == evento.autoreId">Rimuovi</button>
+                    <button class="center-block btn btn-danger" ng-click="removeEvento(evento.id)" ng-if="dati.userId == evento.autoreId">Rimuovi</button>
                     <a href="#!/addModifyEvent/{{evento.id}}">
                     <button class="center-block btn btn-info" ng-if ="dati.userId == evento.autoreId">Modifica</button></a>
                 </li>

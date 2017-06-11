@@ -3,9 +3,9 @@
 angular.module('myApp.homeView', ['ngRoute' ])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/homeView', {
+  $routeProvider.when('/home', {
     templateUrl: 'homeView/homeView.html',
-    controller: 'View1Ctrl',
+    controller: 'homeViewCtrl',
       resolve: {
           // controller will not be loaded until $requireSignIn resolves
           // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -19,10 +19,10 @@ angular.module('myApp.homeView', ['ngRoute' ])
   })
 }])
 
-    .controller('View1Ctrl', ['$scope','$rootScope','currentAuth','UsersChatService', 'Opera','Evento','Critica',
+    .controller('homeViewCtrl', ['$scope','$rootScope','currentAuth','UsersChatService', 'Opera','Evento','Critica',
         function($scope,$rootScope,currentAuth,UsersChatService,Opera,Evento,Critica) {
         $scope.dati={};
-        $rootScope.dati.currentView = "homeView";
+        $rootScope.dati.currentView = "home";
         $scope.dati.userId = currentAuth.uid;
         $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
 

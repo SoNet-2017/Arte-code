@@ -25,7 +25,7 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
        $scope.dati = {};
        $rootScope.dati.currentView = "otherUser";
 
-       $scope.dati.userId = currentAuth.uid;
+       $scope.dati.userId = UsersFollowService.getUserInfo(currentAuth.uid);
        $scope.dati.otherUserId = $routeParams.otherUserId;
 
        //$scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
@@ -43,12 +43,12 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
 
        $scope.CreateFollow = function() {
-
-           $scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
-           //$scope.dati.recipient.email  =  UsersFollowService.getUserInfo($scope.dati.followedUserId.email);
-           //$scope.dati.recipient = UsersFollowService.getUserInfo($scope.dati.followedUserId);
-
-           var newFollow = UsersFollowService.createFollow($scope.dati.userId, $scope.dati.recipient.name, $routeParams.otherUserId);
-           UsersFollowService.addFollow(newFollow);
-       }
+           UsersFollowService.insertNewUsersFollow($scope.dati.userId,$routeParams.otherUserId,$scope.dati.recipient.name).then(function (ref) {
+               var followId = ref.key;
+               UsersFollowService.updateUsersFollow(followId);
+           })
+       };
+        $scope.removeFollow = function (followId) {
+            UsersFollowService.deleteFollow(followId);
+        };
    }]);

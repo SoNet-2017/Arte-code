@@ -23,7 +23,7 @@ angular.module('myApp.evento.modifyEventoService', [])
                 });
             },
             deleteEvento : function (eventoId) {
-                var ref = firebase.database().ref().child(eventos).child(eventoId);
+                var ref = firebase.database().ref().child("eventos").child(eventoId);
                 ref.remove();
             }
         };

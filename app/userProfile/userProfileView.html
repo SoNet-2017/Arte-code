@@ -25,20 +25,20 @@
         </div>
         <div id="criticsDiv">
             <h4>Critiche</h4>
-            <div ng-repeat="critica in dati.critiche" ng-if ="dati.user.userId == critica.autoreId" >
-                <em>{{critica.tema}}</em>
+            <div ng-repeat="critica in dati.critics" ng-if="dati.user.userId == critica.autoreId" >
+                <em>{{critica.nome_critica}}</em>
             </div>
         </div>
         <div id="followersDiv">
             <h4>Followers</h4>
             <div ng-repeat="follow in dati.follows" ng-if ="dati.user.userId == follow.followed" >
-                <em>{{follow.follower}}</em>
+                <em>{{follow.follower.name}}</em>
             </div>
         </div>
         <div id="followingDiv">
             <h4>Followinig</h4>
-            <div ng-repeat="follow in dati.follows" ng-if ="dati.user.userId == follow.follower" >
-                <em>{{follow.followed}}</em>
+            <div ng-repeat="follow in dati.follows" ng-if="dati.user.userId==follow.follower.userId">
+                <em>{{follow.followedName}}</em>
             </div>
         </div>
     </div>
