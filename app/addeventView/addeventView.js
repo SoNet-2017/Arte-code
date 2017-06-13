@@ -14,6 +14,7 @@ angular.module('myApp.addeventView',['ngRoute'])
         });
 
     }])
+
     .controller('addeventViewCtrl', ['$scope', '$rootScope','currentAuth', 'InsertEventoService',
         function($scope, $rootScope,currentAuth, InsertEventoService) {
             $scope.dati = {};

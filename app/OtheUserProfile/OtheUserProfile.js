@@ -30,6 +30,7 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
        //$scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
        $scope.dati.recipient = UsersFollowService.getUserInfo($scope.dati.otherUserId);
+       $scope.orderProp = "autoreId";
 
 
 
