@@ -1,75 +1,41 @@
-<div id="box">
-    <div class="LinkList"><a href="#!usersList">Profili</a>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-12">
-            <ul class="media-list">
-                <h4>Eventi </h4>
+<div class="thumbnail">
+<div class="LinkList"><a href="#!usersList">Profili</a></div>
+    <div class="LinkList"><a href="#!listeventView">Lista_Eventi</a></div>
+    <div class="LinkList"><a href="#!listeOpere">Lista_Opere</a></div>
+    <div class="LinkList"><a href="#!listeCritiche">Lista_Critiche</a></div></div>
 
-                <ul class="media" ng-repeat="evento in dati.eventos">
+
+    <div class="row text-center">
+
+    <div class="col-sm-4"ng-repeat="evento in dati.eventos">
+            <div class="thumbnail">
                     <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
-                        <div class="media-left">
-                            <div id="evento">
                                 <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{evento.img_alt}}">
-                            </div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"><strong>{{evento.tema}}</strong></h4>
-                            <p>{{evento.autoreId.name}}</p>
-                        </div>
-                        <hr/>
+                        <p><strong>{{evento.tema}}</strong></p>
+                        <p>{{opera.autoreId.name}}</p>
                     </a>
-                </ul>
-            </ul>
+            </div>
         </div>
-    </div>
-    <div class="LinkList"><a href="#!listeventView">Lista_Eventi</a>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-12">
-            <ul class="media-list">
-                <h4>Opere </h4>
 
-                <ul class="media" ng-repeat="opera in dati.opere">
-                    <a href="#!detailOpera/{{opera.autoreId}}/{{opera.titolo}}">
-                        <div class="media-left">
-                            <div id="opera">
-                                <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
-                            </div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"><strong>{{opera.titolo}}</strong></h4>
-                            <p>{{opera.autoreId.name}}</p>
-                        </div>
-                        <hr/>
+        <div class="col-sm-3" ng-repeat="opera in dati.opere">
+            <div class="thumbnail">
+                <a href="#!detailOpera/{{opera.autoreId}}/{{opera.titolo}}">
+                    <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
+                        <p><strong>{{opera.titolo}}</strong></p>
+                        <p>{{opera.autoreId.name}}</p>
                     </a>
-                </ul>
-            </ul>
+            </div>
         </div>
-    </div>
-    <div class="LinkList"><a href="#!listeOpere">Lista_Opere</a>
-    </div>
 
 
-    <div class="row">
-        <div class="col-xs-12">
-            <ul class="media-list">
-                <h4>Critiche </h4>
-                <ul class="media" ng-repeat="critica in dati.critics">{{critica.id}}
+        <div class="col-sm-6" ng-repeat="critica in dati.critics">
+            <div class="thumbnail">
                     <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
-                        <div class="media-left">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"><strong>{{critica.id}}</strong></h4>
-                                <p>{{opera.autoreId}}</p>
-                        </div>
-                            <hr/>
+                        <p><strong>{{critica.tema}}</strong></p>
+                        <p>{{opera.autoreId.name}}</p>
                     </a>
-                </ul>
-            </ul>
+            </div>
         </div>
     </div>
-    <div class="LinkList"><a href="#!listeCritiche">Lista_Critiche</a></div>
-</div>

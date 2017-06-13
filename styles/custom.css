@@ -49,13 +49,12 @@ body {
 #box{
     padding-top: 15px;
     opacity: .80;
+    background-color:#FFF;
     position: absolute;
     top: -25px;
-    left: 50%;
     margin-left: -250px;
-    width: 500px;
     height: 5000px;
-    background-color:#FFF;
+
     z-index:+300;
     padding-bottom: 60%;
 }
@@ -85,6 +84,51 @@ img.media-object{
     width: 80px;
     height: 80px;
 }
+
+
+/* home*/
+/* Remove rounded borders from list */
+.list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Remove border and add padding to thumbnails */
+.thumbnail {
+    z-index:+101;
+    position: relative;
+
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+
+    height: 180px;
+
+    opacity: .80;
+    background-color:#FFF;
+    padding: 0 0 0 0;
+}
+
+.thumbnail p {
+    z-index:+101;
+    position: absolute;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+
+
+
+    opacity: .80;
+    background-color:#FFF;
+    margin-top: 15px;
+    color: #555;
+}
+
 /*Aggiungi evento*/
 
 
