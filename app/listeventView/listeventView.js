@@ -30,4 +30,5 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
         };
         $scope.eventSearch = "";
         $scope.orderProp = "inaugurazione";
+
     }]);

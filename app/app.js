@@ -16,6 +16,7 @@ angular.module('myApp', [
   'ngRoute',
     'ngMap',
     'ngMessages',
+    'myApp.calendar',
     'myApp.homeView',
     'myApp.eventView',
     'myApp.evento',
