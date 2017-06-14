@@ -1,4 +1,4 @@
-<div id="box">
+<div id="boxev1">
     <h4>Select a user</h4>
     <ul ng-repeat="user in dati.availableUsers">{{user.userId}}
     <a ng-repeat="partecipante in dati.evento.partecipanti" href="#!/conference/{{partecipante.userPar}}" ng-if="partecipante.userPar == user.userId">{{user.name}}
@@ -9,4 +9,8 @@
     </a></ul>
     <!--prima non avevo niente listato perchè lui cerca user.email ma ormai ho cambiato le cose quindi non trova niente. Devo, partendo
     dagli userPar-->
+</div>
+
+
+<div id="boxev2">
 </div>

@@ -7,7 +7,7 @@ angular.module('myApp.evento.insertEventoService', [])
             getUserInfo: function(userId) {
                 var userRef = firebase.database().ref().child("users").child(userId);
             },
-            insertNewEvento: function (autoreId,nome_evento, tema, inaugurazione, ubicazione, mostra, info,  imgPath) {
+            insertNewEvento: function (autoreId,nome_evento, tema, inaugurazione, start, end, ubicazione, info,  imgPath) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("eventos");
                 // create a synchronized array
@@ -16,8 +16,9 @@ angular.module('myApp.evento.insertEventoService', [])
                     nome_evento: nome_evento,
                     tema: tema,
                     inaugurazione: inaugurazione,
+                    start: start,
+                    end: end,
                     ubicazione: ubicazione,
-                    mostra: mostra,
                     info: info,
                     img_url: imgPath,
                     img_alt: nome_evento

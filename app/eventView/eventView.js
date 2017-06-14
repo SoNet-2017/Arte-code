@@ -44,6 +44,23 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             console.log("vm.positions", $scope.dati.vm.positions);
         });
 
+        $scope.dati.Inizio = [];
+            $scope.dati.evento.$loaded().then(function () {
+                var start = $scope.dati.evento.start;
+                $scope.dati.Inizio.push({start: start});
+            });
+
+            $scope.dati.Fine = [];
+            $scope.dati.evento.$loaded().then(function () {
+                var end = $scope.dati.evento.end;
+                $scope.dati.Fine.push({end: end});
+            });
+
+            $scope.dati.Inaugurazione = [];
+            $scope.dati.evento.$loaded().then(function () {
+                var ina = $scope.dati.evento.ina;
+                $scope.dati.Inaugurazione.push({ina: ina});
+            });
 
 
             var ctrl = this;
@@ -52,9 +69,11 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             var m = date.getMonth();
             var y = date.getFullYear();
 
+            console.log("end",$scope.dati.Fine);
+            console.log("start",$scope.dati.Inizio);
+
 
             /*Controller Calendario*/
-
             $scope.changeTo = 'Italian';
 
             /* event source that pulls from google.com */
@@ -64,10 +83,13 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
                 currentTimezone: 'America/Chicago' // an option!
             };
             /* event source that contains custom events on the scope */
-            $scope.events = [
-                {title: 'All Day Event',start: new Date(y, m, 1)},
-                {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
-                {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
+
+            /* https://fullcalendar.io/docs/text/timeFormat/ DOCUMENTAZIONE FULLCALENDAR*/
+            $scope.events =
+                [
+                {title: 'All Day Event',start: new Date(y, m, 3)},
+                {title: 'Mio_evento',start: $scope.dati.Inizio },
+                {id: 999,title: 'Repeating Event',start: '2017-07-01T14:30:00',allDay: false},
                 {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
                 {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
                 {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}

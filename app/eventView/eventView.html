@@ -10,9 +10,10 @@
                 <h1>{{dati.autoreId.surname}}</h1><!--bisogna capire come prendere il nome!-->
                 <p>{{dati.evento.nome_evento}}</p>
                 <p>{{dati.evento.tema}}</p>
-                <p>{{dati.evento.inaugurazione}}</p>
                 <p>{{dati.evento.info}}</p>
-                <p>{{dati.evento.inaugurazione}}</p>
+                <p>{{dati.Fine}}</p>
+                <p>{{dati.evento.end}}</p>
+
 
                 <button type="button" type="submit" class=" btn btn-info center-block" data-toggle="modal" data-target="#myModal"  >Calendario</button>
 
@@ -82,11 +83,10 @@
                         <div ui-calendar="{{uiConfig.calendar}}" calendar="myCalendar" class="span8 calendar" ng-model="eventSources"> </div>
                     </section>
                 </div>
-            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
+    </div>
 
     </div>
-</div>
