@@ -22,15 +22,18 @@ angular.module('myApp.conferenceView', ['ngRoute'])
         })
     }])
     .controller('conferenceViewCtrl', ['$scope', '$routeParams', 'currentAuth', 'UsersConferenceService', 'SingleEvento',
-        function($scope, $routeParams, currentAuth, UsersConferenceService, SingleEvento) {
+        function($scope, $routeParams, currentAuth, UsersConferenceService, SingleEvento) {            console.log($routeParams.partecipantId)
+
             $scope.dati = {};
+            $rootScope.dati.currentView = "conference";
+            console.log($routeParams.partecipantId)
+
             $scope.userId = currentAuth.uid;
             $scope.dati.partecipantId = $routeParams.partecipantId;
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.dati.evento.partecipanti = SingleEvento.getPartecipant($routeParams.eventoId); //partecipanti all'evento
-
             $scope.orderProp = 'utctime';
-            $scope.dati.userInfo = UsersConferenceService.getUserInfo($scope.dati.userId);
+            $scope.dati.userInfo = UsersConferenceService.getUserInfo($routeParams.partecipantId);
 
             //get messages from firebase
             $scope.dati.messages = UsersConferenceService.getMessages();
