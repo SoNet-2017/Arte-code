@@ -1,7 +1,7 @@
 <div id="boxev1">
     <h4>Select a user</h4>
-    <ul ng-repeat="user in dati.availableUsers">{{user.userId}}
-    <a ng-repeat="partecipante in dati.evento.partecipanti" href="#!/conference/{{partecipante.userPar}}" ng-if="partecipante.userPar == user.userId">{{user.name}}
+    <ul ng-repeat="user in dati.availableUsers"><!--{{user.userId}}-->{{dati.evento.$id}}
+    <a ng-repeat="partecipante in dati.evento.partecipanti" href="#!/conference/{{dati.evento.$id}}/{{partecipante.userPar}}" ng-if="partecipante.userPar == user.userId"> {{user.name}}
         <!--pesca tutti gli utenti partecipanti dal js e lo passa al conference js-->
         <!--<a  ng-repeat="user in testValue=(dati.availableUsers | filter:{logged:true} | filter:{$id: '!' + dati.userId})"
             href="#!/chat/{{user.$id}}">{{user.email}}</a>
