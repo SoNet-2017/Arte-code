@@ -27,6 +27,26 @@ angular.module('myApp.userProfileView', ['ngRoute'])
         $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
 
 
+
+        var ctrl;
+        ctrl = this;
+        ctrl.members = []
+
+        ctrl.carouselInitializer = function() {
+            $(".about-carousel").owlCarousel({
+                items: 3,
+                navigation: true,
+                pagination: false,
+                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
+            });
+        };
+
+
+
+
+
+
+
     $scope.dati.eventos = Evento.getData();
     $scope.dati.opere = Opera.getData();
     $scope.dati.critics = Critica.getData();
