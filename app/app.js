@@ -16,6 +16,7 @@ angular.module('myApp', [
   'ngRoute',
     'ngMap',
     'ngMessages',
+    'ui.bootstrap',
     'myApp.calendar',
     'myApp.homeView',
     'myApp.eventView',

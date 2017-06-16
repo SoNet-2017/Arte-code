@@ -85,7 +85,18 @@ img.media-object{
     height: 80px;
 }
 
+/*carousel*/
 
+img .carousel{
+    width: 100%;
+}
+#slides_control {
+    position:absolute;
+    width: 400px;
+    left:50%;
+    top:20px;
+    margin-left:-200px;
+}
 /* home*/
 /* Remove rounded borders from list */
 .list-group-item:first-child {

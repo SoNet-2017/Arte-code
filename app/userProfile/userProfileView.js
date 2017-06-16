@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.userProfileView', ['ngRoute'])
+angular.module('myApp.userProfileView', ['ngRoute','ui.bootstrap'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/userProfile', {
@@ -26,18 +26,19 @@ angular.module('myApp.userProfileView', ['ngRoute'])
         $scope.dati.userId = currentAuth.uid;
         $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
 
-
-
-
-
-
-
-
-
-    $scope.dati.eventos = Evento.getData();
+        $scope.myInterval = 3000;
+        $scope.dati.eventos = Evento.getData();
     $scope.dati.opere = Opera.getData();
     $scope.dati.critics = Critica.getData();
     $scope.dati.follows = UsersFollowService.getFollow();
+
+        $scope.Autore = function (autoreId) {
+            if (autoreId = $scope.dati.userId){
+                return autoreId;
+            };
+        };
+        $scope.eventSearch = "";
+        $scope.orderProp = "autoreId";
 
 
     // Function: form submission
