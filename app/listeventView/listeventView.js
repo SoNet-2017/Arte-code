@@ -31,6 +31,7 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
         };
         $scope.Autore = function (autoreId) {
             if (autoreId = $scope.dati.userId){
+                return autoreId;
             };
         };
         $scope.eventSearch = "";

@@ -83,11 +83,10 @@ angular.module('myApp.addeventView',['ngRoute'])
 
 
             $scope.finalEventoAddition = function() {
-                InsertEventoService.insertNewEvento($rootScope.dati.userId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione.toISOString(),$scope.dati.start.toISOString(),$scope.dati.end.toISOString(), $scope.dati.ubicazione,$scope.dati.info, $scope.imgPath).then(function(ref) {
+                InsertEventoService.insertNewEvento($rootScope.dati.userId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione.toDateString(), $scope.dati.start.toDateString(), $scope.dati.end.toDateString(), $scope.dati.ubicazione,$scope.dati.info, $scope.imgPath).then(function(ref) {
                     var eventoId = ref.key;
                     $scope.dati.userInfo = InsertEventoService.getUserInfo($rootScope.dati.userId);
                     InsertEventoService.updateEvento(eventoId);
-                    console.log($scope.dati.start.getTime());
                     $scope.dati.feedback = "Inserimento effettuato con successo";
                     $scope.dati.nome_evento = "";
                     $scope.dati.tema = "";
@@ -97,6 +96,7 @@ angular.module('myApp.addeventView',['ngRoute'])
                     $scope.dati.ubicazione = "";
                     $scope.dati.mostra = "";
                     $scope.dati.info = "";
+                    console.log($scope.dati.start);
                 });
             };
 }]);

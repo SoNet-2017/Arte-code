@@ -26,7 +26,6 @@ angular.module('myApp.opereListView', ['ngRoute'])
         $scope.dati.userId = currentAuth.uid;
         $scope.operaSearch = {};
         $scope.orderProp = "autoreId";
-        $scope.autore= Opera.getAutori();
 
 
     }

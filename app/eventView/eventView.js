@@ -45,18 +45,18 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             console.log("vm.positions", $scope.dati.vm.positions);
         });
 
-
+            $scope.dati.teo= "";
             $scope.dati.I = $scope.dati.evento.$loaded().then(function () {
                 var inizio = $scope.dati.evento.start;
-                var I = inizio.toString();
-                console.log("", I);
-                return I;
+                $scope.dati.teo = inizio;
+                console.log("", $scope.dati.teo);
+                $scope.events.push(
+                    {title: 'Mio_evento',start: inizio })
             });
-            console.log("", $scope.dati.I);
 
 
 
-            $scope.dati.Fine = [];
+            /*$scope.dati.Fine = [];
             $scope.dati.evento.$loaded().then(function () {
                 var end = $scope.dati.evento.end;
                 $scope.dati.Fine.push({end: end});
@@ -66,7 +66,7 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             $scope.dati.evento.$loaded().then(function () {
                 var ina = $scope.dati.evento.ina;
                 $scope.dati.Inaugurazione.push({ina: ina});
-            });
+            });*/
 
 
             var ctrl = this;
@@ -93,12 +93,14 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             $scope.events =
                 [
                 {title: 'All Day Event',start: new Date(y, m, 3)},
-                {title: 'Mio_evento',start: $scope.dati.I },
                 {id: 999,title: 'Repeating Event',start: '2017-07-01T14:30:00',allDay: false},
                 {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
                 {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
                 {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
             ];
+
+
+            console.log($scope.events)
             /* event source that calls a function on every view switch */
             $scope.eventsF = function (start, end, timezone, callback) {
                 var s = new Date(start).getTime() / 1000;
