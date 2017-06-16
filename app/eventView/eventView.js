@@ -26,7 +26,6 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
             $scope.dati.opere = Opera.getData();
 
-            var partecipante = $scope.dati.evento.userPar;
 
  //           $scope.dati.evento.partecipante = SingleEvento.getPartecipant($routeParams.eventoId, $routeParams.eventoId.userPar);
         $scope.dati.availableUsers = UserList.getListOfUsers();
@@ -52,28 +51,29 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             console.log("vm.positions", $scope.dati.vm.positions);
         });
 
-            $scope.dati.teo= "";
-            $scope.dati.I = $scope.dati.evento.$loaded().then(function () {
+
+            $scope.dati.Ini=""
+            $scope.dati.F= "";
+            $scope.dati.Ina="";
+            $scope.dati.date = $scope.dati.evento.$loaded().then(function () {
                 var inizio = $scope.dati.evento.start;
-                $scope.dati.teo = inizio;
-                console.log("", $scope.dati.teo);
+                var fine = $scope.dati.evento.end;
+                var inaug = $scope.dati.evento.inaugurazione;
+                $scope.dati.Ini = inizio;
+                $scope.dati.F = fine;
+                $scope.dati.Ina = inaug;
                 $scope.events.push(
-                    {title: 'Mio_evento',start: inizio })
+                    {title: 'Mostra',start: inizio, end: fine,allDay: false},
+                    {title :'Inagurazione',start: inaug});
             });
+            $scope.Prova = function (partecipante) {
+                $scope.opereEvento = partecipante.opere
+                $scope.eventoId = partecipante.eventoId;
+                $scope.IdParteipazione = partecipante.id;
+                $scope.userPar = SingleEvento.getAutoreEvento(partecipante.userPar);
+                console.log($scope.partecipante);
+            };
 
-
-
-            /*$scope.dati.Fine = [];
-            $scope.dati.evento.$loaded().then(function () {
-                var end = $scope.dati.evento.end;
-                $scope.dati.Fine.push({end: end});
-            });
-
-            $scope.dati.Inaugurazione = [];
-            $scope.dati.evento.$loaded().then(function () {
-                var ina = $scope.dati.evento.ina;
-                $scope.dati.Inaugurazione.push({ina: ina});
-            });*/
 
 
             var ctrl = this;
@@ -99,11 +99,6 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             /* https://fullcalendar.io/docs/text/timeFormat/ DOCUMENTAZIONE FULLCALENDAR*/
             $scope.events =
                 [
-                {title: 'All Day Event',start: new Date(y, m, 3)},
-                {id: 999,title: 'Repeating Event',start: '2017-07-01T14:30:00',allDay: false},
-                {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-                {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
-                {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
             ];
 
 

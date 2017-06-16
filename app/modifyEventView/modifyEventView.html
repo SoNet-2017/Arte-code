@@ -106,9 +106,8 @@
                     <h4>{{userPar.name}} {{userPar.surname}}, {{userPar.email}} </h4>
 
                     <ul ng-repeat="opera in dati.opere" ng-if="opera.autoreId == userPar.$id">
-                        {{opera.id}}<a href="#!/addModifyEvent/{{dati.evento.id}}">
-                        <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" ng-if="" style="display : inline; float: right;">Add</button>
-                        Ritorna all'evento</a>
+                        {{opera.id}}
+                        <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;">Add</button>
                         <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
                             <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')"></a>
                         {{opera.infoTecniche}}
