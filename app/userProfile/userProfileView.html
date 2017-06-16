@@ -53,13 +53,25 @@
             <li ng-repeat="opera in dati.opere" data-target="#myCarousel" ng-if="dati.user.userId == opera.autoreId" class="active"></li>
         </ol>
 
-        <!-- Wrapper for slides https://github.com/mzaferyahsi/ng-repeat-owl-carousel -->
-        <div ng-controller="TeamController as tCtrl">
-            <div ng-repeat="opera in dati.opere" ng-repeat-owl-carousel carousel-init="tCtrl.carouselInitializer">
-                <img ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" />
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item" ng-repeat="opera in dati.opere" ng-if="dati.user.userId == opera.autoreId"->
+                <img ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}"ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')" style="width:100%;">
+                <div class="carousel-caption">
+                    <h3>{{opera.titolo}}</h3>
+                    <p>{{opera.autoreId}}</p>
+                    <p>{{opera.ubicazione}}</p>
+                </div>
             </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="../#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="../#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-
-
 </div>
 </div>
