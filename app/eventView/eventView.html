@@ -29,10 +29,8 @@
 </div>
 <div id="boxev2">
     <button ng-repeat="partecipante in dati.partecipanti| orderBy:orderProp | filter:evento(partecipante.eventoId)" ng-click="Prova(partecipante)">{{partecipante.userPar}}</button>
-        {{eventoId}} <div ng-repeat=" operaEv in opereEvento">{{operaEv.opera}}, {{partecipante.userPar}}
+         <div ng-repeat=" operaEv in opereEvento">{{operaEv.opera}}
                         </div>
-    </button>
-
     {{dati.evento.id}}
     <a href="#!/ConferenceList/{{dati.evento.id}}">Conference</a>
     <!--così gli sto passando tutti i partecipanti e l'id dell'evento-> non più, ora solo l'id
@@ -40,9 +38,6 @@
     <!--partecipante è una variabile a cui abbiamodato noi il nome, in cui andiamo a inserire i valori di evento.partecipanti.userPar e creiamo un array partecipante.userPar-->
 
     <div>
-        <div ng-repeat="partecipante in dati.partecipanti">
-            {{eventoId}}
-        </div>
         <carousel interval="myInterval">
 
             <slide ng-repeat="opera in dati.opere | orderBy:orderProp | filter:Autore(opera.autoreId)" active="slide.active">
