@@ -29,11 +29,12 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
             $scope.dati.feedback = "Rimozione effettuata con successo";
 
         };
-        $scope.Autore = function (autoreId) {
-            if (autoreId = $scope.dati.userId){
-                return autoreId;
+            $scope.myInterval = 3000;
+            $scope.Autore = function (autoreId) {
+                if (autoreId = $scope.dati.userId){
+                    return autoreId;
+                };
             };
-        };
         $scope.eventSearch = "";
         $scope.orderProp = "inaugurazione";
 

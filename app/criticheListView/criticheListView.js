@@ -28,6 +28,12 @@ angular.module('myApp.criticheListView', ['ngRoute','myApp.critiche'])
             ModifyCriticaService.deleteCritica(criticaId);
             $scope.dati.feedback = "Rimozione effettuata con successo";
         };
+            $scope.myInterval = 3000;
+            $scope.Autore = function (autoreId) {
+                if (autoreId = $scope.dati.userId){
+                    return autoreId;
+                };
+            };
         $scope.orderProp = "autoreId";
         $scope.criticaSearch={};
 
