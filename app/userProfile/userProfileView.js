@@ -37,7 +37,6 @@ angular.module('myApp.userProfileView', ['ngRoute','ui.bootstrap'])
                 return autoreId;
             };
         };
-        $scope.eventSearch = "";
         $scope.orderProp = "autoreId";
 
 

@@ -30,11 +30,13 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
        //$scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
        $scope.dati.recipient = UsersFollowService.getUserInfo($scope.dati.otherUserId);
+       $scope.myInterval = 3000;
+       $scope.Autore = function (autoreId) {
+           if (autoreId = $scope.dati.otherUserId){
+               return autoreId;
+           };
+       };
        $scope.orderProp = "autoreId";
-
-
-
-
 
        $scope.dati.eventos = Evento.getData();
        $scope.dati.opere = Opera.getData();
