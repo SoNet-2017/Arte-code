@@ -19,7 +19,8 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
         })
     }])
 
-    .controller('View1Ctrl', ['$scope','Evento', 'currentAuth','ModifyEventoService',function($scope,Evento, currentAuth,ModifyEventoService) {
+    .controller('View1Ctrl', ['$scope','Evento', 'currentAuth','ModifyEventoService',
+        function($scope,Evento, currentAuth,ModifyEventoService) {
         $scope.dati={};
         $scope.dati.eventos = Evento.getData();
         $scope.dati.userId = currentAuth.uid;
@@ -27,6 +28,10 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
             ModifyEventoService.deleteEvento(EventoId);
             $scope.dati.feedback = "Rimozione effettuata con successo";
 
+        };
+        $scope.Autore = function (autoreId) {
+            if (autoreId = $scope.dati.userId){
+            };
         };
         $scope.eventSearch = "";
         $scope.orderProp = "inaugurazione";

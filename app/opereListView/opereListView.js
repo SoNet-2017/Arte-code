@@ -29,6 +29,5 @@ angular.module('myApp.opereListView', ['ngRoute'])
         $scope.autore= Opera.getAutori();
 
 
-
     }
     ]);

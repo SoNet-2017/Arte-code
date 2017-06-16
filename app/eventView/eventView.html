@@ -38,10 +38,19 @@
         </ol>
 
         <!-- Wrapper for slides -->
+        <div ng-repeat="opera in dati.opere">
+            <div ng-repeat="part in dati.partecipanti">
+
+                {{part.opere}}
+            </div>
+        </div>
+
         <div class="carousel-inner">
-            <div class="item" ng-class="{active:!$index}" ng-repeat="partecipante in dati.evento.partecipanti" >{{partecipante.opere}}
-                <img ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}"ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')" style="width:100%;">
+            <div class="item" ng-class="{active:!$index}" ng-repeat="opera in dati.evento.partecipanti.opere" data-target="#myCarousel" class="active" >
+                {{partecipanti.opere}}
+                <img ng-src="{{work.img_url}}" alt="{{work.img_alt}}"ng-if="work.img_url.includes('https://firebasestorage.googleapis.com')" style="width:100%;">
                 <div class="carousel-caption">
+                    <h3>{{partecipante.opere}}</h3>
                     <h3>{{opera.titolo}}</h3>
                     <p>{{opera.autoreId}}</p>
                     <p>{{opera.ubicazione}}</p>

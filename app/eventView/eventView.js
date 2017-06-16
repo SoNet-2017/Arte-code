@@ -19,11 +19,12 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
         })
     }])
 
-    .controller('eventView1Ctrl', ['$scope','$routeParams', 'SingleEvento','UserList', 'currentAuth',
-        function($scope,$routeParams,SingleEvento,UserList, currentAuth) {
+    .controller('eventView1Ctrl', ['$scope','$routeParams', 'SingleEvento','UserList', 'currentAuth', 'Opera',
+        function($scope,$routeParams,SingleEvento,UserList, currentAuth, Opera) {
             $scope.dati={};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
+            $scope.dati.opere = Opera.getData();
 
             var partecipante = $scope.dati.evento.userPar;
 
@@ -44,11 +45,16 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             console.log("vm.positions", $scope.dati.vm.positions);
         });
 
-        $scope.dati.Inizio = [];
-            $scope.dati.evento.$loaded().then(function () {
-                var start = $scope.dati.evento.start;
-                $scope.dati.Inizio.push({start: start});
+
+            $scope.dati.I = $scope.dati.evento.$loaded().then(function () {
+                var inizio = $scope.dati.evento.start;
+                var I = inizio.toString();
+                console.log("", I);
+                return I;
             });
+            console.log("", $scope.dati.I);
+
+
 
             $scope.dati.Fine = [];
             $scope.dati.evento.$loaded().then(function () {
@@ -69,8 +75,7 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             var m = date.getMonth();
             var y = date.getFullYear();
 
-            console.log("end",$scope.dati.Fine);
-            console.log("start",$scope.dati.Inizio);
+
 
 
             /*Controller Calendario*/
@@ -88,7 +93,7 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             $scope.events =
                 [
                 {title: 'All Day Event',start: new Date(y, m, 3)},
-                {title: 'Mio_evento',start: $scope.dati.Inizio },
+                {title: 'Mio_evento',start: $scope.dati.I },
                 {id: 999,title: 'Repeating Event',start: '2017-07-01T14:30:00',allDay: false},
                 {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
                 {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},

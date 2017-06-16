@@ -4,13 +4,14 @@
 <div id="boxev2">
     <div class="row">
         <div class="col-lg-11">
-            <ul class="media-list">{{autore.name}}
+            <ul class="media-list">
                 <input id="Search" type="text" class="form-control" ng-model="operaSearch" placeholder="Opera Search">
                 <ul  class="list-unstyled" ng-repeat="opera in dati.opere | orderBy:orderProp | filter:operaSearch">
                     <li><a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
                         <div class="media-left">
                             <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                         </div>
+                        {{dati.autore}}
                         <div class="media-body">
                             <h4 class="media-heading"><strong>{{opera.titolo}}</strong></h4>
                             <p>{{dati.autore.name}} {{autore.surname}}</p>
