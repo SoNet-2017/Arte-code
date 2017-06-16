@@ -21,7 +21,7 @@
 
         <div class="col-sm-3" ng-repeat="opera in dati.opere">
             <div class="thumbnail">
-                <a href="#!detailOpera/{{opera.autoreId}}/{{opera.titolo}}">
+                <a href="#!detailOpera/{{opera.autoreId}}/{{opera.id}}">
                     <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                         <p><strong>{{opera.titolo}}</strong></p>
                         <p>{{opera.autoreId.name}}</p>

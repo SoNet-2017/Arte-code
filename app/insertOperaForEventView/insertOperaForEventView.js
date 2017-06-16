@@ -25,8 +25,8 @@ angular.module('myApp.insertOperaForEventView',['ngRoute'])
             $scope.dati.opere = Opera.getData();
 
 
-            $scope.addWorks = function (opera) {
-                InsertOperaEventService.insertNewOperaEvent($routeParams.eventoId,$routeParams.userPar,opera);
+            $scope.addWorks = function (idPartecipazione, opera) {
+                InsertOperaEventService.insertNewOperaEvent(idPartecipazione, opera);
                 console.log(opera);
             };
 

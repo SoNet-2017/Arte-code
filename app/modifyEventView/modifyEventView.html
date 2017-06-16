@@ -49,26 +49,21 @@
 
             <button type="button" type="submit" class=" btn btn-info center-block" data-toggle="modal" data-target="#myModal"  >Inserisci Artista</button>
 
-                <ul ng-repeat="user in dati.availableUsers">
-                    <ul ng-repeat="partecipante in dati.evento.partecipanti" ng-if="partecipante.userPar == user.userId">
-                        <div id="partecipante">
-                            <h4>{{user.name}}{{user.surname}},{{user.email}}</h4>   {{dati.evento.id}}/{{partecipante.id}}/{{partecipante.userPar}}
-                            <a  href="#!/addOperaForEvent/{{dati.evento.id}}/{{partecipante.id}}/{{partecipante.userPar}}"><button type="button" class="btn btn-success center-block">Aggiungi Opere</button>
-                            </a><!--<ul ng-repeat="evento in dati.eventos">{{dati.evento.nome_evento}}</ul>-->
-                        </div>
+                    <ul ng-repeat="partecipante in dati.partecipanti | orderBy:orderProp | filter:evento(partecipante.eventoId)">
+                        {{partecipante}}
+                        <button type="button" type="submit" class=" btn btn-default center-block" data-toggle="modal" data-target="#myModal2" ng-click="A(partecipante)">Aggiungi_Opere</button>
                     </ul>
-                </ul>
 
         </div>
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Aggiungi Artista -->
 <div id="myModal" class="modal fade" role="dialog" >
     <div class="modal-dialog">
 
         <!-- Modal content-->
-        <div  class="modal-content" class="col-xs-12" ng-submit="addWorks()">
+        <div  class="modal-content" class="col-xs-12">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Modal Header</h4>
@@ -84,6 +79,50 @@
                         </div>
                         <button type="submit" class="btn btn-success center-block">Aggiungi</button>
                     </form>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Aggiungi Opera -->
+<div id="myModal2" class="modal fade" role="dialog" >
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div  class="modal-content" class="col-xs-12">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="media-list">
+                    {{partecipant}}
+
+                    <h4>{{userPar.name}} {{userPar.surname}}, {{userPar.email}} </h4>
+
+                    <ul ng-repeat="opera in dati.opere" ng-if="opera.autoreId == userPar.$id">
+                        {{opera.id}}<a href="#!/addModifyEvent/{{dati.evento.id}}">
+                        <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" ng-if="" style="display : inline; float: right;">Add</button>
+                        Ritorna all'evento</a>
+                        <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
+                            <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')"></a>
+                        {{opera.infoTecniche}}
+                        <h4><a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}"><br>{{opera.titolo}}</a></h4><hr/>
+                    </ul>
+                    <!--<form id="frmAddOpera" role="form" ng-submit="addOpera()">
+                        <div class="form-group">
+                            <label for="selUtente">Scegli L'artista</label>
+                            <select type="password" class="form-control" id="selUtente" ng-model="dati.userParId" />
+                            <option ng-repeat="user in dati.availableUsers" ng-if="dati.userId != user.userId" value="{{user.userId}}">{{user.name}}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success center-block">Aggiungi</button>
+                    </form>-->
                 </ul>
             </div>
             <div class="modal-footer">

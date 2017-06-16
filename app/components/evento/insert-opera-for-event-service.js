@@ -18,22 +18,14 @@ angular.module('myApp.evento.insertOperaEventService', [])
                 return $firebaseObject(ref);
 
             },
-            insertNewOperaEvent: function (eventoId,userPar,opera) {
+            insertNewOperaEvent: function (IdPartecipazione,opera) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("eventos").child(eventoId).child("partecipanti").child(userPar).child("opere");
+                var ref = firebase.database().ref().child("partecipanti").child(IdPartecipazione).child("opere");
                 // create a synchronized array
                 return $firebaseArray(ref).$add({
                     opera: opera,
                 });
             },
-            /*updateOperaEvent: function (eventoId,userParId) {
-                //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("eventos").child(eventoId).child("partecipanti").child(userPar).child(userParId).child("opere");
-                // create a synchronized array
-                ref.update({
-                    id: eventoId
-                });
-            }*/
         };
         return NewOperaEventService;
     });

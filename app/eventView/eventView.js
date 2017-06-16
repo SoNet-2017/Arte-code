@@ -32,8 +32,15 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
         $scope.dati.availableUsers = UserList.getListOfUsers();
         $scope.dati.userId = currentAuth.uid;
 
+            $scope.orderProp = "eventoId";
+            $scope.evento = function (eventoId) {
+                if (eventoId = $scope.dati.evento.id){
+                    return eventoId;
+                }
+            };
 
-        $scope.dati.partecipanti =  SingleEvento.getPartecipant($routeParams.eventoId);
+
+        $scope.dati.partecipanti =  SingleEvento.getPartecipants();
 
 
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RySAMBGiwVPZ6RmD1KI9dO5Iw2rDwCA";
