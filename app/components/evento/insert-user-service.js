@@ -20,6 +20,10 @@ angular.module('myApp.evento.insertUserService', [])
                 ref.update({
                     id: userPar
                 });
+            },
+            deleteUserPar: function (partecipazioneId) {
+                var pRef = firebase.database().ref().child("partecipanti").child(partecipazioneId);
+                pRef.remove();
             }
         };
         return NewUserService;

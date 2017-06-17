@@ -28,9 +28,8 @@
     </div>
 </div>
 <div id="boxev2">
-    <button ng-repeat="partecipante in dati.partecipanti| orderBy:orderProp | filter:evento(partecipante.eventoId)" ng-click="Prova(partecipante)">{{partecipante.userPar}}</button>
-         <div ng-repeat=" operaEv in opereEvento">{{operaEv.opera}}
-                        </div>
+         {{operaEv.opera}}
+
     {{dati.evento.id}}
     <a href="#!/ConferenceList/{{dati.evento.id}}">Conference</a>
     <!--così gli sto passando tutti i partecipanti e l'id dell'evento-> non più, ora solo l'id
@@ -39,15 +38,15 @@
 
     <div>
         <carousel interval="myInterval">
-
-            <slide ng-repeat="opera in dati.opere | orderBy:orderProp | filter:Autore(opera.autoreId)" active="slide.active">
-                <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" >
-                <div class="carousel-caption">
-                    <h4>Slide {{$index+1}}</h4>
+            <button ng-repeat="partecipante in dati.partecipanti| orderBy:orderProp | filter:evento(partecipante.eventoId)" ng-click="Prova(partecipante)">{{partecipante.userPar}}</button>
+            <div ng-repeat=" operaEv in opereEvento">
+                <div ng-repeat="opera in dati.opere" ng-if="opera.id==operaEv.opera">{{opera.id}}, {{operaEv.opera}}
+                    <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" >
                 </div>
-            </slide>
+            </div>
         </carousel>
     </div>
+
 </div>
 
 

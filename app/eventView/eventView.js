@@ -39,6 +39,7 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             };
 
 
+
         $scope.dati.partecipanti =  SingleEvento.getPartecipants();
 
 
