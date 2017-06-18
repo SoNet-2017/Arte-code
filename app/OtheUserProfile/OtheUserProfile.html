@@ -1,7 +1,8 @@
 <div id="boxev1">
     <div class="row">
         <div class="col-xs-12">
-            <div class="page-header">{{dati.userId.name}}
+            <div class="page-header">
+                <img id="imgOpera" ng-src="{{dati.recipient.img_url}}" alt="{{dati.recipient.img_alt}}" ng-if="dati.recipient.img_url.includes('https://firebasestorage.googleapis.com')"style="opacity: 1">
                 <h1>{{dati.recipient.userId}} {{dati.recipient.name}} {{dati.recipient.surname}}</h1>
                 <div id="eventsDiv">
                     <h4>Eventi</h4>
@@ -52,9 +53,9 @@
     <div id="followDiv" >
         <div ng-repeat="follow in dati.follows" ng-if="follow.follower.userId == dati.userId.$id && follow.followed == dati.recipient.userId ">{{follow.id}}
             <button ng-click="removeFollow(follow.id)" type="submit" class="btn btn-info" style="float: right;">UnFollow</button></div>
-        <div repeat="follow in dati.follows">
-            <button  ng-click="CreateFollow()" type="submit" class="btn btn-primary" style="float: right;">Follow</button>
-        </div>
+            <div ng-if="follow.follower.userId != dati.userId.$id && follow.followed != dati.recipient.userId">
+            <button id="followButton"  ng-click="CreateFollow();" type="submit" class="btn btn-primary" ng-if="" style="float: right;">Follow</button>
+            </div>
     </div>
 
 </div>

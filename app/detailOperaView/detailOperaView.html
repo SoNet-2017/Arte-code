@@ -1,22 +1,32 @@
 <div id="boxev1">
-    <div id="map" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}" class="col-md-8">
-        <ng-map center="{{dati.opera.ubicazione}}" zoom="12">
-            <marker ng-repeat="pos in dati.vm.positions" position="{{pos.ubicazione}}"></marker>
-        </ng-map>
-    </div>
-    <div class="row">
+
+    <div  class="row">
         <div class="col-xs-12">
             <ul class="media-list">
-                <a href="#!/otherUser/{{dati.opera.autoreId}}"  ng-if="dati.opera.autoreId != dati.userId">{{dati.autoreId.name}}, {{dati.autoreId.surname}}</a>
-                <a href="#!/userProfile"  ng-if="dati.opera.autoreId == dati.userId">{{dati.autoreId.name}}, {{dati.autoreId.surname}}</a>
+                <h2>{{dati.opera.titolo}}</h2>
+                <h5><a href="#!/otherUser/{{dati.opera.autoreId}}"  ng-if="dati.opera.autoreId != dati.userId">{{dati.autoreId.name}}, {{dati.autoreId.surname}}</a>
+                <a href="#!/userProfile"  ng-if="dati.opera.autoreId == dati.userId">{{dati.autoreId.name}}, {{dati.autoreId.surname}}</a></h5>
+            </ul>
+        </div>
+    </div>
+
+
+<div id="map" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}" class="col-md-8" style="margin-bottom: 25px">
+        <ng-map center="{{dati.opera.ubicazione}}" zoom="12">
+            <marker ng-repeat="pos in dati.vm.positions" position="{{pos.ubicazione}}">{{dati.opera.ubicazione}}</marker>
+        </ng-map>
+    </div>
+    <div  class="row">
+        <div class="col-xs-12">
+            <ul class="media-list">
+                <h5>Dettagli Tecnici: {{dati.opera.infoTecniche}}</h5>
             </ul>
         </div>
     </div>
 </div>
 
 
+
 <div id="boxev2">
-
-
         <img id="imgOpera" ng-src="{{dati.opera.img_url}}" alt="{{dati.opera.img_alt}}" ng-if="dati.opera.img_url.includes('https://firebasestorage.googleapis.com')"style="opacity: 1">
     </div>

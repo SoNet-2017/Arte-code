@@ -5,14 +5,8 @@
                 <input id="Search" type="text" class="form-control" ng-model="criticaSearch" placeholder="Critica Search">
                     <li class="list-unstyled" ng-repeat="critica in dati.critiche | orderBy:orderProp | filter:criticaSearch">
                         <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
-                            <div class="media-left">
-                                <div id="critica">
-                                    <img class="media-object" ng-src="../{{evento.img_url}}" alt="{{critica.img_alt}}" style="width: 80px;height: 80px;">
-                                </div>
-                            </div>
                             <div class="media-body">
                                 <h4 class="media-heading"><strong>{{critica.id}}</strong></h4>
-                                <p></p>
                             </div>
                             <hr/>
                         </a>
@@ -22,11 +16,6 @@
                     </li>
             </ul>
         </div>
-    </div>
-    <div>
-        <ul>
-            <li ng-class="{'active' : dati.currentView === 'addCritica'}"><a href="#!/addCritica" data-toggle="modal" data-target="#myModal">Aggiungi critica</a></li>
-        </ul>
     </div>
 </div>
 
@@ -38,11 +27,11 @@
     </div>
 
     <div>
-        <carousel interval="myInterval">
-            <slide ng-repeat="critica in dati.critiche | orderBy:orderProp | filter:Autore(dati.recipient.userId)" active="slide.active">
+        <carousel interval="myInterval"><h1>Le mie Critiche</h1>
+            <slide ng-repeat="critica in dati.critiche | orderBy:orderProp | filter:Autore(dati.userId)" active="slide.active">
                 <textarea style="margin: 0px; width: 401px; height: 298px;">{{critica.testo}}</textarea>
                 <div class="carousel-caption">
-                    <h4>Slide {{$index+1}}</h4>
+                    <h4>Slide {{critica.nome_critica}}</h4>
                 </div>
             </slide>
         </carousel>

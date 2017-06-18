@@ -46,12 +46,14 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
 
        $scope.CreateFollow = function() {
-           UsersFollowService.insertNewUsersFollow($scope.dati.userId,$routeParams.otherUserId,$scope.dati.recipient.name).then(function (ref) {
+           UsersFollowService.insertNewUsersFollow($scope.dati.userId,$routeParams.otherUserId,$scope.dati.recipient.name,'Bottone disabilitato').then(function (ref) {
                var followId = ref.key;
                UsersFollowService.updateUsersFollow(followId);
-           })
+               $('#followButton').attr('disabled',true);
+           });
        };
         $scope.removeFollow = function (followId) {
             UsersFollowService.deleteFollow(followId);
+            $('#followButton').prop("disabled",false);
         };
    }]);

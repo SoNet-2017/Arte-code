@@ -50,8 +50,9 @@ angular.module('myApp.modifyEventView',['ngRoute'])
                $scope.eventoId = partecipante.eventoId;
                $scope.IdParteipazione = partecipante.id;
                $scope.userPar = SingleEvento.getAutoreEvento(partecipante.userPar);
-               $scope.evento.opere = partecipante.opere;
-               console.log($scope.partecipant);
+               $scope.ListaOpere = partecipante.opere;
+               console.log($scope.userPar);
+               console.log($scope.ListaOpere);
            };
 
            $scope.dati.opere = Opera.getData();
@@ -61,6 +62,7 @@ angular.module('myApp.modifyEventView',['ngRoute'])
                 InsertOperaEventService.insertNewOperaEvent(idPartecipazione, opera);
                 console.log(opera);
                 $('#myModal2').modal('hide');
+                $('#add').prop("disabled",true);
 
 
             };

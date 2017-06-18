@@ -32,6 +32,13 @@ angular.module('myApp.users.usersService', [])
                     email: email,
                     uType: uType,
                 });
-            }
+            },
+                updateImage: function (userId,imgPath) {
+                    var iRef = firebase.database().ref().child("users").child(userId)
+                    iRef.update({
+                        img_url: imgPath,
+                        img_alt: userId,
+                    });
+                }
         };
     });

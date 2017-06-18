@@ -1,13 +1,18 @@
-<div id="box">
+<div id="boxev1">
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
-                <h1>{{dati.autoreId.nome}}</h1>
-                <p>{{dati.critica.nome_critica}}</p>
-                <p>{{dati.critica.tema}}</p>
-                <p>{{dati.critica.opera}}</p>
-                <p>{{dati.critica.testo}}</p>
+                <a href="#!/otherUser/{{dati.autoreId.$id}}" ng-if="dati.userId != dati.autoreId.$id"> <h1>{{dati.autoreId.name}}, {{dati.autoreId.surname}}</h1></a>
+                <a href="#!/userProfile" ng-if="dati.userId == dati.autoreId.$id"><h1>{{dati.autoreId.name}}, {{dati.autoreId.surname}}</h1></a>
+                Nome Critica: <p>{{dati.critica.nome_critica}}</p>
+                Tema: <p>{{dati.critica.tema}}</p>
+                Opera: <p>{{dati.critica.opera}}</p>
             </ul>
         </div>
     </div>
+</div>
+
+<div id="boxev2">
+    <h1>Testo:</h1>
+    <p>{{dati.critica.testo}}</p>
 </div>

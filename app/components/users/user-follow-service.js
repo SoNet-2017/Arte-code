@@ -13,7 +13,7 @@ angular.module('myApp.users.usersFollowService', [])
                 var userRef = firebase.database().ref().child("users").child(userId);
                 return $firebaseObject(userRef);
             },
-            insertNewUsersFollow: function (follower, followed, followedName) {
+            insertNewUsersFollow: function (follower, followed, followedName, button) {
                 //add the critica to list of critucs and set the logged value to true
                 var ref = firebase.database().ref().child("follows");
                 // create a synchronized array
@@ -21,6 +21,7 @@ angular.module('myApp.users.usersFollowService', [])
                     follower: follower,
                     followed: followed,
                     followedName: followedName,
+                    button: button
                 });
             },
             updateUsersFollow: function (followId) {

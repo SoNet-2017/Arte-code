@@ -24,6 +24,12 @@ angular.module('myApp.opereListView', ['ngRoute'])
         /**la funzione Critica è stata appena creata, potevo chiamarla anche Grimaldellobello volendo */
         $scope.dati.opere = Opera.getData();
         $scope.dati.userId = currentAuth.uid;
+        $scope.myInterval = 3000;
+        $scope.Autore = function (autoreId) {
+            if (autoreId = $scope.dati.userId){
+                return autoreId;
+            };
+        };
         $scope.operaSearch = {};
         $scope.orderProp = "autoreId";
 

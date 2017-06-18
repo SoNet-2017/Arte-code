@@ -22,12 +22,11 @@
             </a></div>
 
     <div>
-        <carousel interval="myInterval">
+        <carousel interval="myInterval"><h1>I miei Eventi</h1>
             <slide ng-repeat="evento in dati.eventos | orderBy:orderProp | filter:Autore(evento.autoreId)" active="slide.active">
-                {{evento.autoreId}}
                 <img class="carousel" ng-src="{{evento.img_url}}" alt="{{evento.img_alt}}" style="width:100%;" >
                 <div class="carousel-caption">
-                    <h4>Slide {{$index+1}}</h4>
+                    <h6>{{evento.tema}}</h6>
                 </div>
             </slide>
         </carousel>

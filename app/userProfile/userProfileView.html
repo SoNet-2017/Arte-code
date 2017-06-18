@@ -1,60 +1,73 @@
+<div ng-controller="userProfileCtrl2 as $ctrl">
 <div id="boxev1">
     <div class="row">
-    <div class="col-xs-12">
-        <div class="page-header">
-            <h1>{{dati.user.name}} {{dati.user.userId}} {{dati.user.surname}}</h1>
-        </div>
-        <p>
-            <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
-        </p>
+        <div class="col-xs-12">
+            <div class="page-header">
+                <img id="imgOpera" ng-src="{{dati.user.img_url}}" alt="{{dati.user.img_alt}}" ng-if="dati.user.img_url.includes('https://firebasestorage.googleapis.com')"style="opacity: 1">
+                <h1>{{dati.user.name}} {{dati.user.userId}} {{dati.user.surname}}</h1>
+            </div>
+            <p>
+                <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
+            </p>
 
-        <p>
-            <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-        </p>
-        <div id="eventsDiv">
-            <h4>Eventi</h4>
-            <div ng-repeat="evento in dati.eventos" ng-if ="dati.user.userId == evento.autoreId" >
-                <em>{{evento.nome_evento}}</em>
+            <p>
+                <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
+            </p>
+            <div id="eventsDiv">
+                <h4>Eventi</h4>
+                <div ng-repeat="evento in dati.eventos" ng-if ="dati.user.userId == evento.autoreId" >
+                    <em>{{evento.nome_evento}}</em>
+                </div>
             </div>
-        </div>
-        <div id="worksDiv">
-            <h4>Opere</h4>
-            <div ng-repeat="opera in dati.opere" ng-if ="dati.user.userId == opera.autoreId" >
-                <em>{{opera.titolo}}</em>
+            <div id="worksDiv">
+                <h4>Opere</h4>
+                <div ng-repeat="opera in dati.opere" ng-if ="dati.user.userId == opera.autoreId" >
+                    <em>{{opera.titolo}}</em>
+                </div>
             </div>
-        </div>
-        <div id="criticsDiv">
-            <h4>Critiche</h4>
-            <div ng-repeat="critica in dati.critics" ng-if="dati.user.userId == critica.autoreId" >
-                <em>{{critica.nome_critica}}</em>
+            <div id="criticsDiv">
+                <h4>Critiche</h4>
+                <div ng-repeat="critica in dati.critics" ng-if="dati.user.userId == critica.autoreId" >
+                    <em>{{critica.nome_critica}}</em>
+                </div>
             </div>
-        </div>
-        <div id="followersDiv">
-            <h4>Followers</h4>
-            <div ng-repeat="follow in dati.follows" ng-if ="dati.user.userId == follow.followed" >
-                <em>{{follow.follower.name}}</em>
+            <div id="followersDiv">
+                <h4>Followers</h4>
+                <div ng-repeat="follow in dati.follows" ng-if ="dati.user.userId == follow.followed" >
+                    <em>{{follow.follower.name}}</em>
+                </div>
             </div>
-        </div>
-        <div id="followingDiv">
-            <h4>Followinig</h4>
-            <div ng-repeat="follow in dati.follows" ng-if="dati.user.userId==follow.follower.userId">
-                <em>{{follow.followedName}}</em>
+            <div id="followingDiv">
+                <h4>Followinig</h4>
+                <div ng-repeat="follow in dati.follows" ng-if="dati.user.userId==follow.follower.userId">
+                    <em>{{follow.followedName}}</em>
+                </div>
             </div>
+            <form id="frmAdd" role="form" ng-submit="addImage()">
+                <h2>Aggiungi nuova immagine del profilo</h2>
+                <div class="form-group">
+                    <b>Immagine Opera:</b>
+                    <file-upload on-change="$ctrl.onChange">
+                    </file-upload>
+                </div>
+                <button type="submit">Add</button>
+            </form>
         </div>
-    </div>
     </div>
 </div>
 
 <div id="boxev2">
+    <div>
+        <carousel interval="myInterval">
+            <slide ng-repeat="opera in dati.opere | orderBy:orderProp | filter:Autore(opera.autoreId)" active="slide.active">
+                <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" >
+                <div class="carousel-caption">
+                    <h4>Slide {{$index+1}}</h4>
+                </div>
+            </slide>
+        </carousel>
+    </div>
 
-        <div>
-            <carousel interval="myInterval">
-                <slide ng-repeat="opera in dati.opere | orderBy:orderProp | filter:Autore(opera.autoreId)" active="slide.active">
-                    <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" >
-                    <div class="carousel-caption">
-                        <h4>Slide {{$index+1}}</h4>
-                    </div>
-                </slide>
-            </carousel>
-        </div>
+    </div>
 </div>
+

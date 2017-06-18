@@ -63,7 +63,6 @@
   <script src="components/evento/modify-evento-service.js"></script>
   <script src="components/evento/insert-opera-for-event-service.js"></script>
   <script src="components/evento/insert-user-service.js"></script>
-  <script src="insertOperaForEventView/insertOperaForEventView.js"></script>
 
     <!--indica eventi nella home-->
 
@@ -152,7 +151,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li ng-class="{'active' : dati.currentView === 'userProfile'}" ng-if="isLogged()"><a class="navbar-user" href="#!/userProfile"><span class="glyphicon glyphicon-user"></span></a></li>
-        <li ng-class="{'active' : dati.currentView === 'addOpera'}" ng-if="isLogged()"><a class="navbar-add " href="#!/addOpera"><span class="glyphicon glyphicon-user">AddOpera</span></a></li>
+        <li ng-class="{'active' : dati.currentView === 'addOpera'}" ng-if="isLogged() "><a class="navbar-add " href="#!/addOpera"><span class="glyphicon glyphicon-user">AddOpera</span></a></li>
         <li><a href="#!listeventView">Eventi</a></li>
         <li><a href="#!listeOpere">Opere</a></li>
         <li><a href="#!listeCritiche">Critiche</a></li>

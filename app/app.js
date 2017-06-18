@@ -42,9 +42,7 @@ angular.module('myApp', [
     'myApp.modifyEventView',
     'myApp.modifyCriticView',
     'myApp.usersConferenceListView',
-    'myApp.conferenceView',
-    'myApp.insertOperaForEventView'
-])
+    'myApp.conferenceView'])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
         $routeProvider.otherwise({redirectTo: '/home'});
@@ -58,7 +56,8 @@ angular.module('myApp', [
             }
         });
     }])
-    .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth', function($scope, $rootScope, $firebaseAuth) {
+    .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth',
+        function($scope, $rootScope, $firebaseAuth) {
         //this controller only declares a function to get information about the user status (logged in / out)
         //it is used to show menu buttons only when the user is logged
 
@@ -72,9 +71,5 @@ angular.module('myApp', [
             else
                 return false;
         }
+
     }]);
-    /*.config(function($routeProvider){
-        $routeProvider.when("/utenti",{...})
-        .when("/utenti/:userId",{...})
-        .otherwise({redirectTo:"/utenti"});
-    })*/

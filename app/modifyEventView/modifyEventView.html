@@ -106,19 +106,25 @@
             </div>
             <div class="modal-body">
                 <ul class="media-list">
-                    {{partecipant}}
-
+                   {{partecipante}}
+<!-- si può fare con un filtro?-->
                     <h4>{{userPar.name}} {{userPar.surname}}, {{userPar.email}} </h4>
-
-                    <ul ng-repeat="opera in dati.opere" ng-if="opera.autoreId == userPar.$id">
-                        {{opera.id}}
-                        <ul ng-repeat="operaEv in evento.opere">
-                        <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;" ng-if="opera.id != operaEv.opera">{{operaEv.opera}}</button>
-                        <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
-                            <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')"></a>
+                        <ul ng-repeat="opera in dati.opere" ng-if="opera.autoreId == userPar.$id">
+                            <ul ng-repeat="operaEv in ListaOpere" ng-if="ListaOpere != null ">
+                            {{opera.id}}
+                        <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;" ng-if="opera.id != operaEv.opera">Add</button>
+                            <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                         {{opera.infoTecniche}}
-                        <h4><a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}"><br>{{opera.titolo}}</a></h4><hr/></ul>
-                    </ul>
+                        <hr/></ul>
+                            <ul  ng-else>
+                                {{opera.id}}
+                                <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;" >Add</button>
+                                    <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
+                                {{opera.infoTecniche}}
+                               <hr/>
+                            </ul>
+                        </ul>
+
                 </ul>
             </div>
             <div class="modal-footer">

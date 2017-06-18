@@ -19,9 +19,10 @@ angular.module('myApp.detailCriticaView', ['ngRoute','myApp.critiche'])
         })
     }])
 
-    .controller('detailCriticaViewCtrl', ['$scope','$routeParams', 'SingleCritica', function($scope,$routeParams,SingleCritica) {
+    .controller('detailCriticaViewCtrl', ['$scope','$routeParams','currentAuth', 'SingleCritica', function($scope,$routeParams,currentAuth,SingleCritica) {
             $scope.dati={};
             $scope.dati.critica = SingleCritica.getSingleCritica($routeParams.criticaId);
             $scope.dati.autoreId = SingleCritica.getAutoreCritica($routeParams.autoreId);
+            $scope.dati.userId = currentAuth.uid;
 
     }]);
