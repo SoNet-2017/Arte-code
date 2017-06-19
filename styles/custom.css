@@ -91,6 +91,18 @@ body {
     width: 167px;
     top: 4.3px;
 }
+.navbar-critics{
+    content:url("../images/Critics.png");
+    height: 75px;
+    width: 125px;
+    top: 4.3px;
+}
+.navbar-critics:hover{
+    content:url("../images/Critics.png");
+    height: 100px;
+    width: 167px;
+    top: 4.3px;
+}
 
 .reg{
     font-size: 36px;
