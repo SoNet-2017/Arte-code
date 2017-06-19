@@ -55,6 +55,30 @@ body {
     width: 167px;
     top: 4.3px;
 }
+.navbar-events{
+    content:url("../images/Eventi.png");
+    height: 75px;
+    width: 125px;
+    top: 4.3px;
+}
+.navbar-events:hover{
+    content:url("../images/Eventi.png");
+    height: 100px;
+    width: 167px;
+    top: 4.3px;
+}
+.navbar-opere{
+    content:url("../images/Opere.png");
+    height: 75px;
+    width: 125px;
+    top: 4.3px;
+}
+.navbar-opere:hover{
+    content:url("../images/Opere.png");
+    height: 100px;
+    width: 167px;
+    top: 4.3px;
+}
 
 .reg{
     font-size: 36px;
