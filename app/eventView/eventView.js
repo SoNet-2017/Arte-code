@@ -19,8 +19,8 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
         })
     }])
 
-    .controller('eventView1Ctrl', ['$scope','$routeParams', 'SingleEvento','UserList', 'currentAuth', 'Opera',
-        function($scope,$routeParams,SingleEvento,UserList, currentAuth, Opera) {
+    .controller('eventView1Ctrl', ['$scope','$rootScope','$routeParams', 'SingleEvento','UserList', 'currentAuth', 'Opera',
+        function($scope,$rootScope,$routeParams,SingleEvento,UserList, currentAuth, Opera) {
             $scope.dati={};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.dati.autoreId = SingleEvento.getAutoreEvento($routeParams.autoreId);
@@ -31,7 +31,7 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
         $scope.dati.availableUsers = UserList.getListOfUsers();
         $scope.dati.userId = currentAuth.uid;
 
-            $scope.orderProp = "eventoId";
+            $scope.orderProp = "";
             $scope.evento = function (eventoId) {
                 if (eventoId = $scope.dati.evento.id){
                     return eventoId;
@@ -68,6 +68,7 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
                     {title :'Inagurazione',start: inaug});
             });
             $scope.Prova = function (partecipante) {
+                $rootScope.evento = this;
                 $scope.opereEvento = partecipante.opere
                 $scope.eventoId = partecipante.eventoId;
                 $scope.IdParteipazione = partecipante.id;

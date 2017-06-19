@@ -18,15 +18,15 @@
                     </div >
                     <div class="form-group">
                         <label for="txtInaugurazione">Inaugurazione</label>
-                        <input type="date" id="txtInaugurazione" class="form-control" name="input" ng-model="dati.start" placeholder="yyyy-MM-dd" min="{{today | date: 'yyyy-MM-dd'}}">
+                        <input type="date" id="txtInaugurazione" class="form-control" name="input" ng-model="dati.inaugurazione" placeholder="yyyy-MM-dd" min="{{today | date: 'yyyy-MM-dd'}}">
                     </div>
                     <div class="form-group">
                         <label for="txtData_Inizio">Data Inizio</label>
-                        <input type="date" id="txtData_Inizio" class="form-control" name="input" ng-model="dati.start" placeholder="yyyy-MM-dd" min="{{today | date: 'yyyy-MM-dd'}}">
+                        <input type="date" id="txtData_Inizio" class="form-control" name="input" ng-model="dati.start" placeholder="yyyy-MM-dd" min="dati.inaugurazione">
                     </div>
                     <div class="form-group">
                         <label for="txtData_Fine">Data Fine</label>
-                        <input type="date" id="txtData_Fine" class="form-control" name="input" ng-model="dati.end" placeholder="yyyy-MM-dd" min="{{today | date: 'yyyy-MM-dd'}}">
+                        <input type="date" id="txtData_Fine" class="form-control" name="input" ng-model="dati.end" placeholder="yyyy-MM-dd" min="dati.start">
                     </div>
                     <div class="form-group">
                         <label for="txtUbicazione">Ubicazione</label>
@@ -41,7 +41,6 @@
                         <file-upload on-change="$ctrl.onChange">
                         </file-upload>
                     </div>
-
                     <button type="submit" class="btn btn-success center-block">Insert</button>
                 </form>
             </ul>

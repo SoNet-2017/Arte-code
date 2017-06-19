@@ -157,9 +157,12 @@ img .carousel{
     position: absolute;
     top: -25px;
     width: 400px;
-    height: 5000px;
+    height: 1800px;
     background-color:#FFF;
     z-index:+300;
+    overflow: auto;
+
+
 }
 
 #boxev2{
@@ -170,9 +173,10 @@ img .carousel{
     top: -25px;
     left: 35%;
     width: 62.5%;
-    height: 5000px;
+    height: 1800px;
     background-color: darkgrey;
     z-index:+300;
+    overflow: auto;
 }
 /*Login view*/
 
@@ -195,8 +199,6 @@ img .carousel{
 
 #boxLog
 {
-    margin: 0 auto;
-    width: 268px;
     background-color: #fff;
     border-radius: 8px;
     position: relative;

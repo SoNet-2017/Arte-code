@@ -104,14 +104,14 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Modal Header</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" >
                 <ul class="media-list">
                    {{partecipante}}
-<!-- si può fare con un filtro?-->
                     <h4>{{userPar.name}} {{userPar.surname}}, {{userPar.email}} </h4>
-                        <ul ng-repeat="opera in dati.opere" ng-if="opera.autoreId == userPar.$id">
-                            <ul ng-repeat="operaEv in ListaOpere" ng-if="ListaOpere != null ">
-                            {{opera.id}}
+                    <input id="Search" type="text" class="form-control" ng-model="operaSearch" placeholder="Event Search">
+                    <ul ng-repeat="opera in dati.opere| orderBy:orderProp | filter:operaSearch" ng-if="opera.autoreId == userPar.$id">
+                            <ul ng-repeat="operaEv in ListaOpere " ng-if="ListaOpere != null ">
+                            {{opera.titolo}}
                         <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;" ng-if="opera.id != operaEv.opera">Add</button>
                             <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                         {{opera.infoTecniche}}

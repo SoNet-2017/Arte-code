@@ -26,6 +26,9 @@ angular.module('myApp.modifyEventView',['ngRoute'])
                     return eventoId;
                 }
             };
+            $scope.operaSearch = "";
+
+
             $scope.dati.opere = Opera.getData();
             $scope.editEvento = function() {
                 ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.start,$scope.dati.end,$scope.dati.ubicazione,$scope.dati.info);

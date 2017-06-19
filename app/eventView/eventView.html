@@ -37,10 +37,11 @@
     <!--partecipante è una variabile a cui abbiamodato noi il nome, in cui andiamo a inserire i valori di evento.partecipanti.userPar e creiamo un array partecipante.userPar-->
 
     <div>
+        <h4>VIsualizza le opere degli Artisti</h4>
         <carousel interval="myInterval">
-            <button ng-repeat="partecipante in dati.partecipanti| orderBy:orderProp | filter:evento(partecipante.eventoId)" ng-click="Prova(partecipante)">{{partecipante.userPar}}</button>
+            <button ng-repeat="partecipante in dati.partecipanti| orderBy:orderProp | filter:evento(partecipante.eventoId)" ng-click="Prova(partecipante)">Artista{{$index+1}}</button>
             <div ng-repeat=" operaEv in opereEvento">
-                <div ng-repeat="opera in dati.opere" ng-if="opera.id==operaEv.opera">{{opera.id}}, {{operaEv.opera}}
+                <div ng-repeat="opera in dati.opere" ng-if="opera.id==operaEv.opera">{{userPar.name}}, {{userPar.surname}}. {{opera.titolo}}
                     <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" >
                 </div>
             </div>
