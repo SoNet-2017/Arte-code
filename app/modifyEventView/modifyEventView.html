@@ -16,15 +16,16 @@
                     </div>
                     <div class="form-group">
                         <label for="txtInaugurazione">Inaugurazione</label>
-                        <input type="date" name="form-date" class="form-control" ng-value="dati.evento.inaugurazione" id="txtInaugurazione" ng-model="dati.inaugurazione" />
+                        <input type="date" id="txtInaugurazione" class="form-control" name="input" ng-value="dati.evento.inaugurazione" ng-model="dati.inaugurazione" placeholder="yyyy-MM-dd" min="{{today | date: 'yyyy-MM-dd'}}">
                     </div>
                     <div class="form-group">
                         <label for="txtData_Inizio">Data Inizio</label>
-                        <input type="date" name="form-date" class="form-control" ng-value="dati.evento.start"  id="txtData_Inizio" ng-model="dati.start" />
+                        <input type="date" id="txtData_Inizio" class="form-control" name="input" ng-value="dati.evento.start" ng-model="dati.start" placeholder="yyyy-MM-dd" min="dati.inaugurazione">
+
                     </div>
                     <div class="form-group">
                         <label for="txtData_Fine">Data Fine</label>
-                        <input type="date" name="form-date" class="form-control" ng-value="dati.evento.end" id="txtData_Fine" ng-model="dati.end" />
+                        <input type="date" id="txtData_Fine" class="form-control" name="input" ng-value="dati.evento.end.toLocaleString()" ng-model="dati.end" placeholder="yyyy-MM-dd" min="dati.start">
                     </div>
                     <div class="form-group">
                         <label for="txtUbicazione">Ubicazione</label>

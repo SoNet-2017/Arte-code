@@ -4,7 +4,7 @@
         <div class="col-xs-12">
             <div class="page-header">
                 <img id="imgOpera" ng-src="{{dati.user.img_url}}" alt="{{dati.user.img_alt}}" ng-if="dati.user.img_url.includes('https://firebasestorage.googleapis.com')"style="opacity: 1">
-                <h1>{{dati.user.name}} {{dati.user.userId}} {{dati.user.surname}}</h1>
+                <h1>{{dati.user.name}} {{dati.user.surname}}</h1>
             </div>
             <p>
                 <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
@@ -44,9 +44,10 @@
                 </div>
             </div>
             <form id="frmAdd" role="form" ng-submit="addImage()">
-                <h2>Aggiungi nuova immagine del profilo</h2>
+
                 <div class="form-group">
-                    <b>Immagine Opera:</b>
+                    <h2 ng-if=" dati.user.img_alt == 'null'">Aggiungi nuova immagine del profilo</h2>
+                    <h2 ng-else>Modifica immagine Profilo</h2>
                     <file-upload on-change="$ctrl.onChange">
                     </file-upload>
                 </div>

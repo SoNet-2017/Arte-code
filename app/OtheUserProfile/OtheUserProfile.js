@@ -38,6 +38,16 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
        };
        $scope.orderProp = "autoreId";
 
+
+        console.log($scope.dati.userId.$id);
+        console.log($scope.dati.recipient.$id);
+       $scope.Seguace = function (follower,followed) {
+           if($scope.dati.userId.$id == followed && $scope.dati.recipient.$id == follower ){
+               return true;
+           }
+       };
+       $scope.orderProp1 = "followed";
+
        $scope.dati.eventos = Evento.getData();
        $scope.dati.opere = Opera.getData();
        $scope.dati.critiche = Critica.getData();
@@ -53,6 +63,7 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
            });
        };
         $scope.removeFollow = function (followId) {
+            console.log($scope.followId);
             UsersFollowService.deleteFollow(followId);
             $('#followButton').prop("disabled",false);
         };
