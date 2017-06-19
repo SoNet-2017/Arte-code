@@ -32,10 +32,22 @@ body {
     width: 125px;
 
 }
+.navbar-user:hover{
+    content: url("../images/User.png");
+    height: 100px;
+    width: 167px;
+
+}
 .navbar-add{
     content:url("../images/Add.png");
     height: 75px;
     width: 125px;
+    top: 4.3px;
+}
+.navbar-add:hover{
+    content:url("../images/Add.png");
+    height: 100px;
+    width: 167px;
     top: 4.3px;
 }
 
