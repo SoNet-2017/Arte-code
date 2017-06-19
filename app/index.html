@@ -155,7 +155,7 @@
         <li ng-class="{'active' : dati.currentView === 'listeventView'}" ng-if="isLogged()"><a class="navbar-events " href="#!/listeventView"><span class="glyphicon glyphicon-user">Events</span></a></li>
         <li ng-class="{'active' : dati.currentView === 'listeOpere'}" ng-if="isLogged()"><a class="navbar-opere " href="#!/listeOpere"><span class="glyphicon glyphicon-user">Opere</span></a></li>
         <li><a href="#!listeCritiche">Critiche</a></li>
-        <li><a href="#!usersList">Utenti</a></li>
+          <li ng-class="{'active' : dati.currentView === 'usersList'}" ng-if="isLogged()"><a class="navbar-users " href="#!/usersList"><span class="glyphicon glyphicon-user">Users</span></a></li>
       </ul>
     </div>
   </div>
