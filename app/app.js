@@ -15,7 +15,6 @@ angular.module('myApp', [
     "firebase",
   'ngRoute',
     'ngMap',
-    'ngMessages',
     'ui.bootstrap',
     'myApp.calendar',
     'myApp.homeView',
@@ -56,7 +55,7 @@ angular.module('myApp', [
             }
         });
     }])
-    .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth',
+    .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth','UsersChatService',
         function($scope, $rootScope, $firebaseAuth) {
         //this controller only declares a function to get information about the user status (logged in / out)
         //it is used to show menu buttons only when the user is logged
@@ -64,12 +63,10 @@ angular.module('myApp', [
         //set the variable that is used in the main template to show the active button
         $rootScope.dati = {};
         $rootScope.dati.currentView = 'home';
-        $scope.isLogged = function()
-        {
+            $scope.isLogged = function() {
             if ($firebaseAuth().$getAuth())
-                return true;
+            return true;
             else
-                return false;
+            return false;
         }
-
     }]);

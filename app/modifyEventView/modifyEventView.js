@@ -30,9 +30,9 @@ angular.module('myApp.modifyEventView',['ngRoute'])
             $scope.editEvento = function() {
                 ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.start,$scope.dati.end,$scope.dati.ubicazione,$scope.dati.info);
                 $scope.dati.feedback = "Modifica effettuata con successo";
-
-
             };
+
+
 
             $scope.addUser = function (){
                 InsertUserService.insertNewUser($routeParams.eventoId,$scope.dati.userParId).then(function(ref) {

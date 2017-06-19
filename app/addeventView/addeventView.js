@@ -21,7 +21,6 @@ angular.module('myApp.addeventView',['ngRoute'])
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addEvento";
             $rootScope.dati.userId = currentAuth.uid;
-            console.log($rootScope.dati.userId);
 
         }])
 
@@ -30,10 +29,12 @@ angular.module('myApp.addeventView',['ngRoute'])
             $scope.dati = {};
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addEvento";
+
+
+            $scope.today = new Date();
+
+
             var ctrl = this;
-
-
-            console.log($rootScope.dati.userId);
             $scope.fileToUpload = null;
             $scope.imgPath= "";
 

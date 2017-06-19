@@ -79,7 +79,7 @@
                         <div class="form-group">
                             <label for="selUtente">Scegli L'artista</label>
                             <select type="password" class="form-control" id="selUtente" ng-model="dati.userParId" />
-                            <option ng-repeat="user in dati.availableUsers" ng-if="dati.userId != user.userId" value="{{user.userId}}">{{user.name}}</option>
+                            <option ng-repeat="user in dati.availableUsers" ng-if="dati.userId != user.userId && user.uType == 'Artista'" value="{{user.userId}}" >{{user.name}}</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-success center-block" href="addModifyEvent/{{dati.evento.$id}}">Aggiungi</button>
@@ -116,9 +116,9 @@
                             <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                         {{opera.infoTecniche}}
                         <hr/></ul>
-                            <ul  ng-else>
+                            <ul ng-if="ListaOpere == null ">
                                 {{opera.id}}
-                                <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;" >Add</button>
+                                <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;">Add1</button>
                                     <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                                 {{opera.infoTecniche}}
                                <hr/>
