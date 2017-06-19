@@ -26,6 +26,11 @@ body {
     width: 125px;
     height: 75px;
 }
+.navbar-brand:hover{
+    content:url("../images/Arté.png ");
+    width: 167px;
+    height: 100px;
+}
 .navbar-user{
     content: url("../images/User.png");
     height: 75px;
