@@ -50,9 +50,12 @@
         </carousel>
     </div>
 
-    <div ng-repeat="follow in dati.follows | orderBy:orderProp1 | filter:Seguace(follow.follower.userId, follow.followed)">{{follow.follower.userId}}
-    {{follow.followed}}    <button id="followButton"  ng-click="CreateFollow()" type="submit" class="btn btn-primary"  style="float: right;">Follow</button>
-    </div>
+
+
+
+    <div ng-repeat="follow in dati.follows | orderBy:orderProp1 | filter:Seguace(follow.follower.userId,follow.followed)">{{follow.follower.userId}}</div>
+    <button id="followButton"  ng-click="CreateFollow()" type="submit" class="btn btn-primary"  style="float: right;">Follow</button>
+   {{dati.K}}
 
     <div ng-repeat="follow in dati.follows" ng-if="dati.userId.$id == follow.follower.userId && dati.recipient.userId == follow.followed ">{{follow.id}}
             <button ng-click="removeFollow(follow.id)" type="submit" class="btn btn-info" style="float: right;">UnFollow</button>

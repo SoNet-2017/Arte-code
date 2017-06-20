@@ -30,7 +30,6 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
        //$scope.dati.userInfo = UsersFollowService.getUserInfo($scope.dati.userId);
        $scope.dati.recipient = UsersFollowService.getUserInfo($scope.dati.otherUserId);
-       $scope.myInterval = 3000;
        $scope.Autore = function (autoreId) {
            if (autoreId = $scope.dati.otherUserId){
                return autoreId;
@@ -41,11 +40,21 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
         console.log($scope.dati.userId.$id);
         console.log($scope.dati.recipient.$id);
+        $scope.dati.K=  "";
        $scope.Seguace = function (follower,followed) {
-           if($scope.dati.userId.$id == followed && $scope.dati.recipient.$id == follower ){
-               return true;
-           }
-       };
+           console.log(follower)
+           console.log(followed)
+
+           if($scope.dati.userId.$id != follower && $scope.dati.recipient.$id != followed ){
+               var K = 1;
+               $scope.dati.K= K;}
+           else if($scope.dati.userId.$id == follower && $scope.dati.recipient.$id == followed ){
+               var K = 0;
+               $scope.dati.K = K;}}
+
+
+               console.log($scope.dati.K)
+
        $scope.orderProp1 = "followed";
 
        $scope.dati.eventos = Evento.getData();

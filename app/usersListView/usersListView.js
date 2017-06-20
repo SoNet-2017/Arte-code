@@ -27,14 +27,3 @@ angular.module('myApp.usersListView', ['ngRoute'])
             $scope.utenteSearch = {};
             $scope.orderProp = "name";
         }]);
-
-/*
-    .controller('usersListViewCtrl', ['$scope', '$rootScope', '$routeParams', 'UserList', 'currentAuth',
-        function($scope,  $rootScope, $routeParams, UserList, currentAuth) {
-            $scope.dati = {};
-            $scope.dati.availableUsers= UserList.getData();
-            /*$rootScope.dati = {};
-            $rootScope.dati.currentView = "chat";
-            $scope.dati.availableUsers = UserList.getListOfUsers();
-            $scope.dati.userId = currentAuth.uid;
-        }]);*/
