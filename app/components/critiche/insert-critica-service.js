@@ -4,9 +4,6 @@ angular.module('myApp.critiche.insertCriticaService', [])
 
     .factory('InsertCriticaService', function($firebaseArray) {
         var NewCriticaService = {
-            getUserInfo: function(userId) {
-                var userRef = firebase.database().ref().child("users").child(userId);
-            },
             insertNewCritica: function (autoreId,nome_critica, tema, opera,testo) {
                 //add the critica to list of critucs and set the logged value to true
                 var ref = firebase.database().ref().child("critics");

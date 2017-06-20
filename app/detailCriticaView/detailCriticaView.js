@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.detailCriticaView', ['ngRoute','myApp.critiche'])
+angular.module('myApp.detailCriticaView', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/detailCritica/:autoreId/:criticaId',{

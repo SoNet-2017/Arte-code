@@ -23,7 +23,6 @@ angular.module('myApp.addCriticView',['ngRoute'])
             $scope.addCritica = function() {
                 InsertCriticaService.insertNewCritica($scope.dati.userId,$scope.dati.nome_critica, $scope.dati.tema, $scope.dati.opera,$scope.dati.testo).then(function(ref) {
                     var criticaId = ref.key;
-                    $scope.dati.userInfo = InsertCriticaService.getUserInfo($scope.dati.userId);
                     InsertCriticaService.updateCritica(criticaId);
                     $scope.dati.feedback = "Inserimento effettuato con successo";
                     $scope.dati.nome = "";

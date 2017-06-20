@@ -19,29 +19,15 @@ angular.module('myApp.detailOperaView', ['ngRoute','myApp.opere'])
         })
     }])
 
-    .controller('detailOperaViewCtrl', ['$scope','$rootScope','$routeParams','currentAuth', 'SingleOpera', function($scope,$rootScope,$routeParams,currentAuth,SingleOpera) {
+    .controller('detailOperaViewCtrl', ['$scope','$rootScope','$routeParams','currentAuth', 'SingleOpera',
+        function($scope,$rootScope,$routeParams,currentAuth,SingleOpera) {
             $scope.dati={};
             $rootScope.dati.currentView = "detailOpera";
             $scope.dati.userId = currentAuth.uid;
-
-
-
-
-
-        $scope.dati.opera = SingleOpera.getSingleOpera($routeParams.operaId);
-
+            $scope.dati.opera = SingleOpera.getSingleOpera($routeParams.operaId);
             $scope.dati.autoreId = SingleOpera.getAutoreOpera($routeParams.autoreId);
 
+
             $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RySAMBGiwVPZ6RmD1KI9dO5Iw2rDwCA";
-            $scope.dati.vm = this;
-            $scope.dati.vm.positions = [];
-            $scope.dati.opera.$loaded().then(function () {
-             var ubicazione = $scope.dati.opera.ubicazione;
-             $scope.dati.vm.positions.push({ubicazione: ubicazione});
-             console.log("vm.positions", $scope.dati.vm.positions);
-            });
-
-
-        //$scope.dati.UserId = $routeParams.userId;
 
     }]);
