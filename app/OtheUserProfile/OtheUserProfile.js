@@ -19,8 +19,8 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
         })
     }])
 
-   .controller('OtheUserProfileCtrl',['$scope','$rootScope','$routeParams','currentAuth','UsersFollowService', 'Evento', 'Opera', 'Critica', 'UserList',
-   function ($scope, $rootScope, $routeParams, currentAuth, UsersFollowService, Evento, Opera, Critica, UserList) {
+   .controller('OtheUserProfileCtrl',['$scope','$rootScope','$routeParams','$window','currentAuth','UsersFollowService', 'Evento', 'Opera', 'Critica', 'UserList',
+   function ($scope, $rootScope, $routeParams,$window, currentAuth, UsersFollowService, Evento, Opera, Critica, UserList) {
 
        $scope.dati = {};
        $rootScope.dati.currentView = "otherUser";
@@ -66,38 +66,28 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
                    }
                }
        });
+       $scope.dati.yetFollowing = false;
+       $scope.dati.follows.$loaded().then(function(){
+           var following = $scope.dati.follows;
+           for (var keySingleFlowing in following) {
+               if (!angular.isFunction(keySingleFlowing)) {
+                   if (!angular.isFunction(following[keySingleFlowing])) {
+                       if (following[keySingleFlowing]!=undefined && following[keySingleFlowing].follower!=undefined) {
+                           if ($scope.dati.userId.$id == following[keySingleFlowing].follower.userId) {
+                               if ($scope.dati.recipient.$id == following[keySingleFlowing].followed) {
+                                   $scope.dati.Follow = following[keySingleFlowing].id;
+                                   console.log($scope.dati.Follow);
+                                   $scope.dati.yetFollowing = true;
 
-/*
-       $scope.dati.K=  false;
-       $scope.Seguace = function (follower,followed) {
-           var result = true;
-           if ($scope.dati.userId.$id == follower) {
-               if ($scope.dati.recipient.$id == followed) {
-                   result = false;
+                               }
+                           }
+                       }
+                   }
                }
            }
-           if ($scope.dati.K == true)
-           {
-               result = false;
-           }
-           if (result == true)
-           {
-               $scope.dati.K = true;
-           }
-           return result;
+       return false;});
 
-            console.log(follower)
-            console.log(followed)
 
-            if($scope.dati.userId.$id != follower && $scope.dati.recipient.$id != followed ){
-            var K = 1;
-            $scope.dati.K= K;}
-            else if($scope.dati.userId.$id == follower && $scope.dati.recipient.$id == followed ){
-            var K = 0;
-            $scope.dati.K = K;}
-
-       }
-*/
 
 
        $scope.CreateFollow = function() {
@@ -105,11 +95,14 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
                var followId = ref.key;
                UsersFollowService.updateUsersFollow(followId);
                $scope.dati.notYetFollowing = false;
+               $scope.dati.yetFollowing =true;
+               $window.location.reload();
+
            });
        };
         $scope.removeFollow = function (followId) {
-            console.log($scope.followId);
             UsersFollowService.deleteFollow(followId);
             $scope.dati.notYetFollowing = true;
+            $scope.dati.yetFollowing =false;
         };
    }]);
