@@ -6,7 +6,7 @@
                     <li class="list-unstyled" ng-repeat="critica in dati.critiche | orderBy:orderProp | filter:criticaSearch">
                         <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
                             <div class="media-body">
-                                <h4 class="media-heading"><strong>{{critica.id}}</strong></h4>
+                                <h4 class="media-heading"><strong>{{critica.nome_critica}}</strong></h4>
                             </div>
                             <hr/>
                         </a>

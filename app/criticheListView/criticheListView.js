@@ -19,10 +19,11 @@ angular.module('myApp.criticheListView', ['ngRoute','myApp.critiche'])
         })
     }])
 
-    .controller('criticheListView1Ctrl', ['$scope','Critica','currentAuth','ModifyCriticaService',
-        function($scope,Critica,currentAuth,ModifyCriticaService) {
+    .controller('criticheListView1Ctrl', ['$scope','$rootScope','Critica','currentAuth','ModifyCriticaService',
+        function($scope,$rootScope,Critica,currentAuth,ModifyCriticaService) {
         $scope.dati={}; /**la funzione Critica è stata appena creata, potevo chiamarla anche Grimaldellobello volendo */
-        $scope.dati.critiche = Critica.getData();
+            $rootScope.dati.currentView = "listeCritiche";
+            $scope.dati.critiche = Critica.getData();
         $scope.dati.userId = currentAuth.uid;
         $scope.removeCritica = function(criticaId){
             ModifyCriticaService.deleteCritica(criticaId);

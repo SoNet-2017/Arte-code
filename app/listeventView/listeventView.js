@@ -19,9 +19,10 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
         })
     }])
 
-    .controller('View1Ctrl', ['$scope','Evento', 'currentAuth','ModifyEventoService',
-        function($scope,Evento, currentAuth,ModifyEventoService) {
+    .controller('View1Ctrl', ['$scope','$rootScope','Evento', 'currentAuth','ModifyEventoService',
+        function($scope,$rootScope, Evento, currentAuth,ModifyEventoService) {
         $scope.dati={};
+        $rootScope.dati.currentView = "listeventView";
         $scope.dati.eventos = Evento.getData();
         $scope.dati.userId = currentAuth.uid;
         $scope.removeEvento = function(EventoId){

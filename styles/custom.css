@@ -35,7 +35,6 @@ body {
     content: url("../images/User.png");
     height: 75px;
     width: 125px;
-    top: 4.3px;
 
 
 }
@@ -43,7 +42,6 @@ body {
     content: url("../images/User.png");
     height: 100px;
     width: 167px;
-    top: 4.3px;
 
 
 }
@@ -51,61 +49,51 @@ body {
     content:url("../images/Add.png");
     height: 75px;
     width: 125px;
-    top: 4.3px;
 }
 .navbar-add:hover{
     content:url("../images/Add.png");
     height: 100px;
     width: 167px;
-    top: 4.3px;
 }
 .navbar-events{
     content:url("../images/Eventi.png");
     height: 75px;
     width: 125px;
-    top: 4.3px;
 }
 .navbar-events:hover{
     content:url("../images/Eventi.png");
     height: 100px;
     width: 167px;
-    top: 4.3px;
 }
 .navbar-opere{
     content:url("../images/Opere.png");
     height: 75px;
     width: 125px;
-    top: 4.3px;
 }
 .navbar-opere:hover{
     content:url("../images/Opere.png");
     height: 100px;
     width: 167px;
-    top: 4.3px;
 }
 .navbar-users{
     content:url("../images/Users.png");
     height: 75px;
     width: 125px;
-    top: 4.3px;
 }
 .navbar-users:hover{
     content:url("../images/Users.png");
     height: 100px;
     width: 167px;
-    top: 4.3px;
 }
 .navbar-critics{
     content:url("../images/Critics.png");
     height: 75px;
     width: 125px;
-    top: 4.3px;
 }
 .navbar-critics:hover{
     content:url("../images/Critics.png");
     height: 100px;
     width: 167px;
-    top: 4.3px;
 }
 
 .reg{
@@ -152,6 +140,10 @@ label{
 img.media-object{
     width: 80px;
     height: 80px;
+}
+
+#Search{
+    margin-bottom: 20px;
 }
 
 /*carousel*/
@@ -246,6 +238,22 @@ img .carousel{
     background-color: darkgrey;
     z-index:+300;
     overflow: auto;
+}
+
+#frmRegister{
+    margin: 2.5%;
+}
+#box1{
+    padding-top: 15px;
+    opacity: .80;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    margin-left: -250px;
+    width: 500px;
+    height: 800px;
+    background-color:#FFF;
+    z-index:+300;
 }
 /*Login view*/
 
