@@ -40,20 +40,7 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
 
         console.log($scope.dati.userId.$id);
         console.log($scope.dati.recipient.$id);
-        $scope.dati.K=  "";
-       $scope.Seguace = function (follower,followed) {
-           console.log(follower)
-           console.log(followed)
 
-           if($scope.dati.userId.$id != follower && $scope.dati.recipient.$id != followed ){
-               var K = 1;
-               $scope.dati.K= K;}
-           else if($scope.dati.userId.$id == follower && $scope.dati.recipient.$id == followed ){
-               var K = 0;
-               $scope.dati.K = K;}}
-
-
-               console.log($scope.dati.K)
 
        $scope.orderProp1 = "followed";
 
@@ -61,19 +48,68 @@ angular.module('myApp.OtheUserProfile', ['ngRoute'])
        $scope.dati.opere = Opera.getData();
        $scope.dati.critiche = Critica.getData();
        $scope.dati.follows = UsersFollowService.getFollow();
+       $scope.dati.notYetFollowing = true;
+       $scope.dati.follows.$loaded().then(function(){
+               var following = $scope.dati.follows;
+               for (var keySingleFlowing in following) {
+                   if (!angular.isFunction(keySingleFlowing)) {
+                       if (!angular.isFunction(following[keySingleFlowing]))
+                       {
+                           if (following[keySingleFlowing]!=undefined && following[keySingleFlowing].follower!=undefined) {
+                               if ($scope.dati.userId.$id == following[keySingleFlowing].follower.userId) {
+                                   if ($scope.dati.recipient.$id == following[keySingleFlowing].followed) {
+                                       $scope.dati.notYetFollowing = false;
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+       });
 
+/*
+       $scope.dati.K=  false;
+       $scope.Seguace = function (follower,followed) {
+           var result = true;
+           if ($scope.dati.userId.$id == follower) {
+               if ($scope.dati.recipient.$id == followed) {
+                   result = false;
+               }
+           }
+           if ($scope.dati.K == true)
+           {
+               result = false;
+           }
+           if (result == true)
+           {
+               $scope.dati.K = true;
+           }
+           return result;
+
+            console.log(follower)
+            console.log(followed)
+
+            if($scope.dati.userId.$id != follower && $scope.dati.recipient.$id != followed ){
+            var K = 1;
+            $scope.dati.K= K;}
+            else if($scope.dati.userId.$id == follower && $scope.dati.recipient.$id == followed ){
+            var K = 0;
+            $scope.dati.K = K;}
+
+       }
+*/
 
 
        $scope.CreateFollow = function() {
            UsersFollowService.insertNewUsersFollow($scope.dati.userId,$routeParams.otherUserId,$scope.dati.recipient.name,'Bottone disabilitato').then(function (ref) {
                var followId = ref.key;
                UsersFollowService.updateUsersFollow(followId);
-               $('#followButton').attr('disabled',true);
+               $scope.dati.notYetFollowing = false;
            });
        };
         $scope.removeFollow = function (followId) {
             console.log($scope.followId);
             UsersFollowService.deleteFollow(followId);
-            $('#followButton').prop("disabled",false);
+            $scope.dati.notYetFollowing = true;
         };
    }]);
