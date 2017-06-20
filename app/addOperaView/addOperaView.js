@@ -21,8 +21,6 @@ angular.module('myApp.addOpreaView',['ngRoute'])
             $rootScope.dati.currentView = "addOpera";
             $rootScope.dati.userId = currentAuth.uid;
 
-            //$scope.dati.userId = currentAuth.uid;
-
         }])
     .controller('addOperaViewCtrl_2', ['$scope', '$rootScope', 'InsertOperaService', '$firebaseStorage',
         function($scope, $rootScope, InsertOperaService, $firebaseStorage) {
@@ -31,7 +29,6 @@ angular.module('myApp.addOpreaView',['ngRoute'])
             $rootScope.dati.currentView = "addOpera";
             var ctrl = this;
 
-            console.log($rootScope.dati.userId);
             $scope.fileToUpload = null;
             $scope.imgPath= "";
 
@@ -55,7 +52,6 @@ angular.module('myApp.addOpreaView',['ngRoute'])
                         });
                         uploadTask.$error(function (error) {
                             $scope.dati.error = error + " - the Opera will be added without a descriptive image!";
-                            //add the pizza in any case (without the image)
                             $scope.finalOperaAddition();
                         });
                     }
@@ -76,14 +72,11 @@ angular.module('myApp.addOpreaView',['ngRoute'])
                 $scope.fileToUpload = fileList[0];
             };
 
-            //$scope.dati.userId = currentAuth.uid;
 
 
             $scope.finalOperaAddition = function() {
                 InsertOperaService.insertNewOpera($rootScope.dati.userId, $scope.dati.titolo, $scope.dati.ubicazione, $scope.dati.infoTecniche, $scope.imgPath).then(function (ref) {
                     var operaId = ref.key;
-                    //$scope.dati.userId = currentAuth.uid;
-                    $scope.dati.userInfo = InsertOperaService.getUserInfo($rootScope.dati.userId);
                     InsertOperaService.updateOpera(operaId);
                     $scope.dati.feedback = "Inserimento effettuato con successo";
                     $scope.dati.titolo = "";

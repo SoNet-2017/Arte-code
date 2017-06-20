@@ -4,9 +4,6 @@ angular.module('myApp.opere.insertOperaService', [])
 
     .factory('InsertOperaService', function($firebaseArray) {
         var NewOperaService = {
-            getUserInfo: function(userId) {
-                var userRef = firebase.database().ref().child("users").child(userId);
-            },
             insertNewOpera: function (autoreId, titolo,ubicazione, infoTecniche,imgPath) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("works");

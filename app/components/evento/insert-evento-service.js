@@ -4,9 +4,6 @@ angular.module('myApp.evento.insertEventoService', [])
 
     .factory('InsertEventoService', function($firebaseArray) {
         var NewEventoService = {
-            getUserInfo: function(userId) {
-                var userRef = firebase.database().ref().child("users").child(userId);
-            },
             insertNewEvento: function (autoreId,nome_evento, tema, inaugurazione, start, end, ubicazione, info,  imgPath) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("eventos");

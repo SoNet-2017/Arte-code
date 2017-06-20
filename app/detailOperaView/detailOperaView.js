@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.detailOperaView', ['ngRoute','myApp.opere'])
+angular.module('myApp.detailOperaView', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/detailOpera/:autoreId/:operaId',{
@@ -26,8 +26,6 @@ angular.module('myApp.detailOperaView', ['ngRoute','myApp.opere'])
             $scope.dati.userId = currentAuth.uid;
             $scope.dati.opera = SingleOpera.getSingleOpera($routeParams.operaId);
             $scope.dati.autoreId = SingleOpera.getAutoreOpera($routeParams.autoreId);
-
-
             $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2RySAMBGiwVPZ6RmD1KI9dO5Iw2rDwCA";
 
     }]);

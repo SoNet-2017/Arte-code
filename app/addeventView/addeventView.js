@@ -15,8 +15,8 @@ angular.module('myApp.addeventView',['ngRoute'])
 
     }])
 
-    .controller('addeventViewCtrl', ['$scope', '$rootScope','currentAuth', 'InsertEventoService',
-        function($scope, $rootScope,currentAuth, InsertEventoService) {
+    .controller('addeventViewCtrl', ['$scope', '$rootScope','currentAuth',
+        function($scope, $rootScope,currentAuth) {
             $scope.dati = {};
             $scope.dati.feedback = "";
             $rootScope.dati.currentView = "addEvento";
@@ -86,7 +86,6 @@ angular.module('myApp.addeventView',['ngRoute'])
             $scope.finalEventoAddition = function() {
                 InsertEventoService.insertNewEvento($rootScope.dati.userId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione.toDateString(), $scope.dati.start.toDateString(), $scope.dati.end.toDateString(), $scope.dati.ubicazione,$scope.dati.info, $scope.imgPath).then(function(ref) {
                     var eventoId = ref.key;
-                    $scope.dati.userInfo = InsertEventoService.getUserInfo($rootScope.dati.userId);
                     $scope.evento = eventoId;
                     InsertEventoService.updateEvento(eventoId);
                     $scope.dati.feedback = "Inserimento effettuato con successo";
