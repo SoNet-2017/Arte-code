@@ -11,7 +11,7 @@ angular.module('myApp.opere.singleOperaService', [])
             getAutoreOpera: function(autoreId)    {
                     var userRef = firebase.database().ref().child("users").child(autoreId);
                     return $firebaseObject(userRef);
-            },
+            }
                 };
         return singleOperaService;
     });

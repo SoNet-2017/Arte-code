@@ -36,6 +36,7 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
                     return autoreId;
                 };
             };
+        $scope.users = Evento.getAutori();
         $scope.eventSearch = "";
         $scope.orderProp = "inaugurazione";
 

@@ -14,6 +14,10 @@ angular.module('myApp.opere.opereService', [])
             getAutori:function () {
                 var ARef = firebase.database().ref().child("users");
                 return $firebaseArray(ARef);
+            },
+            deleteOpera : function (operaId) {
+                var ref = firebase.database().ref().child("works").child(operaId);
+                ref.remove();
             }
         };
         return opereService;

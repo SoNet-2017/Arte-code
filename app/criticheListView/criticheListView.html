@@ -4,15 +4,18 @@
             <ul class="media-list">
                 <input id="Search" type="text" class="form-control" ng-model="criticaSearch" placeholder="Critica Search">
                     <li class="list-unstyled" ng-repeat="critica in dati.critiche | orderBy:orderProp | filter:criticaSearch">
+                        <div ng-repeat="user in users" ng-if="user.$id==critica.autoreId">
                         <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
                             <div class="media-body">
                                 <h4 class="media-heading"><strong>{{critica.nome_critica}}</strong></h4>
+                                {{user.surname}}
                             </div>
                             <hr/>
                         </a>
                         <button class="center-block btn btn-danger" ng-click="removeCritica(critica.id)"ng-if="dati.userId == critica.autoreId">Rimuovi</button>
                         <a href="#!/addModifyCritic/{{critica.id}}">
                             <button   class="center-block btn btn-info" ng-if="dati.userId == critica.autoreId" >Modifica</button></a>
+                        </div>
                     </li>
             </ul>
         </div>

@@ -35,6 +35,7 @@ angular.module('myApp.criticheListView', ['ngRoute','myApp.critiche'])
                     return autoreId;
                 };
             };
+        $scope.users = Critica.getAutori();
         $scope.orderProp = "autoreId";
         $scope.criticaSearch={};
 

@@ -254,6 +254,7 @@ img .carousel{
     height: 800px;
     background-color:#FFF;
     z-index:+300;
+    overflow-y: auto;
 }
 /*Login view*/
 

@@ -24,6 +24,8 @@ angular.module('myApp.opereListView', ['ngRoute'])
             $scope.dati = {};
             $rootScope.dati.currentView = "listeOpere";
             $scope.dati.opere = Opera.getData();
+            $scope.removeOpera = function(operaId){
+                Opera.deleteOpera(operaId);}
             $scope.dati.userId = currentAuth.uid;
             $scope.myInterval = 3000;
             $scope.Autore = function (autoreId) {

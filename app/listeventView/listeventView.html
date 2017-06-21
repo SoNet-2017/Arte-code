@@ -3,14 +3,18 @@
     <input id="Search" type="text" class="form-control" ng-model="eventSearch" placeholder="Event Search">
     <div class="col-sm-4 "ng-repeat="evento in dati.eventos | orderBy:orderProp | filter:eventSearch">
         <div class="thumbnail">
+            <div ng-repeat="user in users" ng-if="evento.autoreId == user.$id">
             <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
                 <img class="media-object" ng-src="{{evento.img_url}}" alt="{{evento.img_alt}}">
-                <p><strong>{{evento.tema}}</strong></p>
-                <p>{{opera.autoreId.name}}</p>
+                <p><strong>{{evento.tema}}</strong></p><br/>
+                <p>{{user.surname}}</p><br/>
             </a>
             <button class="center-block btn btn-danger" ng-click="removeEvento(evento.id)" ng-if="dati.userId == evento.autoreId">Rimuovi</button>
             <a href="#!/addModifyEvent/{{evento.id}}">
-                <button class="center-block btn btn-info" ng-if ="dati.userId == evento.autoreId">Modifica</button></a>
+                <button class="center-block btn btn-info" ng-if ="dati.userId == evento.autoreId">Modifica</button>
+            </a>
+
+        </div>
         </div>
     </div>
 </div>

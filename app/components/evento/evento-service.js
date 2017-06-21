@@ -11,6 +11,10 @@ angular.module('myApp.evento.eventoService', [])
             getData: function () {
                 var ref = firebase.database().ref().child("eventos");
                 return $firebaseArray(ref);
+            },
+            getAutori:function () {
+                var ARef = firebase.database().ref().child("users");
+                return $firebaseArray(ARef);
             }
         };
         return eventoService;

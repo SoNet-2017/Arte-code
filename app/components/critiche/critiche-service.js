@@ -11,8 +11,8 @@ angular.module('myApp.critiche.criticheService', [])
                 var ref = firebase.database().ref().child("critics");
                 return $firebaseArray(ref);
             },
-            getAutore:function (auotreId) {
-                var ARef = firebase.database().ref().child("users").child(auotreId);
+            getAutori:function () {
+                var ARef = firebase.database().ref().child("users");
                 return $firebaseArray(ARef);
             }
         };
