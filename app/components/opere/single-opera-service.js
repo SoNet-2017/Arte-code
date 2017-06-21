@@ -15,18 +15,3 @@ angular.module('myApp.opere.singleOperaService', [])
                 };
         return singleOperaService;
     });
-
-   /* .factory('SingleOpera', function ($firebaseObject,$firebaseArray) {
-        var ref = firebase.database().ref().child("works");
-        return{
-            getAutoreOpera: function(userId)    {
-                var userRef = firebase.database().ref().child("users").child(userId);
-                return $firebaseObject(userRef);
-            },
-            getSingleOpera: function (operaId) {
-                return $firebaseArray(ref);
-            }
-
-        }
-
-    });*/

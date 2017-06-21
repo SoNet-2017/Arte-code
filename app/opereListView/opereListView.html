@@ -6,19 +6,19 @@
         <div class="col-lg-11">
             <ul class="media-list">
                 <input id="Search" type="text" class="form-control" ng-model="operaSearch" placeholder="Opera Search">
-                <ul  class="list-unstyled" ng-repeat="opera in dati.opere | orderBy:orderProp | filter:operaSearch ">
+                <ul  class="list-unstyled" ng-repeat="opera in dati.opere | orderBy:orderProp | filter:operaSearch">
+                    <div ng-repeat=" user in dati.users" ng-if="user.$id == opera.autoreId">
                     <li><a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
                         <div class="media-left">
                             <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
-                            {{opera.autoreId }}
                         </div>
-                        {{dati.autore}}
                         <div class="media-body">
                             <h4 class="media-heading"><strong>{{opera.titolo}}</strong></h4>
-                            <p>{{users.name}}</p>
+                            <p>{{user.name}}</p>
                         </div>
                         <hr/>
                     </a></li>
+                    </div>
                 </ul>
             </ul>
         </div>

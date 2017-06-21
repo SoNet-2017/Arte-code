@@ -11,13 +11,9 @@ angular.module('myApp.opere.opereService', [])
                 var ref = firebase.database().ref().child("works");
                 return $firebaseArray(ref);
             },
-            getAutore:function (auotreId) {
-                var ARef = firebase.database().ref().child("users").child(auotreId);
+            getAutori:function () {
+                var ARef = firebase.database().ref().child("users");
                 return $firebaseArray(ARef);
-            },
-            getAutori: function(){
-                var Ref=firebase.database().ref().child("users");
-                return $firebaseArray(Ref);
             }
         };
         return opereService;
