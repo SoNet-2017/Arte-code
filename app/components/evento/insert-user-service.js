@@ -24,6 +24,14 @@ angular.module('myApp.evento.insertUserService', [])
             deleteUserPar: function (partecipazioneId) {
                 var pRef = firebase.database().ref().child("partecipanti").child(partecipazioneId);
                 pRef.remove();
+            },
+            insertNewOperaEvent: function (IdPartecipazione,opera) {
+                //add the user to list of users and set the logged value to true
+                var ref = firebase.database().ref().child("partecipanti").child(IdPartecipazione).child("opere");
+                // create a synchronized array
+                return $firebaseArray(ref).$add({
+                    opera: opera,
+                });
             }
         };
         return NewUserService;

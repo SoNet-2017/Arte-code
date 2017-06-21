@@ -14,10 +14,10 @@ angular.module('myApp.modifyEventView',['ngRoute'])
         });
 
     }])
-    .controller('modifyEventViewCtrl', ['$scope', '$rootScope', '$routeParams','UserList', 'ModifyEventoService','InsertUserService','SingleEvento', 'Opera','InsertOperaEventService',
-        function($scope, $rootScope,$routeParams,UserList, ModifyEventoService,InsertUserService,SingleEvento, Opera,InsertOperaEventService) {
+    .controller('modifyEventViewCtrl', ['$scope', '$routeParams', 'ModifyEventoService','InsertUserService','SingleEvento', 'Opera',
+        function($scope,$routeParams, ModifyEventoService,InsertUserService,SingleEvento, Opera) {
             $scope.dati={};
-            $scope.dati.availableUsers = UserList.getListOfUsers();
+            $scope.dati.availableUsers = Opera.getAutori();
             $scope.dati.partecipanti = SingleEvento.getPartecipants();
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
             $scope.orderProp = "eventoId";
@@ -62,7 +62,7 @@ angular.module('myApp.modifyEventView',['ngRoute'])
 
 
             $scope.addWorks = function (idPartecipazione, opera) {
-                InsertOperaEventService.insertNewOperaEvent(idPartecipazione, opera);
+                InsertUserService.insertNewOperaEvent(idPartecipazione, opera);
                 console.log(opera);
                 $('#myModal2').modal('hide');
                 $('#add').prop("disabled",true);

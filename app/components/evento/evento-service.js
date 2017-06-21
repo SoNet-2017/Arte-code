@@ -15,6 +15,10 @@ angular.module('myApp.evento.eventoService', [])
             getAutori:function () {
                 var ARef = firebase.database().ref().child("users");
                 return $firebaseArray(ARef);
+            },
+            deleteEvento : function (eventoId) {
+                var ref = firebase.database().ref().child("eventos").child(eventoId);
+                ref.remove();
             }
         };
         return eventoService;

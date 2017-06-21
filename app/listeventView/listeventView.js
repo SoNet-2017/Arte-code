@@ -19,14 +19,14 @@ angular.module('myApp.listeventView', ['ngRoute','myApp.evento'])
         })
     }])
 
-    .controller('View1Ctrl', ['$scope','$rootScope','Evento', 'currentAuth','ModifyEventoService',
-        function($scope,$rootScope, Evento, currentAuth,ModifyEventoService) {
+    .controller('View1Ctrl', ['$scope','$rootScope','Evento', 'currentAuth',
+        function($scope,$rootScope, Evento, currentAuth) {
         $scope.dati={};
         $rootScope.dati.currentView = "listeventView";
         $scope.dati.eventos = Evento.getData();
         $scope.dati.userId = currentAuth.uid;
         $scope.removeEvento = function(EventoId){
-            ModifyEventoService.deleteEvento(EventoId);
+            Evento.deleteEvento(EventoId);
             $scope.dati.feedback = "Rimozione effettuata con successo";
 
         };
