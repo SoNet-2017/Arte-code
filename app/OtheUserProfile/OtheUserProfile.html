@@ -4,7 +4,9 @@
             <div class="page-header">
                 <img id="imgOpera" ng-src="{{dati.recipient.img_url}}" alt="{{dati.recipient.img_alt}}" ng-if="dati.recipient.img_url.includes('https://firebasestorage.googleapis.com')"style="opacity: 1">
                 <h1>{{dati.recipient.name}} {{dati.recipient.surname}}</h1>
-                <div id="eventsDiv">
+                <p>
+                    <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:{{dati.recipient.email}}">{{dati.recipient.email}}</a>
+                </p>                <div id="eventsDiv">
                     <h4>Eventi</h4>
                             <div ng-repeat="evento in dati.eventos" ng-if ="dati.recipient.userId == evento.autoreId" >
                                 <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">

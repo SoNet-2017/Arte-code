@@ -6,9 +6,9 @@
                     <div ng-repeat=" user in dati.users" ng-if="user.$id == opera.autoreId">
                     <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
                             <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')" style="max-height: 70px;">
-                        </a>
-                            <h4 class="media-heading"><strong>{{opera.titolo}}</strong></h4>
-                            <p>{{user.name}}</p><br/>
+
+                            <h4 class="media-heading"><strong>{{opera.titolo}}</strong></h4></a>
+                        <a href="#!/otherUser/{{user.$id}}">{{user.surname}} {{user.name}}</a><br/>
                         <button class="btn btn-danger" ng-click="removeOpera(opera.id)"ng-if="dati.userId == opera.autoreId">Rimuovi</button>
                                   </div>
                 </div>
