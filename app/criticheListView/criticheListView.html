@@ -10,11 +10,12 @@
                                 <h4 class="media-heading"><strong>{{critica.nome_critica}}</strong></h4>
                                 {{user.surname}}
                             </div>
-                            <hr/>
+
                         </a>
-                        <button class="center-block btn btn-danger" ng-click="removeCritica(critica.id)"ng-if="dati.userId == critica.autoreId">Rimuovi</button>
+                        <button class="btn btn-danger" ng-click="removeCritica(critica.id)"ng-if="dati.userId == critica.autoreId">Rimuovi</button>
                         <a href="#!/addModifyCritic/{{critica.id}}">
-                            <button   class="center-block btn btn-info" ng-if="dati.userId == critica.autoreId" >Modifica</button></a>
+                            <button class="btn btn-info" ng-if="dati.userId == critica.autoreId" >Modifica</button></a>
+                            <hr/>
                         </div>
                     </li>
             </ul>
@@ -26,7 +27,7 @@
 <div id="boxev1">
 
     <div ng-class="{'active' : dati.currentView === 'addCritica'}"><a href="#!/addCritica" data-toggle="modal" data-target="#myModal">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Crea_Critica</button></a>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Aggiungi Critica</button></a>
     </div>
 
     <div>
