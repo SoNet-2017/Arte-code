@@ -41,7 +41,8 @@ angular.module('myApp.conferenceView', ['ngRoute'])
                     $scope.dati.userInfo.email,
                     $scope.dati.partecipante.userId,
                     $scope.dati.evento.id,
-                    $scope.dati.msg)
+                    $scope.dati.msg
+                )
                 UsersConferenceService.addMessage(newMessage);
                 $scope.dati.msg = "";
 

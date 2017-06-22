@@ -4,7 +4,7 @@
 
     <div class="col-xs-12 col-md-4">
         <div id="messagesDiv">
-            <div ng-repeat="msg in dati.messages  | orderBy:orderProp" ng-if="[dati.userId, dati.partecipante.userId].indexOf(msg.sender) > -1 && [dati.userId, dati.partecipante.userId].indexOf(msg.receiver) > -1 ">
+            <div ng-repeat="msg in dati.messages  | orderBy:orderProp" ng-if="[userId, dati.partecipante.userId].indexOf(msg.sender) > -1 && [userId, dati.partecipante.userId].indexOf(msg.receiver) > -1 ">
                 <em>{{msg.utctime}} - {{msg.senderName}}</em>: {{msg.text}}
             </div>
         </div>
