@@ -1,11 +1,8 @@
 
 <div class="thumbnail">
-<div class="LinkList"><a href="#!usersList">Profili</a></div>
-    <div class="LinkList"><a href="#!listeventView">Lista_Eventi</a></div>
-    <div class="LinkList"><a href="#!listeOpere">Lista_Opere</a></div>
-    <div class="LinkList"><a href="#!listeCritiche">Lista_Critiche</a></div></div>
+<div class="LinkList"></div></div>
 
-    <div class="col-sm-6"ng-repeat="evento in dati.eventos">
+    <div class="col-sm-6"ng-repeat="evento in dati.eventos|orderBy:random">
         <div class="thumbnail">
         <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
             <img class="media-object" ng-src="{{evento.img_url}}" alt="{{evento.img_alt}}">
@@ -14,7 +11,7 @@
         </a>
     </div>
 </div>
-    <div class="col-sm-3" ng-repeat="opera in dati.opere">
+    <div class="col-sm-3" ng-repeat="opera in dati.opere|orderBy:random">
         <div class="thumbnail">
             <a href="#!detailOpera/{{opera.autoreId}}/{{opera.id}}">
                 <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
@@ -23,7 +20,7 @@
             </a>
         </div>
     </div>
-    <div class="col-sm-2" ng-repeat="critica in dati.critics">
+    <div class="col-sm-2" ng-repeat="critica in dati.critics|orderBy:random">
         <div class="thumbnail">
             <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
                 <p><strong>{{critica.tema}}</strong></p>
