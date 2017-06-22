@@ -1,30 +1,19 @@
+<div id="boxev2" class="row text-center">
 
-
-
-<div id="boxev2">
-    <div class="row">
-        <div class="col-lg-11">
-            <ul class="media-list">
                 <input id="Search" type="text" class="form-control" ng-model="operaSearch" placeholder="Opera Search">
-                <ul  class="list-unstyled" ng-repeat="opera in dati.opere | orderBy:orderProp | filter:operaSearch">
+    <div class="col-sm-4" ng-repeat="opera in dati.opere | orderBy:orderProp | filter:operaSearch">
+        <div class="thumbnail">
                     <div ng-repeat=" user in dati.users" ng-if="user.$id == opera.autoreId">
-                    <li><a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
-                        <div class="media-left">
-                            <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
-                        </div>
-                        <div class="media-body">
+                    <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
+                            <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')" style="max-height: 70px;">
+                        </a>
                             <h4 class="media-heading"><strong>{{opera.titolo}}</strong></h4>
-                            <p>{{user.name}}</p>
-                        </div>
-
-                    </a></li>
+                            <p>{{user.name}}</p><br/>
                         <button class="btn btn-danger" ng-click="removeOpera(opera.id)"ng-if="dati.userId == opera.autoreId">Rimuovi</button>
-                        <hr/>
-                    </div>
-                </ul>
-            </ul>
-        </div>
+                                  </div>
+                </div>
     </div>
+        </div>
 </div>
 
 
