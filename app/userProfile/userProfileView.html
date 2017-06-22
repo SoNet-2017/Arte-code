@@ -1,5 +1,8 @@
 <div ng-controller="userProfileCtrl2 as $ctrl">
 <div id="boxev1">
+    <p>
+        <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
+    </p>
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header">
@@ -7,22 +10,24 @@
                 <h1>{{dati.user.name}} {{dati.user.surname}}</h1>
             </div>
             <p>
-                <span class="glyphicon glyphicon-envelope"></span> {{dati.user.email}}
+                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:{{dati.user.email}}">{{dati.user.email}}</a>
             </p>
 
-            <p>
-                <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-            </p>
+
             <div id="eventsDiv">
                 <h4>Eventi</h4>
                 <div ng-repeat="evento in dati.eventos" ng-if ="dati.user.userId == evento.autoreId" >
-                    <em>{{evento.nome_evento}}</em>
+                    <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
+
+                        <em>{{evento.nome_evento}}</em></a>
                 </div>
             </div>
             <div id="worksDiv">
                 <h4>Opere</h4>
                 <div ng-repeat="opera in dati.opere" ng-if ="dati.user.userId == opera.autoreId" >
-                    <em>{{opera.titolo}}</em>
+                    <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
+
+                    <em>{{opera.titolo}}</em></a>
                 </div>
             </div>
             <div id="criticsDiv">
@@ -35,20 +40,23 @@
             <div id="followersDiv">
                 <h4>Followers</h4>
                 <div ng-repeat="follow in dati.follows" ng-if ="dati.user.userId == follow.followed" >
-                    <em>{{follow.follower.name}}</em>
+                    <a href="#!/otherUser/{{follow.id}}">
+
+                        <em>{{follow.follower.name}}</em></a>
                 </div>
             </div>
             <div id="followingDiv">
                 <h4>Followinig</h4>
                 <div ng-repeat="follow in dati.follows" ng-if="dati.user.userId==follow.follower.userId">
-                    <em>{{follow.followedName}}</em>
+                    <a href="#!/otherUser/{{follow.id}}">
+                        <em>{{follow.followedName}}</em></a>
                 </div>
             </div>
             <form id="frmAdd" role="form" ng-submit="addImage()">
 
                 <div class="form-group">
                     <h2 ng-if=" dati.user.img_alt == 'null'">Aggiungi nuova immagine del profilo</h2>
-                    <h2 ng-else>Modifica immagine Profilo</h2>
+                    <h4 ng-else>Modifica immagine Profilo</h4>
                     <file-upload on-change="$ctrl.onChange">
                     </file-upload>
                 </div>
