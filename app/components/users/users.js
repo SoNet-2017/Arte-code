@@ -3,7 +3,6 @@
 angular.module('myApp.users', [
     'myApp.users.usersService',
     'myApp.users.usersListService',
-    'myApp.users.usersChatService',
     'myApp.users.usersFollowService',
     'myApp.users.usersConferenceService'])
 

@@ -19,12 +19,12 @@ angular.module('myApp.userProfileView', ['ngRoute','ui.bootstrap'])
   })
 }])
 
-.controller('userProfileCtrl', ['$scope', '$rootScope', 'UsersChatService', 'currentAuth', '$firebaseAuth',
-    function($scope, $rootScope, UsersChatService, currentAuth) {
+.controller('userProfileCtrl', ['$scope', '$rootScope', 'UsersFollowService', 'currentAuth', '$firebaseAuth',
+    function($scope, $rootScope, UsersFollowService, currentAuth) {
     $scope.dati={};
     $rootScope.dati.currentView = "userProfile";
         $scope.dati.userId = currentAuth.uid;
-        $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+        $scope.dati.user = UsersFollowService.getUserInfo(currentAuth.uid);
 
 
     }])

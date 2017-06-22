@@ -19,12 +19,12 @@ angular.module('myApp.homeView', ['ngRoute' ])
   })
 }])
 
-    .controller('homeViewCtrl', ['$scope','$rootScope','currentAuth','UsersChatService', 'Opera','Evento','Critica',
-        function($scope,$rootScope,currentAuth,UsersChatService,Opera,Evento,Critica) {
+    .controller('homeViewCtrl', ['$scope','$rootScope','currentAuth','UsersFollowService', 'Opera','Evento','Critica',
+        function($scope,$rootScope,currentAuth,UsersFollowService,Opera,Evento,Critica) {
         $scope.dati={};
         $rootScope.dati.currentView = "home";
         $scope.dati.userId = currentAuth.uid;
-        $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+        $scope.dati.user = UsersFollowService.getUserInfo(currentAuth.uid);
 
 
         $scope.dati.eventos = Evento.getData();

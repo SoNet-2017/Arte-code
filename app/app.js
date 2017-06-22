@@ -55,7 +55,7 @@ angular.module('myApp', [
             }
         });
     }])
-    .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth','UsersChatService',
+    .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth',
         function($scope, $rootScope, $firebaseAuth) {
         //this controller only declares a function to get information about the user status (logged in / out)
         //it is used to show menu buttons only when the user is logged
