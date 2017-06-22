@@ -80,8 +80,16 @@ angular.module('myApp.addeventView',['ngRoute'])
                 $scope.fileToUpload = fileList[0];
             };
 
+
             //$scope.dati.userId = currentAuth.uid;
-            $scope.evento = {};
+            $scope.inaugurazione = function (inaugurazione) {
+                var day = ('0' + $scope.dati.inaugurazione.getDate()).slice(-2);
+                var month = ('0' + ($scope.dati.inaugurazione.getMonth() + 1)).slice(-2);
+                var year = $scope.dati.inaugurazione.getFullYear();
+
+                return year + '-' + month + '-' + day;
+
+            }
 
             $scope.finalEventoAddition = function() {
                 InsertEventoService.insertNewEvento($rootScope.dati.userId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione.toDateString(), $scope.dati.start.toDateString(), $scope.dati.end.toDateString(), $scope.dati.ubicazione,$scope.dati.info, $scope.imgPath).then(function(ref) {

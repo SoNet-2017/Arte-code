@@ -8,32 +8,32 @@
 
                     <div class="form-group">
                         <label for="txtTitolo">Titolo</label>
-                        <input  type="text" class="form-control" id="txtTitolo"   ng-value="dati.evento.nome_evento" placeholder="Nome evento" name="name" ng-model="dati.nome_evento">
+                        <input  type="text" class="form-control" id="txtTitolo"   ng-value="dati.evento.nome_evento" placeholder="Nome evento" name="name" ng-model="dati.evento.nome_evento">
                     </div>
                     <div class="form-group">
                         <label for="txtTema">Tema</label>
-                        <input type="text" class="form-control" id="txtTema" ng-value="dati.evento.tema" placeholder="Tema" name="tema" ng-model="dati.tema" />
+                        <input type="text" class="form-control" id="txtTema" ng-value="dati.evento.tema" placeholder="Tema" name="tema" ng-model="dati.evento.tema" />
                     </div>
                     <div class="form-group">
                         <label for="txtInaugurazione">Inaugurazione</label>
-                        <input type="date" id="txtInaugurazione" class="form-control" name="input" ng-value="dati.evento.inaugurazione" ng-model="dati.inaugurazione" placeholder="yyyy-MM-dd" min="{{today | date: 'yyyy-MM-dd'}}">
+                        <input type="date" id="txtInaugurazione" class="form-control" name="input" ng-value="dati.evento.inaugurazione" ng-model="dati.evento.inaugurazione" placeholder="yyyy-MM-dd" min="{{today | date: 'yyyy-MM-dd'}}">
                     </div>
                     <div class="form-group">
                         <label for="txtData_Inizio">Data Inizio</label>
-                        <input type="date" id="txtData_Inizio" class="form-control" name="input" ng-value="dati.evento.start" ng-model="dati.start" placeholder="yyyy-MM-dd" min="dati.inaugurazione">
+                        <input type="date" id="txtData_Inizio" class="form-control" name="input" ng-value="dati.evento.start" ng-model="dati.evento.start" placeholder="yyyy-MM-dd" min="dati.evento.inaugurazione">
 
                     </div>
                     <div class="form-group">
                         <label for="txtData_Fine">Data Fine</label>
-                        <input type="date" id="txtData_Fine" class="form-control" name="input" ng-value="dati.evento.end.toLocaleString()" ng-model="dati.end" placeholder="yyyy-MM-dd" min="dati.start">
+                        <input type="date" id="txtData_Fine" class="form-control" name="input" ng-value="dati.evento.end.toISOString()" ng-model="dati.end" placeholder="yyyy-MM-dd" min="dati.start">
                     </div>
                     <div class="form-group">
                         <label for="txtUbicazione">Ubicazione</label>
-                        <input type="text" class="form-control" id="txtUbicazione" ng-value="dati.evento.ubicazione" placeholder="Ubicazione" name="ubicazione" ng-model="dati.ubicazione" />
+                        <input type="text" class="form-control" id="txtUbicazione" ng-value="dati.evento.ubicazione" placeholder="Ubicazione" name="ubicazione" ng-model="dati.evento.ubicazione" />
                     </div>
                     <div class="form-group">
                         <label for="txtInfo">Ulteriori Info</label>
-                        <input type="text" class="form-control" id="txtInfo" ng-value="dati.evento.info" placeholder="Inserisci testo" name="info" ng-model="dati.info" />
+                        <input type="text" class="form-control" id="txtInfo" ng-value="dati.evento.info" placeholder="Inserisci testo" name="info" ng-model="dati.evento.info" />
                     </div>
                     <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button>
                 </form>
@@ -56,9 +56,9 @@
             <button type="button" type="submit" class=" btn btn-info center-block" data-toggle="modal" data-target="#myModal"  >Inserisci Artista</button>
 
                     <ul ng-repeat="partecipante in dati.partecipanti | orderBy:orderProp | filter:evento(partecipante.eventoId)">
-                        {{partecipante.$id}}<button class="btn btn-danger" ng-click="removeArista(partecipante.$id)">Rimuovi</button>
+                        {{partecipante.$id}}<button class="center-block btn btn-danger" ng-click="removeArista(partecipante.$id)">Rimuovi</button>
 
-                        <button type="button" type="submit" class=" btn btn-info" data-toggle="modal" data-target="#myModal2" ng-click="A(partecipante)">Aggiungi_Opere</button>
+                        <button type="button" type="submit" class=" btn btn-default center-block" data-toggle="modal" data-target="#myModal2" ng-click="A(partecipante)">Aggiungi_Opere</button>
                     </ul>
 
         </div>
@@ -72,7 +72,7 @@
         <div  class="modal-content" class="col-xs-12">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Aggiungi artista</h4>
+                <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
                 <ul class="media-list">
@@ -103,29 +103,31 @@
         <div  class="modal-content" class="col-xs-12">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Seleziona opere</h4>
+                <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body" >
                 <ul class="media-list">
                    {{partecipante}}
                     <h4>{{userPar.name}} {{userPar.surname}}, {{userPar.email}} </h4>
-                    <input id="Search" type="text" class="form-control" ng-model="operaSearch" placeholder="Search">
+                    <input id="Search" type="text" class="form-control" ng-model="operaSearch" placeholder="Event Search">
                     <ul ng-repeat="opera in dati.opere| orderBy:orderProp | filter:operaSearch" ng-if="opera.autoreId == userPar.$id">
-                            <ul ng-repeat="operaEv in ListaOpere " ng-if="ListaOpere != null ">
+
+                        <ul ng-if="ListaOpere != null ">
                             {{opera.titolo}}
-                        <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;" ng-if="opera.id != operaEv.opera">Add</button>
+                        <button id="add" ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;" >Add</button>
                             <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                         {{opera.infoTecniche}}
                         <hr/></ul>
-                            <ul ng-if="ListaOpere == null ">
-                                {{opera.titolo}}
-                                <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;">Add</button>
+
+
+                        <!--<ul ng-if="ListaOpere == null ">
+                                {{opera.id}}
+                                <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;">Add1</button>
                                     <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                                 {{opera.infoTecniche}}
                                <hr/>
-                            </ul>
-                        </ul>
-
+                            </ul>-->
+                    </ul>
                 </ul>
             </div>
             <div class="modal-footer">

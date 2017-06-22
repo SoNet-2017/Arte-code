@@ -33,12 +33,7 @@
     <a href="#!/addModifyEvent/{{dati.evento.id}}">
         <button class=" btn btn-danger" ng-if ="dati.userId == dati.autoreId.userId" style="float: right" >Modifica</button></a>
 
-  <!--  {{dati.evento.id}}-->
     <a href="#!/ConferenceList/{{dati.evento.id}}"><button class=" btn btn-info">Conference</button></a>
-    <!--così gli sto passando tutti i partecipanti e l'id dell'evento-> non più, ora solo l'id
-    <ul ng-repeat="opera in dati.opere" ng-if="opera.autoreId == userPar.id">-->
-    <!--partecipante è una variabile a cui abbiamodato noi il nome, in cui andiamo a inserire i valori di evento.partecipanti.userPar e creiamo un array partecipante.userPar-->
-
     <div>
         <h4>VIsualizza le opere degli Artisti</h4>
         <carousel interval="myInterval">
