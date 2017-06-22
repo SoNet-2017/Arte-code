@@ -20,6 +20,12 @@ angular.module('myApp.modifyEventView',['ngRoute'])
             $scope.dati.availableUsers = Opera.getAutori();
             $scope.dati.partecipanti = SingleEvento.getPartecipants();
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
+
+
+
+
+
+
             $scope.orderProp = "eventoId";
             $scope.evento = function (eventoId) {
                 if (eventoId = $scope.dati.evento.id){
@@ -27,15 +33,11 @@ angular.module('myApp.modifyEventView',['ngRoute'])
                 }
             };
             $scope.operaSearch = "";
-
-
             $scope.dati.opere = Opera.getData();
             $scope.editEvento = function() {
-                ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione,$scope.dati.start,$scope.dati.end,$scope.dati.ubicazione,$scope.dati.info);
+                ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.evento.nome_evento, $scope.dati.evento.tema, $scope.dati.evento.inaugurazione,$scope.dati.evento.start,$scope.dati.evento.end,$scope.dati.evento.ubicazione,$scope.dati.evento.info);
                 $scope.dati.feedback = "Modifica effettuata con successo";
             };
-
-
 
             $scope.addUser = function (){
                 InsertUserService.insertNewUser($routeParams.eventoId,$scope.dati.userParId).then(function(ref) {
@@ -65,7 +67,7 @@ angular.module('myApp.modifyEventView',['ngRoute'])
                 InsertUserService.insertNewOperaEvent(idPartecipazione, opera);
                 console.log(opera);
                 $('#myModal2').modal('hide');
-                $('#add').prop("disabled",true);
+                //$('#add').prop("disabled",true);
 
 
             };

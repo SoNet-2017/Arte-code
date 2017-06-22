@@ -27,7 +27,6 @@ angular.module('myApp.eventView', ['ngRoute','myApp.evento','myApp.calendar'])
             $scope.dati.opere = Opera.getData();
 
 
- //           $scope.dati.evento.partecipante = SingleEvento.getPartecipant($routeParams.eventoId, $routeParams.eventoId.userPar);
         $scope.dati.availableUsers = UserList.getListOfUsers();
         $scope.dati.userId = currentAuth.uid;
 
