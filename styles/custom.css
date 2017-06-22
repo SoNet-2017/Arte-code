@@ -6,10 +6,6 @@ body {
 .overlay{
     background:#000;
     position:fixed;
-    top:0px;
-    bottom:0px;
-    left:0px;
-    right:0px;
     z-index:100;
     /*Trasperenza cross browser*/
     opacity: .7;
@@ -302,7 +298,6 @@ form.frmLogin {
 
 
 #titolo{
-    font-family: Andalus;
     text-align: center;
     font-size: 40px;
 }
@@ -329,14 +324,11 @@ input.form-control {
     background-color: rgba(0, 0, 0, 0.6);
     font: bold 24px/45px Helvetica, Sans-Serif;
     letter-spacing: -1px;
-    align: center;
 }
 
 #btlog {
 
     height: 46px;
-    padding:0px;
-    border:0px;
     background: red;
     color: #FFFFFF;
     font: bold 24px/45px Helvetica, Sans-Serif;
@@ -368,13 +360,7 @@ input.form-control {
 }
 
 
-
-
-
-
 /*calendario*/
-
-
 
 .month {
     padding: 70px 25px;
@@ -447,14 +433,6 @@ input.form-control {
 
 
 
-
-
-
-
-
-
-
-
 ul.media-list{
     padding-left: 15px;
     padding-right: 15px;
@@ -489,50 +467,3 @@ ul.media-list{
     font-size: 20px;
 }
 
-/* Header
-.navbar-header h1 {
-    margin: 0;
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    color: #333;
-}
-
-.navbar-nav {
-    list-style: none;
-    margin: 0;
-}
-
-.media-object {
-    width: 100px;
-}
-
-/* Navigation
-.navbar-center {
-    margin: 0 auto;
-    display: table;
-    table-layout: auto;
-    float: none;
-    width: 100%;
-}
-.navbar-center > li {
-    display: table-cell;
-    float: none;
-    text-align: center;
-}
-
-.navbar-default .navbar-center > .active > a,
-.navbar-default .navbar-center > .active > a:hover {
-    color: #428bca;
-    background-color: transparent;
-}
-
-.navbar-default .navbar-center > li > a:hover {
-    color: #777;
-}
-
-.navbar-nav > li > a {
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-size: 20px;
-}*/
