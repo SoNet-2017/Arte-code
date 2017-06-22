@@ -30,8 +30,5 @@ angular.module('myApp.homeView', ['ngRoute' ])
         $scope.dati.eventos = Evento.getData();
         $scope.dati.opere = Opera.getData();
         $scope.dati.critics = Critica.getData();
-            $scope.random = function() {
-                return 0.5 - Math.random();
-            }
 
     }]);
