@@ -81,18 +81,12 @@ angular.module('myApp.addeventView',['ngRoute'])
             };
 
 
-            //$scope.dati.userId = currentAuth.uid;
-            $scope.inaugurazione = function (inaugurazione) {
-                var day = ('0' + $scope.dati.inaugurazione.getDate()).slice(-2);
-                var month = ('0' + ($scope.dati.inaugurazione.getMonth() + 1)).slice(-2);
-                var year = $scope.dati.inaugurazione.getFullYear();
-
-                return year + '-' + month + '-' + day;
-
-            }
-
-            $scope.finalEventoAddition = function() {
-                InsertEventoService.insertNewEvento($rootScope.dati.userId,$scope.dati.nome_evento, $scope.dati.tema, $scope.dati.inaugurazione.toDateString(), $scope.dati.start.toDateString(), $scope.dati.end.toDateString(), $scope.dati.ubicazione,$scope.dati.info, $scope.imgPath).then(function(ref) {
+            $scope.finalEventoAddition = function() {                                                                  //yyyy-MM-dd
+                InsertEventoService.insertNewEvento($rootScope.dati.userId,$scope.dati.nome_evento, $scope.dati.tema,
+                    $scope.dati.inaugurazione.getUTCFullYear() + '-' + ('0' + ($scope.dati.inaugurazione.getMonth() + 1)).slice(-2) + '-' + ('0' + $scope.dati.inaugurazione.getDate()).slice(-2),
+                    $scope.dati.start.getUTCFullYear() + '-' + ('0' + ($scope.dati.start.getMonth() + 1)).slice(-2) + '-' + ('0' + $scope.dati.start.getDate()).slice(-2),
+                    $scope.dati.end.getUTCFullYear() + '-' + ('0' + ($scope.dati.end.getMonth() + 1)).slice(-2) + '-' + ('0' + $scope.dati.end.getDate()).slice(-2),
+                    $scope.dati.ubicazione,$scope.dati.info, $scope.imgPath).then(function(ref) {
                     var eventoId = ref.key;
                     $scope.evento = eventoId;
                     InsertEventoService.updateEvento(eventoId);

@@ -37,7 +37,11 @@ angular.module('myApp.conferenceView', ['ngRoute'])
             $scope.addMessage = function(e) {
                 if (e.keyCode != 13) return;
                 //create the JSON structure that should be sent to Firebase
-                var newMessage = UsersConferenceService.createMessage($scope.dati.userId, $scope.dati.userInfo.email, $scope.dati.partecipante.userId,$scope.dati.evento, $scope.dati.msg);
+                var newMessage = UsersConferenceService.createMessage($scope.userId,
+                    $scope.dati.userInfo.email,
+                    $scope.dati.partecipante.userId,
+                    $scope.dati.evento.id,
+                    $scope.dati.msg)
                 UsersConferenceService.addMessage(newMessage);
                 $scope.dati.msg = "";
 

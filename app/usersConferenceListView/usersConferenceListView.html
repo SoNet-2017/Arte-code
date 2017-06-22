@@ -4,7 +4,7 @@
     <h4>Select a user</h4>
     <ul ng-repeat="user in dati.availableUsers">
 
-    <ul ng-repeat="partecipante in dati.partecipanti"  ng-if= "user.userId == partecipante.userPar && dati.evento.id == partecipante.eventoId">
+    <ul ng-repeat="partecipante in dati.partecipanti"  ng-if= "user.userId == partecipante.userPar && dati.evento.id == partecipante.eventoId && dati.userId!=partecipante.userPar">
         <a href="#!/conference/{{partecipante.eventoId}}/{{user.userId}}">{{user.surname}}</a>
     </ul></ul>
 </div>

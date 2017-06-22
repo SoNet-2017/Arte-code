@@ -56,8 +56,8 @@ angular.module('myApp.users.usersConferenceService', [])
                 newMessage['utctime'] = currentDate;
                 return newMessage;
             },
-            addMessage: function(conferences) {
-                return $firebaseArray(ref).$add(conferences);
+            addMessage: function(conference) {
+                return $firebaseArray(ref).$add(conference);
             }
         };
     });

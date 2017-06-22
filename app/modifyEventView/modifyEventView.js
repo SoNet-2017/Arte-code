@@ -35,7 +35,11 @@ angular.module('myApp.modifyEventView',['ngRoute'])
             $scope.operaSearch = "";
             $scope.dati.opere = Opera.getData();
             $scope.editEvento = function() {
-                ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.evento.nome_evento, $scope.dati.evento.tema, $scope.dati.evento.inaugurazione,$scope.dati.evento.start,$scope.dati.evento.end,$scope.dati.evento.ubicazione,$scope.dati.evento.info);
+                ModifyEventoService.updateEvento($routeParams.eventoId,$scope.dati.nome_evento, $scope.dati.tema,
+                    $scope.dati.inaugurazione.getUTCFullYear() + '-' + ('0' + ($scope.dati.inaugurazione.getMonth() + 1)).slice(-2) + '-' + ('0' + $scope.dati.inaugurazione.getDate()).slice(-2),
+                    $scope.dati.start.getUTCFullYear() + '-' + ('0' + ($scope.dati.start.getMonth() + 1)).slice(-2) + '-' + ('0' + $scope.dati.start.getDate()).slice(-2),
+                    $scope.dati.end.getUTCFullYear() + '-' + ('0' + ($scope.dati.end.getMonth() + 1)).slice(-2) + '-' + ('0' + $scope.dati.end.getDate()).slice(-2),
+                    $scope.dati.ubicazione,$scope.dati.info);
                 $scope.dati.feedback = "Modifica effettuata con successo";
             };
 
