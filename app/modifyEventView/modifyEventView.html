@@ -103,13 +103,13 @@
         <div  class="modal-content" class="col-xs-12">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Seleziona opere</h4>
             </div>
             <div class="modal-body" >
                 <ul class="media-list">
                    {{partecipante}}
                     <h4>{{userPar.name}} {{userPar.surname}}, {{userPar.email}} </h4>
-                    <input id="Search" type="text" class="form-control" ng-model="operaSearch" placeholder="Event Search">
+                    <input id="Search" type="text" class="form-control" ng-model="operaSearch" placeholder="Search">
                     <ul ng-repeat="opera in dati.opere| orderBy:orderProp | filter:operaSearch" ng-if="opera.autoreId == userPar.$id">
                             <ul ng-repeat="operaEv in ListaOpere " ng-if="ListaOpere != null ">
                             {{opera.titolo}}
@@ -118,7 +118,7 @@
                         {{opera.infoTecniche}}
                         <hr/></ul>
                             <ul ng-if="ListaOpere == null ">
-                                {{opera.id}}
+                                {{opera.titolo}}
                                 <button ng-click="addWorks(IdParteipazione,opera.id)" type="submit" class="btn btn-success top-block" style="display : inline; float: right;">Add</button>
                                     <img class="media-object" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" ng-if="opera.img_url.includes('https://firebasestorage.googleapis.com')">
                                 {{opera.infoTecniche}}

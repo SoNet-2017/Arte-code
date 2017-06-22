@@ -3,35 +3,41 @@
         <div class="col-xs-12">
             <div class="page-header">
                 <img id="imgOpera" ng-src="{{dati.recipient.img_url}}" alt="{{dati.recipient.img_alt}}" ng-if="dati.recipient.img_url.includes('https://firebasestorage.googleapis.com')"style="opacity: 1">
-                <h1>{{dati.recipient.userId}} {{dati.recipient.name}} {{dati.recipient.surname}}</h1>
+                <h1>{{dati.recipient.name}} {{dati.recipient.surname}}</h1>
                 <div id="eventsDiv">
                     <h4>Eventi</h4>
                             <div ng-repeat="evento in dati.eventos" ng-if ="dati.recipient.userId == evento.autoreId" >
-                        <em>{{evento.nome_evento}}</em>
+                                <a href="#!/detailsEvento/{{evento.autoreId}}/{{evento.id}}">
+                                    <em>{{evento.nome_evento}}</em></a>
                     </div>
                 </div>
                 <div id="worksDiv">
                     <h4>Opere</h4>
                     <div ng-repeat="opera in dati.opere" ng-if ="dati.recipient.userId == opera.autoreId" >
-                        <em>{{opera.titolo}}</em>
+                        <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
+                            <em>{{opera.titolo}}</em></a>
                     </div>
                 </div>
                 <div id="criticsDiv">
                     <h4>Critiche</h4>
                     <div ng-repeat="critica in dati.critiche" ng-if ="dati.recipient.userId == critica.autoreId" >
-                        <em>{{critica.tema}}</em>
+                        <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
+                            <em>{{critica.tema}}</em></a>
                     </div>
                 </div>
                 <div id="followersDiv">
                     <h4>Followers</h4>
                     <div ng-repeat="follow in dati.follows" ng-if ="dati.recipient.userId == follow.followed" >
+                        <a href="#!/otherUser/{{follow.follower.userId}}">
                         <em>{{follow.follower.name}}</em>
+                        </a>
                     </div>
                 </div>
                 <div id="followingDiv">
                     <h4>Followinig</h4>
                     <div ng-repeat="follow in dati.follows" ng-if ="dati.recipient.userId == follow.follower.userId" >
-                        <em>{{follow.followedName}}</em>
+                        <a href="#!/otherUser/{{follow.followed}}">
+                        <em>{{follow.followedName}}</em></a>
                     </div>
                 </div>
             </div>
@@ -42,7 +48,8 @@
     <div>
         <carousel interval="myInterval">
             <slide ng-repeat="opera in dati.opere | orderBy:orderProp | filter:Autore(dati.recipient.userId)" active="slide.active">
-                <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" >
+                <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
+                    <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" ></a>
                 <div class="carousel-caption">
                     <h4>Slide {{$index+1}}</h4>
                 </div>

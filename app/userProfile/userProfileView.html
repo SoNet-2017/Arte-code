@@ -40,15 +40,15 @@
             <div id="followersDiv">
                 <h4>Followers</h4>
                 <div ng-repeat="follow in dati.follows" ng-if ="dati.user.userId == follow.followed" >
-                    <a href="#!/otherUser/{{follow.id}}">
+                    <a href="#!/otherUser/{{follow.follower.userId}}">
 
                         <em>{{follow.follower.name}}</em></a>
                 </div>
             </div>
             <div id="followingDiv">
-                <h4>Followinig</h4>
+                <h4>Following</h4>
                 <div ng-repeat="follow in dati.follows" ng-if="dati.user.userId==follow.follower.userId">
-                    <a href="#!/otherUser/{{follow.id}}">
+                    <a href="#!/otherUser/{{follow.followed}}">
                         <em>{{follow.followedName}}</em></a>
                 </div>
             </div>
