@@ -1,12 +1,13 @@
 <div ng-controller="userProfileCtrl2 as $ctrl">
 <div id="boxev1">
-    <p>
-        <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-    </p>
+
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header">
                 <img id="imgOpera" ng-src="{{dati.user.img_url}}" alt="{{dati.user.img_alt}}" ng-if="dati.user.img_url.includes('https://firebasestorage.googleapis.com')"style="opacity: 1">
+                <p>
+                    <button class="pull-right btn btn-danger" ng-click="logout();">Logout</button>
+                </p>
                 <h1>{{dati.user.name}} {{dati.user.surname}}</h1>
             </div>
             <p>

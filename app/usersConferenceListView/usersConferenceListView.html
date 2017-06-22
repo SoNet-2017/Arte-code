@@ -1,9 +1,11 @@
 <div id="boxev1">
+<p><a href="#!/detailsEvento/{{dati.evento.autoreId}}/{{dati.evento.id}}">Torna all'evento</a></p>
+
     <h4>Select a user</h4>
     <ul ng-repeat="user in dati.availableUsers">
 
     <ul ng-repeat="partecipante in dati.partecipanti"  ng-if= "user.userId == partecipante.userPar && dati.evento.id == partecipante.eventoId">
-        <a href="#!/conference/{{partecipante.eventoId}}/{{user.userId}}">{{user.surname}}{{partecipante.eventoId}}</a>
+        <a href="#!/conference/{{partecipante.eventoId}}/{{user.userId}}">{{user.surname}}</a>
     </ul></ul>
 </div>
 
