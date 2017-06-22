@@ -8,32 +8,32 @@
 
                     <div class="form-group">
                         <label for="txtTitolo">Titolo</label>
-                        <input  type="text" class="form-control" id="txtTitolo"   ng-value="dati.evento.nome_evento" placeholder="Nome evento" name="name" ng-model="dati.nome_evento">
+                        <input  type="text" class="form-control" id="txtTitolo"   ng-value="dati.evento.nome_evento" placeholder="Nome evento" name="name" ng-model="dati.evento.nome_evento">
                     </div>
                     <div class="form-group">
                         <label for="txtTema">Tema</label>
-                        <input type="text" class="form-control" id="txtTema" ng-value="dati.evento.tema" placeholder="Tema" name="tema" ng-model="dati.tema" />
+                        <input type="text" class="form-control" id="txtTema" ng-value="dati.evento.tema" placeholder="Tema" name="tema" ng-model="dati.evento.tema" />
                     </div>
                     <div class="form-group">
                         <label for="txtInaugurazione">Inaugurazione</label>
-                        <input type="date" id="txtInaugurazione" class="form-control" name="input" ng-value="dati.evento.inaugurazione" ng-model="dati.inaugurazione" placeholder="yyyy-MM-dd" />
+                        <input disabled="disabled" type="date" id="txtInaugurazione" class="form-control" name="input" ng-value="dati.evento.inaugurazione" ng-model="dati.inaugurazione" placeholder="yyyy-MM-dd" min=""/>
                     </div>
                     <div class="form-group">
                         <label for="txtData_Inizio">Data Inizio</label>
-                        <input type="date" id="txtData_Inizio" class="form-control" name="input" ng-value="dati.evento.start" ng-model="dati.start" placeholder="yyyy-MM-dd" />
+                        <input disabled="disabled" type="date" id="txtData_Inizio" class="form-control" name="input" ng-value="dati.evento.start" ng-model="dati.start" placeholder="yyyy-MM-dd" min="inaugurazione />
 
                     </div>
                     <div class="form-group">
                         <label for="txtData_Fine">Data Fine</label>
-                        <input type="date" id="txtData_Fine" class="form-control" name="input" ng-value="dati.evento.end" ng-model="dati.end" placeholder="yyyy-MM-dd" min="dati.start">
+                        <input disabled="disabled" type="date" id="txtData_Fine" class="form-control" name="input" ng-value="dati.evento.end" ng-model="dati.end" placeholder="yyyy-MM-dd" >
                     </div>
                     <div class="form-group">
                         <label for="txtUbicazione">Ubicazione</label>
-                        <input type="text" class="form-control" id="txtUbicazione" ng-value="dati.evento.ubicazione" placeholder="Ubicazione" name="ubicazione" ng-model="dati.ubicazione" />
+                        <input type="text" class="form-control" id="txtUbicazione" ng-value="dati.evento.ubicazione" placeholder="Ubicazione" name="ubicazione" ng-model="dati.evento.ubicazione" />
                     </div>
                     <div class="form-group">
                         <label for="txtInfo">Ulteriori Info</label>
-                        <input type="text" class="form-control" id="txtInfo" ng-value="dati.evento.info" placeholder="Inserisci testo" name="info" ng-model="dati.info" />
+                        <input type="text" class="form-control" id="txtInfo" ng-value="dati.evento.info" placeholder="Inserisci testo" name="info" ng-model="dati.evento.info" />
                     </div>
                     <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button>
                 </form>
