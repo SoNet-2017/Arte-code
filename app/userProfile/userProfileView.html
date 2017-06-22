@@ -28,7 +28,8 @@
             <div id="criticsDiv">
                 <h4>Critiche</h4>
                 <div ng-repeat="critica in dati.critics" ng-if="dati.user.userId == critica.autoreId" >
-                    <em>{{critica.nome_critica}}</em>
+                    <a href="#!/detailCritica/{{critica.autoreId}}/{{critica.id}}">
+                    <em>{{critica.nome_critica}}</em></a>
                 </div>
             </div>
             <div id="followersDiv">
