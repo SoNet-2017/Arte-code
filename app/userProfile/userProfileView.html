@@ -1,5 +1,8 @@
 <div ng-controller="userProfileCtrl2 as $ctrl">
 <div id="boxev1">
+    <p>
+        <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
+    </p>
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header">
@@ -10,9 +13,7 @@
                 <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:{{dati.user.email}}">{{dati.user.email}}</a>
             </p>
 
-            <p>
-                <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-            </p>
+
             <div id="eventsDiv">
                 <h4>Eventi</h4>
                 <div ng-repeat="evento in dati.eventos" ng-if ="dati.user.userId == evento.autoreId" >

@@ -32,13 +32,14 @@
 <div id="boxev1">
 
     <div ng-class="{'active' : dati.currentView === 'addOpera'}"><a href="#!/addOpera" data-toggle="modal" data-target="#myModal">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Crea_Opera</button></a>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Aggiungi Opera</button></a>
     </div>
 
     <div>
         <carousel interval="myInterval"><h1>Le mie Opere</h1>
             <slide ng-repeat="opera in dati.opere | orderBy:orderProp | filter:Autore(dati.userId)" active="slide.active">
-                <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" >
+                <a href="#!/detailOpera/{{opera.autoreId}}/{{opera.id}}">
+                    <img class="carousel" ng-src="{{opera.img_url}}" alt="{{opera.img_alt}}" style="width:100%;" ></a>
             </slide>
         </carousel>
     </div>
