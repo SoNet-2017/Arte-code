@@ -5,10 +5,10 @@
 
 angular.module('myApp.users.usersConferenceService', [])
 
-    .factory('UsersConferenceService', function usersConferenceService($firebaseArray, $firebaseObject,eventoId)
+    .factory('UsersConferenceService', function usersConferenceService($firebaseArray, $firebaseObject)
     //Users e non users perchè è meglio se il nome è differente
     {
-        var ref = firebase.database().ref().child("eventos").child(eventoId).child("conferences");
+        var ref = firebase.database().ref().child("conferences")
         return {
             getMessages: function() {
                 return $firebaseArray(ref);
@@ -21,11 +21,12 @@ angular.module('myApp.users.usersConferenceService', [])
                 var userRef = firebase.database().ref().child("users").child(userId);
                 return $firebaseObject(userRef);
             },
-            createMessage: function(sender, senderName, receiver, text){
+            createMessage: function(sender, senderName, receiver, eventoId, text){
                 var newMessage = {};
                 newMessage['sender'] = sender;
                 newMessage['senderName'] = senderName;
                 newMessage['receiver'] = receiver;
+                newMessage['eventoId'] = eventoId;
                 newMessage['text'] = text;
                 var today = new Date();
                 var day = today.getUTCDate();

@@ -4,20 +4,20 @@
     <div class="row">
         <div class="col-xs-12">
             <ul class="media-list">
-                <form id="rmAddCritica1" role="form" ng-submit="ediCritica()">
+                <form id="frmAddCritica1" role="form" ng-submit="ediCritica()">
                     <h2>Modifica Critica</h2>
 
                     <div class="form-group">
                         <label for="txtTitolo">Titolo</label>
-                        <input  type="text" class="form-control" id="txtTitolo" ng-value="dati.critica.nome_critica" placeholder="Inserisci Titolo" name="name" ng-model="dati.nome_critica" />
+                        <input  type="text" class="form-control" id="txtTitolo" ng-value="dati.critica.nome_critica" placeholder="Inserisci Titolo" name="name" ng-model="dati.critica.nome_critica" />
                     </div>
                     <div class="form-group">
                         <label for="txtTema">Tema</label>
-                        <input type="text" class="form-control" id="txtTema" ng-value="dati.critica.tema" placeholder="Inserisci Tema" name="tema" ng-model="dati.tema" />
+                        <input type="text" class="form-control" id="txtTema" ng-value="dati.critica.tema" placeholder="Inserisci Tema" name="tema" ng-model="dati.critica.tema" />
                     </div>
                     <div class="form-group">
                         <label for="txtOpera">Opera</label>
-                        <input type="text" class="form-control" id="txtOpera" ng-value="dati.critica.opera" placeholder="Inserisci nome opera" name="opera" ng-model="dati.opera" />
+                        <input type="text" class="form-control" id="txtOpera" ng-value="dati.critica.opera" placeholder="Inserisci nome opera" name="opera" ng-model="dati.critica.opera" />
                     </div>
                 </form>
             </ul>
@@ -27,18 +27,20 @@
 </div>
 
 <div id="boxev2">
+    <div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
     <div class="row">
         <div class="col-xs-12">
             <form id="frmAddCritica2" role="form" ng-submit="ediCritica()">
             <ul class="media-list">
                 <div class="form-group">
                     <label for="txtCritica">Critica</label>
-                    <textarea  type="text" class="form-control" ng-value="dati.critica.testo" id="txtCritica" placeholder="Inserisci testo" name="testo" ng-model="dati.testo" rows="35" cols="1000" style="width: 819px;">
+                    <textarea  type="text" class="form-control" ng-value="dati.critica.testo" id="txtCritica" placeholder="Inserisci testo" name="testo" ng-model="dati.critica.testo" rows="35" cols="1000" style="width: 819px;">
                         </textarea>
                 </div>
             </ul>
-                <a href="#"><button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button></a>
-            </form></div>
+                <button href="#!/homeView" type="submit" class="btn btn-success center-block">Insert</button>
+            </form>
+        </div>
     </div>
 </div>
 </div>

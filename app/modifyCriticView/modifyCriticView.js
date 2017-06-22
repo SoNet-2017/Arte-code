@@ -21,9 +21,9 @@ angular.module('myApp.modifyCriticView',['ngRoute'])
             console.log($routeParams.criticaId)
 
             $scope.ediCritica = function() {
-                ModifyCriticaService.updateCritica($routeParams.criticaId,$scope.dati.nome_critica, $scope.dati.tema, $scope.dati.opera,$scope.dati.testo)
+                ModifyCriticaService.updateCritica($routeParams.criticaId,$scope.dati.critica.nome_critica, $scope.dati.critica.tema, $scope.dati.critica.opera,$scope.dati.critica.testo);
                 //$scope.dati.critica = ModifyCriticaService.getSingleCritica($routeParams.criticaId);
-
+                $scope.dati.feedback = "Inserimento effettuato con successo";
             }
 
 

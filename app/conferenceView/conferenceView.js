@@ -6,7 +6,7 @@
 angular.module('myApp.conferenceView', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/conference/:eventoId/:partecipantId', {
+        $routeProvider.when('/conference/:eventoId/:partecipanteId', {
             templateUrl: 'conferenceView/conferenceView.html',
             controller: 'conferenceViewCtrl',
             resolve: {
@@ -21,16 +21,15 @@ angular.module('myApp.conferenceView', ['ngRoute'])
             }
         })
     }])
-    .controller('conferenceViewCtrl', ['$scope', '$routeParams', 'currentAuth', 'UsersConferenceService', 'SingleEvento',
-        function($scope, $routeParams, currentAuth, UsersConferenceService, SingleEvento) {
+    .controller('conferenceViewCtrl', ['$scope','$rootScope','$routeParams', 'currentAuth', 'UsersConferenceService', 'SingleEvento',
+        function($scope,$rootScope, $routeParams, currentAuth, UsersConferenceService, SingleEvento) {
             $scope.dati = {};
+            $rootScope.dati.currentView = "conference";
             $scope.userId = currentAuth.uid;
-            $scope.dati.partecipantId = $routeParams.partecipantId;
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
-            $scope.dati.evento.partecipanti = SingleEvento.getPartecipant($routeParams.eventoId); //partecipanti all'evento
-
+            $scope.dati.partecipante=SingleEvento.getAutoreEvento($routeParams.partecipanteId);
             $scope.orderProp = 'utctime';
-            $scope.dati.userInfo = UsersConferenceService.getUserInfo($scope.dati.userId);
+            $scope.dati.userInfo = UsersConferenceService.getUserInfo($scope.userId);
 
             //get messages from firebase
             $scope.dati.messages = UsersConferenceService.getMessages();
@@ -38,7 +37,10 @@ angular.module('myApp.conferenceView', ['ngRoute'])
             $scope.addMessage = function(e) {
                 if (e.keyCode != 13) return;
                 //create the JSON structure that should be sent to Firebase
-                var newMessage = UsersConferenceService.createMessage($scope.dati.userId, $scope.dati.userInfo.email, $routeParams.partecipantId, $scope.dati.msg);
+                var newMessage = UsersConferenceService.createMessage($scope.dati.userId, $scope.dati.userInfo.email, $scope.dati.partecipante.userId,$scope.dati.evento, $scope.dati.msg);
                 UsersConferenceService.addMessage(newMessage);
                 $scope.dati.msg = "";
-        }}]);
+
+            }
+    }
+    ]);

@@ -5,7 +5,7 @@ angular.module('myApp.usersConferenceListView', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/ConferenceList/:eventoId', {
             templateUrl: 'usersConferenceListView/usersConferenceListView.html',
-            controller: 'usersConferenceListCtrl',
+            controller: 'usersConferenceListViewCtrl',
             resolve: {
                 // controller will not be loaded until $requireSignIn resolves
                 // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -17,11 +17,11 @@ angular.module('myApp.usersConferenceListView', ['ngRoute'])
             }
         })
     }])
-    .controller('usersConferenceListCtrl', ['$scope', '$routeParams', 'SingleEvento', 'UserList', 'currentAuth',
+    .controller('usersConferenceListViewCtrl', ['$scope', '$routeParams', 'SingleEvento', 'UserList', 'currentAuth',
         function($scope, $routeParams, SingleEvento, UserList, currentAuth) {
             $scope.dati = {};
             $scope.dati.evento = SingleEvento.getSingleEvento($routeParams.eventoId);
-            $scope.dati.evento.partecipanti = SingleEvento.getPartecipant($routeParams.eventoId); //partecipanti all'evento
+            $scope.dati.partecipanti = SingleEvento.getPartecipants(); //partecipanti all'evento
             $scope.dati.availableUsers = UserList.getListOfUsers();
             $scope.dati.userId = currentAuth.uid;
         }]);
