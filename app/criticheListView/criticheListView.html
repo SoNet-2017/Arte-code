@@ -35,7 +35,7 @@
             <slide ng-repeat="critica in dati.critiche | orderBy:orderProp | filter:Autore(dati.userId)" active="slide.active">
                 <textarea style="margin: 0px; width: 401px; height: 298px;">{{critica.testo}}</textarea>
                 <div class="carousel-caption">
-                    <h4>Slide {{critica.nome_critica}}</h4>
+                    <!--<h4>Slide {{critica.nome_critica}}</h4>-->
                 </div>
             </slide>
         </carousel>
