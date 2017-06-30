@@ -1,6 +1,6 @@
 Presentation of the Artè project (ITA): [https://sonet-2017.github.io/Arte/](https://sonet-2017.github.io/Arte/)
 
-Code of the Artè project: [https://sonet-2017.github.io/Arte-code/](https://sonet-2017.github.io/Arte-code/)
+Code of the Artè project: [https://github.com/SoNet-2017/Arte-code](https://github.com/SoNet-2017/Arte-code)
 
 # Prototype of the Artè project
 
