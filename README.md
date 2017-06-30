@@ -1,5 +1,6 @@
-[Presentation of the Artè project: https://sonet-2017.github.io/Arte/] (https://sonet-2017.github.io/Arte/)
-[Code of the Artè project: https://sonet-2017.github.io/Arte-code/] (https://sonet-2017.github.io/Arte-code/)
+Presentation of the Artè project (ITA): [https://sonet-2017.github.io/Arte/](https://sonet-2017.github.io/Arte/)
+
+Code of the Artè project: [https://sonet-2017.github.io/Arte-code/](https://sonet-2017.github.io/Arte-code/)
 
 # Prototype of the Artè project
 
