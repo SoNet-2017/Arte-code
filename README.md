@@ -4,7 +4,7 @@ Code of the Artè project: [https://github.com/SoNet-2017/Arte-code](https://git
 
 # Prototype of the Artè project
 
-This is a prototype of the [Artè](https://sonet-2017.github.io/Arte/) project presented at the exam of the [Social Networking](http://bit.ly/polito-sonet) course taken at Politecnico di Torino.
+This is a prototype of the [Arté](https://sonet-2017.github.io/Arte/) project presented at the exam of the [Social Networking](http://bit.ly/polito-sonet) course taken at Politecnico di Torino.
 It was made using the [AngularJS](http://angularjs.org/) framework and starting from the [Starter Kit](https://github.com/SoNet-2017/starter-kit) provided by the teachers of the course.
 
 ### Note
