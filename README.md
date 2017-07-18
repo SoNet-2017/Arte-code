@@ -2,6 +2,8 @@ Presentation of the Artè project (ITA): [https://sonet-2017.github.io/Arte/](ht
 
 Code of the Artè project: [https://github.com/SoNet-2017/Arte-code](https://github.com/SoNet-2017/Arte-code)
 
+Demo (developed for DESKTOP) of the Artè project: [https://sonet-2017.github.io/Arte-code/app](https://sonet-2017.github.io/Arte-code/app)
+
 # Prototype of the Artè project
 
 This is a prototype of the [Arté](https://sonet-2017.github.io/Arte/) project presented at the exam of the [Social Networking](http://bit.ly/polito-sonet) course taken at Politecnico di Torino.
